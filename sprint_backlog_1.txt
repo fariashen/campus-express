@@ -1,38 +1,63 @@
 Sprint goal
 
 List the US you will implement
-●	 #US1 – Watch some colorful pictures
-●	#US2 – Touch the object to play the sound (name/color)
+●	 注册
+     登录
+     修改个人资料
 
 Label
 Sprint 1 backlog
             
 Decompose each story into tasks
-●	 #US1
-○	#T1 – Choose the images (30~40) we will use and upload them into the system
-○	#T2 - Display the image into the screen
-○	#T3 - Implement the slide function to change the pictures
-●	#US2
-○	#T4 - Assign a sound to an image
-○	#T5 - Touch the image to play the sound
-○	#T6 - Show a message with the name of the object of the image
+注册：
+登录：
+修改个人资料:
+
+	T1：远程数据库的连接
+
+	T2：注册界面设计
+
+	T3：注册逻辑实现
+
+	T4：存储注册数据到远程数据库
+
+	T5：登录界面设计
+
+	T6：验证登录信息
+
+	T7：个人资料界面
+
+	T8：个人资料修改
+
+	T9：个人资料保存
+
+
 
 Assign the tasks to dev
 ●	#T1
-○	Developer: Lucas
-○	Time: 4 Hours
+○	Developer: 沈佳奇 蔡伟城
+○	Time: 7 days
 ●	#T2
-○	Developer: William
-○	Time: 6 Hours (Implementation)
+○	Developer: 许乐栎 刘有为
+○	Time: 7 days
 ●	#T3
-○	Developer: William
-○	Time: 9 Hours  (Research + Implementation)
+○	Developer: 许乐栎 刘有为
+○	Time: 7 days
 ●	#T4
-○	Developer: Eva
-○	Time: 8 Hours
+○	Developer: 沈佳奇 蔡伟城
+○	Time: 7 days
 ●	#T5
-○	Developer: Eva
-○	Time: 8 Hours
+○	Developer: 许乐栎 刘有为
+○	Time: 7 天
 ●	#T6
-○	Developer: Lucas
-○	Time: 10 Hours (Research + Implementation)
+○	Developer: 许乐栎 刘有为
+○	Time: 7 天
+	#T7
+	Developer：许乐栎 刘有为
+	Time：7 days
+	#T8
+	Developer：许乐栎 刘有为
+	Time：7 days
+	#T9
+	Developer：许乐栎 刘有为
+	Time：7 days
