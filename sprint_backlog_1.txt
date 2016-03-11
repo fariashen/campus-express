@@ -1,0 +1,38 @@
+Sprint goal
+
+List the US you will implement
+●	 #US1 – Watch some colorful pictures
+●	#US2 – Touch the object to play the sound (name/color)
+
+Label
+Sprint 1 backlog
+            
+Decompose each story into tasks
+●	 #US1
+○	#T1 – Choose the images (30~40) we will use and upload them into the system
+○	#T2 - Display the image into the screen
+○	#T3 - Implement the slide function to change the pictures
+●	#US2
+○	#T4 - Assign a sound to an image
+○	#T5 - Touch the image to play the sound
+○	#T6 - Show a message with the name of the object of the image
+
+Assign the tasks to dev
+●	#T1
+○	Developer: Lucas
+○	Time: 4 Hours
+●	#T2
+○	Developer: William
+○	Time: 6 Hours (Implementation)
+●	#T3
+○	Developer: William
+○	Time: 9 Hours  (Research + Implementation)
+●	#T4
+○	Developer: Eva
+○	Time: 8 Hours
+●	#T5
+○	Developer: Eva
+○	Time: 8 Hours
+●	#T6
+○	Developer: Lucas
+○	Time: 10 Hours (Research + Implementation)
