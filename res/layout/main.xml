@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/back">
+<TableRow>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="帐号"
+        android:textSize="10pt"
+        android:textColor="#000000"
+         />
+    <EditText
+        android:id="@+id/user"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="请填写帐号"
+        android:selectAllOnFocus="true"
+    />
+</TableRow> 
+<TableRow>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="密码"
+        android:textSize="10pt"
+        android:textColor="#000000"
+        
+         />
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入密码"
+        android:password="true"
+    />
+</TableRow>
+<TableRow>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="再次输入密码"
+        android:textSize="10pt"
+        android:textColor="#000000"
+         />
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="确认密码"
+        android:selectAllOnFocus="true"
+        android:phoneNumber="true"
+    />
+</TableRow>
+<TableRow>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="电话号码"
+        android:textSize="10pt"
+        android:textColor="#000000"
+         />
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="请填写电话号码"
+        android:selectAllOnFocus="true"
+        android:phoneNumber="true"
+    />
+</TableRow>
+<TableRow>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="邮箱"
+        android:textSize="10pt"
+        android:textColor="#000000"
+         />
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="请填写邮箱"
+        android:selectAllOnFocus="true"
+        
+    />
+</TableRow>
+       <Button
+           android:id="@+id/jump"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="注册"
+           android:onClick="myclick"/>
+</TableLayout>
