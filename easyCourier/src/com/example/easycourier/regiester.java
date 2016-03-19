@@ -3,7 +3,13 @@
  */
 package com.example.easycourier;
 
+import com.example.easycourier.*;
+import com.example.easycourier.*;
+import com.example.easycourier.R;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.text.InputFilter.LengthFilter;
@@ -59,7 +65,9 @@ protected void onCreate(Bundle savedInstanceState) {
 	
 	btCommit.setOnClickListener(new View.OnClickListener() {
 		
-		@Override
+		
+		final EditText et_Regiester_passWord = (EditText) findViewById(R.id.et_Regiester_passWord);
+    	final EditText et_Regiester_confirmpassWord = (EditText) findViewById(R.id.et_Regiester_confirmpassWord);
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			
@@ -69,6 +77,21 @@ protected void onCreate(Bundle savedInstanceState) {
 			//点击后触发调用数据库类插入方法
 			rgHandle.run();
 			
+			final String edittextpassword1 = et_Regiester_passWord.getText().toString();
+    		final String edittextpassword2 = et_Regiester_confirmpassWord.getText().toString();
+    		if (!edittextpassword1.equals(edittextpassword2)) {
+    	    	new AlertDialog.Builder(regiester.this)
+    	    	.setTitle("密码输入不一致，请重新输入")
+    	    	.setPositiveButton("确定",null).show();
+    	    	}
+    	    	else
+    	    	{
+    	    	new AlertDialog.Builder(regiester.this)
+    	    	.setTitle("密码设置正确")
+    	    	.setPositiveButton("确定",null).show();
+    	    	Intent intent = new Intent(regiester.this,login.class);
+        		startActivity(intent);
+    	    	}	
 			if(rgHandle.result){
 				//插入用户记录成功，返回注册成功提示信息
 				Toast.makeText(regiester.this, "注册成功", Toast.LENGTH_SHORT).show();
