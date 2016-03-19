@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+package com.example.easycourier;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+/**
+ * @author vacation
+ *实现注册的模块
+ */
+public class regiester extends Activity {
+
+	/**
+	 * @param args
+	 */
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+	// TODO Auto-generated method stub
+	super.onCreate(savedInstanceState);
+	setContentView(R.layout.activity_regiester);
+	
+}
+
+}

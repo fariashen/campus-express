@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package com.example.easycourier;
+
+import android.app.Activity;
+
+/**
+ * @author vacation
+ *
+ */
+public class regiester extends Activity {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

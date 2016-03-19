@@ -1,0 +1,56 @@
+/**
+ * 
+ */
+package com.example.easycourier;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Message;
+import android.text.InputFilter.LengthFilter;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+/**
+ * @author vacation
+ * 
+ *实现注册的模块
+ *
+ */
+public class regiester extends Activity {
+
+	/**
+	 * @param args
+	 */
+	Button btCommit;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+	// TODO Auto-generated method stub
+	super.onCreate(savedInstanceState);
+	setContentView(R.layout.activity_regiester);
+	
+	btCommit = (Button) findViewById(R.id.bt_commit);
+	//得到控件"btCommit"
+	
+	//为 btCommit 设置监听器
+	
+	btCommit.setOnClickListener(new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			
+			//点击后触发调用数据库类插入方法
+			if(){
+				//插入用户记录成功，返回注册成功提示信息
+				Toast.makeText(regiester.this, "注册成功", Toast.LENGTH_SHORT).show();
+			}else{
+				//插入用户记录失败，返回用户名重复信息
+				Toast.makeText(regiester.this, "用户名重复", Toast.LENGTH_SHORT).show();
+			}
+		}
+	});
+	
+}
+
+}
