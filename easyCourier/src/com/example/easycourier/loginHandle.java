@@ -26,15 +26,19 @@ import org.apache.http.util.EntityUtils;
 	 * 
 	 * 通过在run()方法内调用相应的方法实现数据库操作
 	 * 
+	 * 如果在数据库内查询到相应用户，则返回该用户的密码，并储存在 result 中,
+	 * 若在数据库中查询不到相应用户，则返回空字符串；
+	 * 
+	 * 
  */
-public class loginHandle implements Runnable {
+public class LoginHandle implements Runnable {
 
 	public static String result = "";
 	
 	public String loginUserName;
 	public String loginConnectUrl;
 	
-	public loginHandle(String loginUserName,String loginConnectUrl) {
+	public LoginHandle(String loginUserName,String loginConnectUrl) {
 		// TODO Auto-generated constructor stub
 		this.loginUserName = loginUserName;
 		this.loginConnectUrl = loginConnectUrl;
@@ -59,6 +63,7 @@ public class loginHandle implements Runnable {
 		//发送http请求
 		//取得httpresponse
 		//检测是否请求成功
+		
 		try {
 			
 			httpRequest.setEntity(new UrlEncodedFormEntity(params,HTTP.UTF_8));

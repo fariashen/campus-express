@@ -25,16 +25,17 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080009;
+        public static final int action_settings=0x7f08000a;
         public static final int bt_Login_Commit=0x7f080002;
-        public static final int bt_Regiester_commit=0x7f080008;
-        public static final int email=0x7f080007;
+        public static final int bt_Regiester_commit=0x7f080009;
         public static final int et_Login_passWord=0x7f080001;
         public static final int et_Login_userName=0x7f080000;
-        public static final int et_Regiester_confirmpassWord=0x7f080005;
-        public static final int et_Regiester_passWord=0x7f080004;
-        public static final int et_Regiester_userName=0x7f080003;
-        public static final int phone=0x7f080006;
+        public static final int et_Regiester_Email=0x7f080008;
+        public static final int et_Regiester_Phone=0x7f080007;
+        public static final int et_Regiester_confirmpassWord=0x7f080006;
+        public static final int et_Regiester_passWord=0x7f080005;
+        public static final int et_Regiester_userName=0x7f080004;
+        public static final int tv_Regiester=0x7f080003;
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;

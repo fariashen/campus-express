@@ -19,33 +19,44 @@ import org.apache.http.protocol.HTTP;
 
 import android.net.http.HttpResponseCache;
 
-public class regiesterHandle implements Runnable {
+public class RegiesterHandle implements Runnable {
 
 	/**
 	 * 
 	 * 在此类里实现注册的相关数据库操作
 	 * 
-	 * 传入要插入的参数‘用户名’，‘密码’，以及连接的数据库‘地址’
+	 * 传入要插入的参数‘用户名’，‘密码’，‘电话’，‘邮箱’以及连接的数据库‘地址’
 	 * 
 	 * 通过在run()方法内调用相应的方法实现数据库操作
 	 * 
+	 * 返回值为 true || false ，返回值存储在 result 内，由 Regiester.java 进行调用
+	 * 
 	 */
-	
-	public static boolean result=false;//返回数据库操作结果信息
-	
-	public String regiesterUserName;
-	public String regiesterPassWord;
-	
-	public String regiesterConnectUrl;
-	
-	public regiesterHandle(String userName,String passWord,String connectUrl) {
+
+	public static boolean result = false;// 返回数据库操作结果信息
+
+	private String regiesterUserName;
+	private String regiesterPassWord;
+	private String regiesterPhone;
+	private String regiesterEmail;
+
+	private String regiesterConnectUrl;
+
+	public RegiesterHandle(String userName, 
+			String passWord, 
+			String phone,
+			String email,
+			String connectUrl) {
 		// TODO Auto-generated constructor stub
 		this.regiesterUserName = userName;
 		this.regiesterPassWord = passWord;
+		this.regiesterPhone = phone;
+		this.regiesterEmail = email;
+
 		this.regiesterConnectUrl = connectUrl;
-		
+
 	}
-	
+
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -54,32 +65,34 @@ public class regiesterHandle implements Runnable {
 
 	private void gotoLogin() {
 		// TODO Auto-generated method stub
-		
-		//发送post请求
+
+		// 发送post请求
 		HttpPost httpRequest = new HttpPost(regiesterConnectUrl);
-		
-		//构建NameValuePair[]阵列存储Post请求变量
-		
+
+		// 构建NameValuePair[]阵列存储Post请求变量
+
 		List params = new ArrayList();
 		params.add(new BasicNameValuePair("userName", regiesterUserName));
 		params.add(new BasicNameValuePair("passWord", regiesterPassWord));
-		
+		params.add(new BasicNameValuePair("phone", regiesterPhone));
+		params.add(new BasicNameValuePair("email", regiesterEmail));
+
 		HttpResponse httpResponse;
-		
-		//发送HTTP请求
-		
+
+		// 发送HTTP请求
+
 		try {
-			httpRequest.setEntity(new UrlEncodedFormEntity(params,HTTP.UTF_8));
-			
-			//取得HTTP response
-			
+			httpRequest.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
+
+			// 取得HTTP response
+
 			httpResponse = new DefaultHttpClient().execute(httpRequest);
-			
-			if(httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
-				//此时插入用户数据操作成功
-				
+
+			if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				// 此时插入用户数据操作成功
+
 				result = true;
-				
+
 			}
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
@@ -91,7 +104,7 @@ public class regiesterHandle implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }
