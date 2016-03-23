@@ -5,7 +5,6 @@ package com.example.easycourier;
 
 import com.example.easycourier.*;
 import com.example.easycourier.*;
-import com.example.easycourier.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -14,6 +13,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.text.InputFilter.LengthFilter;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -53,7 +53,7 @@ public class Regiester extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
+		super.onCreate(savedInstanceState);		
 		setContentView(R.layout.activity_regiester);
 
 		// »ñÈ¡EditText¿Ø¼þ
