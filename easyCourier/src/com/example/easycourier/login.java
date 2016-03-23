@@ -1,6 +1,9 @@
 package com.example.easycourier;
 
-import android.R.string;
+import java.util.logging.Logger;
+
+import org.apache.commons.logging.Log;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,9 +45,9 @@ public class Login extends Activity implements OnClickListener {
 
 	LoginHandle lgHandle;
 
-	String LOGIN_USERNAME;
-	String LOGIN_PASSWORD;
-	String LOGIN_CONNECTURL;
+	public String LOGIN_USERNAME = "";
+	public String LOGIN_PASSWORD = "";
+	public String LOGIN_CONNECTURL = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +58,8 @@ public class Login extends Activity implements OnClickListener {
 
 		et_Login_userName = (EditText) findViewById(R.id.et_Login_userName);
 		et_Login_passWord = (EditText) findViewById(R.id.et_Login_passWord);
-		
 
-		LOGIN_USERNAME = et_Login_userName.getText().toString();
-		LOGIN_PASSWORD = et_Login_passWord.getText().toString();
-		LOGIN_CONNECTURL = "";
+		LOGIN_CONNECTURL = "http://172.25.224.24:8080/phpserver.php";
 
 		bt_Login_Commit = (Button) findViewById(R.id.bt_Login_Commit);
 
@@ -79,7 +79,10 @@ public class Login extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 
-		case R.id.bt_Regiester_commit:
+		case R.id.bt_Login_Commit:
+
+			LOGIN_USERNAME = et_Login_userName.getText().toString();
+			LOGIN_PASSWORD = et_Login_passWord.getText().toString();
 
 			// 触发调用数据库类查询方法
 			// 三种情况
@@ -89,10 +92,9 @@ public class Login extends Activity implements OnClickListener {
 			// 登录成功
 
 			lgHandle = new LoginHandle(LOGIN_USERNAME, LOGIN_CONNECTURL);
-			lgHandle.run();
+			lgHandle.start();
 
 			// 第一种情况：无该用户
-
 			if (lgHandle.result == "") {
 
 				Toast.makeText(Login.this, "未找到该用户", Toast.LENGTH_SHORT).show();
@@ -117,7 +119,7 @@ public class Login extends Activity implements OnClickListener {
 			break;
 
 		case R.id.tv_Regiester:
-			
+
 			Intent intent = new Intent(Login.this, Regiester.class);
 			startActivity(intent);
 			break;

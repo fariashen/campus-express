@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="77" key="DIALOG_X_ORIGIN"/>
+		<item value="-48" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.preferences.keysPreferencePage">
+		<item value="true" key="actionSetFilter"/>
+		<item value="true" key="uncategorizedFilter"/>
+		<item value="true" key="internalFilter"/>
+	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="555" key="dialogHeight"/>
 		<item value="1025" key="dialogWidth"/>
@@ -17,6 +26,13 @@
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="com.android.ide.eclipse.wizards.category"/>
 		</list>
+	</section>
+	<section name="InstallationDialogSettings">
+		<item value="706" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="768" key="DIALOG_HEIGHT"/>
+		<item value="-12" key="DIALOG_X_ORIGIN"/>
+		<item value="-113" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="ShowViewDialog">
 		<item value="345" key="DIALOG_WIDTH"/>
