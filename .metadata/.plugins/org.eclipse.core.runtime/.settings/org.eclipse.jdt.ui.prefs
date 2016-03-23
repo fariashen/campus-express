@@ -1,5 +1,5 @@
 content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="android.content.Context"><rhs name\="com.example.easycourier.regiester"/><rhs name\="com.example.easycourier.login"/></lhs><lhs name\="org.apache.http.client.methods.HttpEntityEnclosingRequestBase"><rhs name\="org.apache.http.client.methods.HttpPost"/></lhs><lhs name\="org.apache.http.HttpEntityEnclosingRequest"><rhs name\="org.apache.http.client.methods.HttpPost"/></lhs><lhs name\="org.apache.http.HttpRequest"><rhs name\="org.apache.http.client.methods.HttpPost"/></lhs><lhs name\="org.apache.http.HttpMessage"><rhs name\="org.apache.http.client.methods.HttpPost"/></lhs><lhs name\="org.apache.http.client.methods.HttpRequestBase"><rhs name\="org.apache.http.client.methods.HttpPost"/></lhs><lhs name\="org.apache.http.client.methods.HttpUriRequest"><rhs name\="org.apache.http.client.methods.HttpPost"/></lhs><lhs name\="org.apache.http.client.methods.AbortableHttpRequest"><rhs name\="org.apache.http.client.methods.HttpPost"/></lhs><lhs name\="java.lang.Cloneable"><rhs name\="org.apache.http.client.methods.HttpPost"/></lhs><lhs name\="org.apache.http.message.AbstractHttpMessage"><rhs name\="org.apache.http.client.methods.HttpPost"/></lhs><lhs name\="org.apache.http.client.methods.HttpPost"><rhs name\="org.apache.http.client.methods.HttpPost"/></lhs><lhs name\="java.util.Collection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="org.apache.http.HttpEntity"><rhs name\="org.apache.http.client.entity.UrlEncodedFormEntity"/></lhs><lhs name\="java.lang.Runnable"><rhs name\="com.example.easycourier.regiesterHandle"/><rhs name\="com.example.easycourier.loginHandle"/></lhs><lhs name\="com.example.easycourier.regiesterHandle"><rhs name\="com.example.easycourier.regiesterHandle"/></lhs><lhs name\="com.example.easycourier.loginHandle"><rhs name\="com.example.easycourier.loginHandle"/></lhs></history>
-content_assist_number_of_computers=12
+content_assist_number_of_computers=19
 content_assist_proposals_background=255,255,255
 content_assist_proposals_foreground=0,0,0
 eclipse.preferences.version=1
@@ -11,7 +11,7 @@ org.eclipse.jdt.ui.text.code_templates_migrated=true
 org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 org.eclipse.jdt.ui.text.templates_migrated=true
-org.eclipse.jface.textfont=1|Courier New|10.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
+org.eclipse.jface.textfont=1|Consolas|10.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
 proposalOrderMigrated=true
 spelling_locale_initialized=true
 tabWidthPropagated=true

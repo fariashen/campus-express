@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,9 @@ import android.widget.Toast;
  *         实现登录模块
  * 
  */
+
+
+
 public class Login extends Activity implements OnClickListener {
 
 	/**
@@ -52,7 +56,18 @@ public class Login extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_login);
 
 		// 获取各个控件
-
+        
+		/**
+		 * 
+		 * @author vacation
+		 * 
+		 *         设置默认头像
+		 * 
+		 */
+		
+        ImageView imageView1=(ImageView) findViewById(R.id.iv_Image);
+		imageView1.setImageDrawable(getResources().getDrawable(R.drawable.kuaidi2));
+		
 		et_Login_userName = (EditText) findViewById(R.id.et_Login_userName);
 		et_Login_passWord = (EditText) findViewById(R.id.et_Login_passWord);
 		

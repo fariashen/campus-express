@@ -29,4 +29,5 @@
 <fullyQualifiedTypeName name="org.apache.http.util.EntityUtils"/>
 <fullyQualifiedTypeName name="com.example.easycourier.loginHandle"/>
 <fullyQualifiedTypeName name="com.example.easycourier.R.id"/>
+<fullyQualifiedTypeName name="android.widget.ImageView"/>
 </qualifiedTypeNameHistroy>
