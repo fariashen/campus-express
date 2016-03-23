@@ -22,6 +22,7 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
+<<<<<<< HEAD
         public static final int background_button_div=0x7f020000;
         public static final int ic_launcher=0x7f020001;
         public static final int input_over=0x7f020002;
@@ -41,6 +42,42 @@ public final class R {
         public static final int et_Regiester_passWord=0x7f080005;
         public static final int et_Regiester_userName=0x7f080004;
         public static final int tv_Regiester=0x7f080003;
+=======
+        public static final int anniu=0x7f020000;
+        public static final int bottom_bar=0x7f020001;
+        public static final int edit=0x7f020002;
+        public static final int fillet_shape=0x7f020003;
+        public static final int fx1=0x7f020004;
+        public static final int fx2=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int kuaidi2=0x7f020007;
+        public static final int top_add=0x7f020008;
+        public static final int top_search=0x7f020009;
+        public static final int txl1=0x7f02000a;
+        public static final int txl2=0x7f02000b;
+        public static final int wo1=0x7f02000c;
+        public static final int wo2=0x7f02000d;
+        public static final int xiala=0x7f02000e;
+        public static final int xiaoxi1=0x7f02000f;
+        public static final int xiaoxi2=0x7f020010;
+    }
+    public static final class id {
+        public static final int action_settings=0x7f08000e;
+        public static final int bt_Login_Commit=0x7f080007;
+        public static final int bt_Regiester_commit=0x7f08000d;
+        public static final int et_Login_passWord=0x7f080003;
+        public static final int et_Login_userName=0x7f080001;
+        public static final int et_Regiester_Email=0x7f08000c;
+        public static final int et_Regiester_Phone=0x7f08000b;
+        public static final int et_Regiester_confirmpassWord=0x7f08000a;
+        public static final int et_Regiester_passWord=0x7f080009;
+        public static final int et_Regiester_userName=0x7f080008;
+        public static final int iv_Image=0x7f080000;
+        public static final int lv_loginList=0x7f080006;
+        public static final int textView1=0x7f080002;
+        public static final int tv_Regiester=0x7f080005;
+        public static final int tv_fetchPassword=0x7f080004;
+>>>>>>> 7e24e27f10ba9eabe8d52e2b7bd11a07d35816ce
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;
