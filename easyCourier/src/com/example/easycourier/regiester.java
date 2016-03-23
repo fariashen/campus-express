@@ -17,6 +17,13 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
 
 /**
  * @author vacation
@@ -47,6 +54,8 @@ public class Regiester extends Activity {
 	EditText et_Regiester_Email;
 
 	Button btCommit;
+	
+	private CheckBox et_Regiester_checkbox = null;//声明一个et_Regiester_checkbox对象
 
 	RegiesterHandle rgHandle;// 实现注册功能的数据库操作类
 
@@ -55,7 +64,14 @@ public class Regiester extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);		
 		setContentView(R.layout.activity_regiester);
-
+		
+		//以findViewById()方法取得et_Regiester_checkbox对象	
+		et_Regiester_checkbox = (CheckBox)findViewById(R.id.et_Regiester_checkBox);
+		et_Regiester_checkbox.setChecked(false);//默认设置为未选择状态
+		btCommit.setEnabled(false);//将注册按钮默认设置为未启用状态
+		
+		
+		
 		// 获取EditText控件
 
 		et_Regiester_userName = (EditText) findViewById(R.id.et_Regiester_userName);
@@ -82,11 +98,33 @@ public class Regiester extends Activity {
 		final String REGIESTER_EMAIL = et_Regiester_Email.getText().toString();
 
 		final String REGIESTER_CONNECTURL = "";// 数据库链接地址
-
-		btCommit = (Button) findViewById(R.id.bt_Regiester_commit);
-		// 得到控件"btCommit"
+		
+		//为t_Regiester_checkbox设置监听
+				et_Regiester_checkbox.setOnClickListener(new View.OnClickListener(){
+					public void onClick(View v){
+					if(et_Regiester_checkbox.isChecked()){
+						
+						new AlertDialog.Builder(Regiester.this)
+						.setTitle("您已完整阅读该协议并且同意")
+						.setPositiveButton("确定", null).show();
+						btCommit.setEnabled(true);
+					}
+					else
+					{
+						new AlertDialog.Builder(Regiester.this)
+						.setTitle("您未同意协议")
+						.setPositiveButton("确定", null).show();
+						btCommit.setEnabled(false);
+					}
+					}
+				});
+				
+				
+		btCommit = (Button) findViewById(R.id.et_Regiester_commit);// 得到控件"btCommit"
+		
 
 		// 为 btCommit 设置监听器
+		
 
 		btCommit.setOnClickListener(new View.OnClickListener() {
 

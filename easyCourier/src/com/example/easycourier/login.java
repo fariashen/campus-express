@@ -94,7 +94,7 @@ public class Login extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 
-		case R.id.bt_Regiester_commit:
+		case R.id.et_Regiester_commit:
 
 			// 触发调用数据库类查询方法
 			// 三种情况
