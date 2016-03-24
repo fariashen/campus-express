@@ -1,0 +1,10 @@
+1458557410308	Rename type 'login'
+1458557434266	Rename type 'loginHandle'
+1458557521575	Rename type 'regiester'
+1458557528855	Rename type 'regiesterHandle'
+1458719345588	Rename resource 'activity_personalinfo.xml'
+1458734539929	Delete element
+1458743715555	Rename compilation unit 'login.java'
+1458743723788	Rename compilation unit 'regiester.java'
+1458780735058	Rename type 'PersinalInfoShow'
+1458795656071	Rename field 'bt_PersonalInfo_Edit'

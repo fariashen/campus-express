@@ -1,0 +1,24 @@
+package com.example.easycourier;
+
+/**
+ * @author vacation
+ *
+ *根据传入的参数：用户名，密码，电话，邮箱
+ *与数据库进行通信，修改个人信息
+ *
+ */
+public class PIEditHandle extends Thread {
+
+	
+	@Override
+	public void run() {
+		
+		editPersonalInfo();
+		super.run();
+	}
+
+	private void editPersonalInfo() {
+		// TODO Auto-generated method stub
+		
+	}
+}
