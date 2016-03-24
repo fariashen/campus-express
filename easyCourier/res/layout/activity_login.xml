@@ -1,45 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-    <TextView 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="用户名："
-        />
-    
-    <EditText 
+
+    <!-- 修改布局格式以及边框的形状，其中找回密码功能以后再实现，注册帐号功能可用 -->
+
+    <ImageView
+        android:id="@+id/iv_Image"
+        android:layout_width="70dip"
+        android:layout_height="70dip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dip"
+        android:background="@drawable/fillet_shape" />
+
+    <EditText
         android:id="@+id/et_Login_userName"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_below="@id/iv_Image"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="30dip"
+        android:layout_marginTop="15dip"
+        android:background="@drawable/fillet_shape"
+        android:inputType="number"
+        android:paddingLeft="50dip" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="请输入账号用户名"
-        />
-    
-    <TextView 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="密码："/>
-    
-    <EditText 
+        android:layout_alignLeft="@id/et_Login_userName"
+        android:layout_alignTop="@id/et_Login_userName"
+        android:layout_marginLeft="3dip"
+        android:layout_marginTop="9dip"
+        android:text="帐号"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="8pt" />
+
+    <EditText
         android:id="@+id/et_Login_passWord"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_below="@id/et_Login_userName"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="30dip"
+        android:background="@drawable/fillet_shape"
+        android:paddingLeft="50dip" />
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="请输入账号密码"/>
-    
-    <Button 
-        android:id="@+id/bt_Login_Commit"
-        android:layout_width="fill_parent"
+        android:layout_alignLeft="@id/et_Login_passWord"
+        android:layout_alignTop="@id/et_Login_passWord"
+        android:layout_marginLeft="3dip"
+        android:layout_marginTop="9dip"
+        android:text="密码"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="8pt" />
+
+    <TextView
+        android:id="@+id/tv_fetchPassword"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="登录"/>
-    
-    <TextView 
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="45dip"
+        android:gravity="bottom"
+        android:text="找回密码"
+        android:textColor="#333355"
+        android:textSize="7pt" 
+        android:layout_marginBottom="10dip"/>
+
+    <TextView
         android:id="@+id/tv_Regiester"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="注册"
-        android:textSize="20sp"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="45dip"
+        android:clickable="true"
+        android:gravity="bottom"
+        android:text="注册账号"
+        android:textColor="#333355"
+        android:textSize="7pt" 
+        android:layout_marginBottom="10dip"/>
 
-</LinearLayout>
+    <ListView
+        android:id="@+id/lv_loginList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_Regiester"
+        android:layout_alignLeft="@id/et_Login_userName"
+        android:layout_alignRight="@id/et_Login_userName"
+        android:layout_below="@id/et_Login_userName"
+        android:divider="#aaaaaa"
+        android:dividerHeight="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone" />
+
+    
+
+    <Button
+        android:id="@+id/bt_Login_Commit"
+        android:layout_width="match_parent"
+        android:layout_height="35dip"
+        android:layout_alignLeft="@+id/et_Login_passWord"
+        android:layout_alignRight="@+id/et_Login_passWord"
+        android:layout_below="@+id/et_Login_passWord"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/anniu"
+        android:text="登录"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="bottom"
+        android:text="|"
+        android:textSize="7pt" 
+        android:layout_marginBottom="10dip"/>
+
+</RelativeLayout>

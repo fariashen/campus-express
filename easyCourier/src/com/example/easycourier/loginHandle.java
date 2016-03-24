@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
@@ -34,10 +35,18 @@ import android.util.Log;
 
 public class LoginHandle extends Thread {
 
-	public static String result = "";
+	public static String Login_result;
 
 	public static String loginUserName;
 	public static String loginConnectUrl;
+
+	// 实现POST请求的参数
+
+	HttpPost mHttpPost;
+	HttpClient mHttpClient;
+	HttpResponse mHttpResponse;
+	HttpEntity mHttpEntity;
+	ArrayList<NameValuePair> params;
 
 	public LoginHandle(String loginUserName, String loginConnectUrl) {
 		// TODO Auto-generated constructor stub
@@ -49,31 +58,34 @@ public class LoginHandle extends Thread {
 	public void run() {
 
 		gotoLogin();
-		Log.d("LoginHandle", result);
 	}
 
 	private void gotoLogin() {
 
-		HttpClient mClient = new DefaultHttpClient();
 		// 发送Post请求
-		HttpPost httpPost = new HttpPost(loginConnectUrl);
+		mHttpPost = new HttpPost(loginConnectUrl);
 
 		// 构建NameValuePair[]阵列存储Post参数
 
-		ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
-		params.add(new BasicNameValuePair("un", loginUserName));
+		params.add(new BasicNameValuePair("UserName", loginUserName));
 
 		// 发送http请求
 		// 取得httpresponse
 		// 检测是否请求成功
 
 		try {
-			httpPost.setEntity(new UrlEncodedFormEntity(params));
-			HttpResponse httpResponse = mClient.execute(httpPost);
+
+			mHttpPost.setEntity(new UrlEncodedFormEntity(params));
+			HttpResponse httpResponse = mHttpClient.execute(mHttpPost);
+
 			if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 
-				// 取出密码字符串
-				result = EntityUtils.toString(httpResponse.getEntity());
+				// 如果出现 登录成功 服务器返回：1
+				// 如果出现 密码错误 服务器返回：2
+				// 如果出现 无该用户 服务器返回：3
+				mHttpEntity = mHttpResponse.getEntity();
+
+				Login_result = mHttpEntity.toString();
 
 			}
 		} catch (UnsupportedEncodingException e) {

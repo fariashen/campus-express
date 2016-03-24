@@ -1,9 +1,5 @@
 package com.example.easycourier;
 
-import java.util.logging.Logger;
-
-import org.apache.commons.logging.Log;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +18,7 @@ import android.widget.Toast;
  *         实现登录模块
  * 
  */
+
 public class Login extends Activity implements OnClickListener {
 
 	/**
@@ -45,9 +43,9 @@ public class Login extends Activity implements OnClickListener {
 
 	LoginHandle lgHandle;
 
-	public String LOGIN_USERNAME = "";
-	public String LOGIN_PASSWORD = "";
-	public String LOGIN_CONNECTURL = "";
+	public static String LOGIN_USERNAME;
+	public String LOGIN_PASSWORD;
+	public static String LOGIN_CONNECTURL = "http://172.25.224.24:8080/phpserver.php";;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +54,20 @@ public class Login extends Activity implements OnClickListener {
 
 		// 获取各个控件
 
+		/**
+		 * 
+		 * @author vacation
+		 * 
+		 *         设置默认头像
+		 * 
+		 */
+
+		ImageView imageView1 = (ImageView) findViewById(R.id.iv_Image);
+		imageView1.setImageDrawable(getResources().getDrawable(
+				R.drawable.kuaidi2));
+
 		et_Login_userName = (EditText) findViewById(R.id.et_Login_userName);
 		et_Login_passWord = (EditText) findViewById(R.id.et_Login_passWord);
-
-		LOGIN_CONNECTURL = "http://172.25.224.24:8080/phpserver.php";
 
 		bt_Login_Commit = (Button) findViewById(R.id.bt_Login_Commit);
 
@@ -95,11 +103,11 @@ public class Login extends Activity implements OnClickListener {
 			lgHandle.start();
 
 			// 第一种情况：无该用户
-			if (lgHandle.result == "") {
+			if (lgHandle.Login_result == "3") {
 
 				Toast.makeText(Login.this, "未找到该用户", Toast.LENGTH_SHORT).show();
 
-			} else if (LOGIN_PASSWORD != lgHandle.result) {
+			} else if (lgHandle.Login_result.equals("2")) {
 
 				// 第二种情况：密码错误
 
@@ -112,8 +120,9 @@ public class Login extends Activity implements OnClickListener {
 				Toast.makeText(Login.this, "登录成功", Toast.LENGTH_SHORT).show();
 
 				// 跳转返回 MainActivity
+				// 暂时跳转到个人信息界面
 
-				Intent intent = new Intent(Login.this, MainActivity.class);
+				Intent intent = new Intent(Login.this, PersonalInfoShow.class);
 				startActivity(intent);
 			}
 			break;

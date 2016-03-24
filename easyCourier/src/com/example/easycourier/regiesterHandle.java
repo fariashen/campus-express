@@ -3,23 +3,20 @@ package com.example.easycourier;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.List;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpResponseException;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.io.HttpResponseParser;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
 
-import android.net.http.HttpResponseCache;
-
-public class RegiesterHandle implements Runnable {
+public class RegiesterHandle extends Thread {
 
 	/**
 	 * 
@@ -33,7 +30,7 @@ public class RegiesterHandle implements Runnable {
 	 * 
 	 */
 
-	public static boolean result = false;// 返回数据库操作结果信息
+	public static String Regiester_result;// 返回数据库操作结果信息
 
 	private String regiesterUserName;
 	private String regiesterPassWord;
@@ -42,11 +39,16 @@ public class RegiesterHandle implements Runnable {
 
 	private String regiesterConnectUrl;
 
-	public RegiesterHandle(String userName, 
-			String passWord, 
-			String phone,
-			String email,
-			String connectUrl) {
+	// 实现POST请求的参数
+
+	HttpPost mHttpPost;
+	HttpClient mHttpClient;
+	HttpResponse mHttpResponse;
+	HttpEntity mHttpEntity;
+	ArrayList<NameValuePair> params;
+
+	public RegiesterHandle(String userName, String passWord, String phone,
+			String email, String connectUrl) {
 		// TODO Auto-generated constructor stub
 		this.regiesterUserName = userName;
 		this.regiesterPassWord = passWord;
@@ -66,32 +68,38 @@ public class RegiesterHandle implements Runnable {
 	private void gotoLogin() {
 		// TODO Auto-generated method stub
 
+		mHttpClient = new DefaultHttpClient();
 		// 发送post请求
-		HttpPost httpRequest = new HttpPost(regiesterConnectUrl);
+		mHttpPost = new HttpPost(regiesterConnectUrl);
 
-		// 构建NameValuePair[]阵列存储Post请求变量
+		// 构建NameValuePair[]阵列存储Post请求变量（name,value）
 
-		List params = new ArrayList();
 		params.add(new BasicNameValuePair("userName", regiesterUserName));
 		params.add(new BasicNameValuePair("passWord", regiesterPassWord));
 		params.add(new BasicNameValuePair("phone", regiesterPhone));
 		params.add(new BasicNameValuePair("email", regiesterEmail));
 
-		HttpResponse httpResponse;
-
 		// 发送HTTP请求
 
 		try {
-			httpRequest.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
+
+			mHttpPost.setEntity(new UrlEncodedFormEntity(params));
 
 			// 取得HTTP response
 
-			httpResponse = new DefaultHttpClient().execute(httpRequest);
+			mHttpResponse = mHttpClient.execute(mHttpPost);
 
-			if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+			if (mHttpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 				// 此时插入用户数据操作成功
 
-				result = true;
+				mHttpEntity = mHttpResponse.getEntity();
+
+				// 如果出现 用户名重复 服务器返回 ：1
+				// 如果出现 服务器错误 服务器返回 ：2
+				// 如果出现 成功注册 服务器返回 ：3
+				// String类型
+
+				Regiester_result = mHttpEntity.toString();
 
 			}
 		} catch (UnsupportedEncodingException e) {
