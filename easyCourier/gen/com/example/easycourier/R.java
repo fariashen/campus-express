@@ -45,14 +45,27 @@ public final class R {
         public static final int xiaoxi2=0x7f020014;
     }
     public static final class id {
+<<<<<<< HEAD
         public static final int action_settings=0x7f080019;
+||||||| merged common ancestors
+        public static final int action_settings=0x7f08000e;
+=======
+        public static final int action_settings=0x7f080010;
+>>>>>>> 8cc16a62ef4013288322cb6fa51d9749f1d530f6
         public static final int bt_Login_Commit=0x7f080007;
+<<<<<<< HEAD
         public static final int bt_PersonalInfo_Commit=0x7f08000c;
         public static final int bt_PersonalInfo_Edit=0x7f080011;
         public static final int bt_Regiester_checkBox=0x7f080017;
         public static final int bt_Regiester_commit=0x7f080018;
+||||||| merged common ancestors
+        public static final int bt_Regiester_commit=0x7f08000d;
+=======
+        public static final int bt_Regiester_Server=0x7f08000e;
+>>>>>>> 8cc16a62ef4013288322cb6fa51d9749f1d530f6
         public static final int et_Login_passWord=0x7f080003;
         public static final int et_Login_userName=0x7f080001;
+<<<<<<< HEAD
         public static final int et_PersonalInfo_Email=0x7f08000b;
         public static final int et_PersonalInfo_Password=0x7f080009;
         public static final int et_PersonalInfo_Phone=0x7f08000a;
@@ -62,6 +75,21 @@ public final class R {
         public static final int et_Regiester_confirmpassWord=0x7f080014;
         public static final int et_Regiester_passWord=0x7f080013;
         public static final int et_Regiester_userName=0x7f080012;
+||||||| merged common ancestors
+        public static final int et_Regiester_Email=0x7f08000c;
+        public static final int et_Regiester_Phone=0x7f08000b;
+        public static final int et_Regiester_confirmpassWord=0x7f08000a;
+        public static final int et_Regiester_passWord=0x7f080009;
+        public static final int et_Regiester_userName=0x7f080008;
+=======
+        public static final int et_Regiester_Email=0x7f08000c;
+        public static final int et_Regiester_Phone=0x7f08000b;
+        public static final int et_Regiester_checkBox=0x7f08000d;
+        public static final int et_Regiester_commit=0x7f08000f;
+        public static final int et_Regiester_confirmpassWord=0x7f08000a;
+        public static final int et_Regiester_passWord=0x7f080009;
+        public static final int et_Regiester_userName=0x7f080008;
+>>>>>>> 8cc16a62ef4013288322cb6fa51d9749f1d530f6
         public static final int iv_Image=0x7f080000;
         public static final int lv_loginList=0x7f080006;
         public static final int textView1=0x7f080002;
