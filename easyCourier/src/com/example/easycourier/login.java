@@ -76,6 +76,7 @@ public class Login extends Activity implements OnClickListener {
 		bt_Login_Commit.setOnClickListener(this);
 
 		// 为注册的文本设置监听器，通过点击注册文本跳转到 Regiester.java
+		
 		tv_Regiester = (TextView) findViewById(R.id.tv_Regiester);
 
 		tv_Regiester.setOnClickListener(this);
@@ -87,16 +88,10 @@ public class Login extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 
-<<<<<<< HEAD
 		case R.id.bt_Login_Commit:
 
 			LOGIN_USERNAME = et_Login_userName.getText().toString();
 			LOGIN_PASSWORD = et_Login_passWord.getText().toString();
-||||||| merged common ancestors
-		case R.id.bt_Regiester_commit:
-=======
-		case R.id.et_Regiester_commit:
->>>>>>> 8cc16a62ef4013288322cb6fa51d9749f1d530f6
 
 			// 触发调用数据库类查询方法
 			// 三种情况
