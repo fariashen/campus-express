@@ -46,6 +46,10 @@ public class PersonalInfoShow extends Activity {
 	
 	private Button bt_PersonalInfoEdit;
 	
+//	链接URL
+	
+	public static String PISHOW_CONNECTURL = "http://172.25.224.12:801/phpserver/PIshow.php";
+	
 	//数据库操作
 	
 	PIShowHandle mPiShowHandle;
@@ -75,6 +79,8 @@ public class PersonalInfoShow extends Activity {
 		tv_PersonalInfoPassWord.setText(PIShowHandle.result_Password);
 		tv_PersonalInfoPhone.setText(PIShowHandle.result_Phone);
 		tv_PersonalInfoEmail.setText(PIShowHandle.result_Email);
+		
+		
 		
 //		为修改按钮设置监听
 		

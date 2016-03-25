@@ -45,7 +45,7 @@ public class Login extends Activity implements OnClickListener {
 
 	public static String LOGIN_USERNAME;
 	public String LOGIN_PASSWORD;
-	public static String LOGIN_CONNECTURL = "http://172.25.224.24:8080/phpserver.php";;
+	public static String LOGIN_CONNECTURL = "http://172.25.224.12:801/phpserver/login.php";;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

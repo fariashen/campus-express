@@ -20,14 +20,14 @@
 <fullyQualifiedTypeName name="org.apache.http.HttpStatus"/>
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
 <fullyQualifiedTypeName name="com.example.easycourier.PIEditHandle"/>
-<fullyQualifiedTypeName name="com.example.easycourier.PersonalInfoEdit"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="org.apache.http.client.methods.HttpPost"/>
 <fullyQualifiedTypeName name="org.apache.http.client.HttpClient"/>
 <fullyQualifiedTypeName name="org.apache.http.HttpResponse"/>
 <fullyQualifiedTypeName name="org.apache.http.HttpEntity"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="com.example.easycourier.PersonalInfoShow"/>
 <fullyQualifiedTypeName name="com.example.easycourier.RegiesterHandle"/>
 <fullyQualifiedTypeName name="com.example.easycourier.LoginHandle"/>
+<fullyQualifiedTypeName name="com.example.easycourier.PersonalInfoEdit"/>
+<fullyQualifiedTypeName name="com.example.easycourier.PersonalInfoShow"/>
 </qualifiedTypeNameHistroy>

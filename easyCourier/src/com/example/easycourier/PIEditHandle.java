@@ -62,7 +62,7 @@ public class PIEditHandle extends Thread {
 		params.add(new BasicNameValuePair("Email", Email));
 		
 //		…Ë÷√HTTPPOST
-		mHttpPost = new HttpPost(Login.LOGIN_CONNECTURL);
+		mHttpPost = new HttpPost(PersonalInfoEdit.PIEDIT_CONNECTURL);
 		
 		try {
 			

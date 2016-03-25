@@ -25,6 +25,9 @@ public class PersonalInfoEdit extends Activity {
 	 * 参数
 	 * 
 	 * 用户名，密码，电话，邮件的EditText
+	 * 
+	 * 网络连接的URL
+	 * 
 	 */
 
 	private EditText et_PersonalInfoEdit_UserName;
@@ -33,6 +36,10 @@ public class PersonalInfoEdit extends Activity {
 	private EditText et_PersonalInfoEdit_Email;
 
 	private Button bt_PersonalInfoEdit_Commit;
+	
+//	链接URL
+	
+	public static String PIEDIT_CONNECTURL="http://172.25.224.12:801/phpserver/PIedit.php";
 
 	String EDITED_USERNAME;
 	String EDITED_PASSWORD;

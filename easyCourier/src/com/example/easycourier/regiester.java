@@ -58,6 +58,10 @@ public class Regiester extends Activity {
 	String REGIESTER_PASSWORD_2;
 	String REGIESTER_PHONE;
 	String REGIESTER_EMAIL;
+	
+//	注册链接URL
+	
+	public static String REGIESTER_CONNECTURL = "http://172.25.224.12:801/phpserver/register.php";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -139,7 +143,7 @@ public class Regiester extends Activity {
 
 				rgHandle = new RegiesterHandle(REGIESTER_USERNAME,
 						REGIESTER_PASSWORD_1, REGIESTER_PHONE, REGIESTER_EMAIL,
-						Login.LOGIN_CONNECTURL);
+						REGIESTER_CONNECTURL);
 
 				// 点击后触发调用数据库类插入方法
 				rgHandle.start();

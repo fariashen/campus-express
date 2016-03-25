@@ -83,10 +83,11 @@ public class LoginHandle extends Thread {
 				// 如果出现 登录成功 服务器返回：1
 				// 如果出现 密码错误 服务器返回：2
 				// 如果出现 无该用户 服务器返回：3
+				
 				mHttpEntity = mHttpResponse.getEntity();
 
 				Login_result = mHttpEntity.toString();
-
+				System.out.println("------------>LoginHandle"+Login_result);
 			}
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
