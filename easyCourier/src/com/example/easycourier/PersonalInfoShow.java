@@ -38,8 +38,6 @@ public class PersonalInfoShow extends Activity {
 
 	public static TextView tv_PersonalInfoUserName;
 	public static TextView tv_PersonalInfoPassWord;
-	public static TextView tv_PersonalInfoPhone;
-	public static TextView tv_PersonalInfoEmail;
 
 	private Button bt_PersonalInfoEdit;
 
@@ -47,17 +45,15 @@ public class PersonalInfoShow extends Activity {
 
 	// 网络线程操作
 
-	PIShowHttpPost mPiShowHandle;
+	PIShowHttpPost mPiShowHttpPost;
 
 	public static Handler pisHandler = new Handler();
 
 	// 链接地址
-	public static String PISHOW_CONNECTURL = "http://119.29.4.159/phpserver/PIedit.php";
+	public static String PISHOW_CONNECTURL = "http://119.29.4.159/phpserver/PIshow.php";
 
 	// 获取个人信息，作为PersonalInfoEdit各个控件的默认值
 	public static String PIS_PASSWORD;
-	public static String PIS_PHONE;
-	public static String PIS_EMAIL;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +64,6 @@ public class PersonalInfoShow extends Activity {
 
 		tv_PersonalInfoUserName = (TextView) findViewById(R.id.tv_PersonalInfo_Username);
 		tv_PersonalInfoPassWord = (TextView) findViewById(R.id.tv_PersonalInfo_Password);
-		tv_PersonalInfoPhone = (TextView) findViewById(R.id.tv_PersonalInfo_Phone);
-		tv_PersonalInfoEmail = (TextView) findViewById(R.id.tv_PersonalInfo_Email);
 
 		bt_PersonalInfoEdit = (Button) findViewById(R.id.bt_PersonalInfo_Edit);
 
@@ -79,8 +73,8 @@ public class PersonalInfoShow extends Activity {
 
 		// 发送网络线程操作请求
 
-		mPiShowHandle = new PIShowHttpPost();
-		mPiShowHandle.start();
+		mPiShowHttpPost = new PIShowHttpPost();
+		mPiShowHttpPost.start();
 
 
 		// 为修改按钮设置监听
@@ -92,12 +86,11 @@ public class PersonalInfoShow extends Activity {
 				// 获取个人信息，作为PersonalInfoEdit各个控件的默认值
 				
 				PIS_PASSWORD = tv_PersonalInfoPassWord.getText().toString();
-				PIS_PHONE = tv_PersonalInfoPhone.getText().toString();
-				PIS_EMAIL = tv_PersonalInfoEmail.getText().toString();
 				
 				Intent intent = new Intent(PersonalInfoShow.this,
 						PersonalInfoEdit.class);
 				startActivity(intent);
+				finish();
 			}
 		});
 

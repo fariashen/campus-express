@@ -45,31 +45,25 @@ public final class R {
         public static final int xiaoxi2=0x7f020014;
     }
     public static final class id {
-        public static final int action_settings=0x7f08001a;
+        public static final int action_settings=0x7f080014;
         public static final int bt_Login_Commit=0x7f080007;
-        public static final int bt_PersonalInfo_Commit=0x7f08000c;
-        public static final int bt_PersonalInfo_Edit=0x7f080011;
-        public static final int bt_Regiester_Server=0x7f080018;
-        public static final int bt_Regiester_commit=0x7f080019;
-        public static final int cb_Regiester_checkBox=0x7f080017;
+        public static final int bt_PersonalInfo_Commit=0x7f08000a;
+        public static final int bt_PersonalInfo_Edit=0x7f08000d;
+        public static final int bt_Regiester_Server=0x7f080012;
+        public static final int bt_Regiester_commit=0x7f080013;
+        public static final int cb_Regiester_checkBox=0x7f080011;
         public static final int et_Login_passWord=0x7f080003;
         public static final int et_Login_userName=0x7f080001;
-        public static final int et_PersonalInfo_Email=0x7f08000b;
         public static final int et_PersonalInfo_Password=0x7f080009;
-        public static final int et_PersonalInfo_Phone=0x7f08000a;
         public static final int et_PersonalInfo_Username=0x7f080008;
-        public static final int et_Regiester_Email=0x7f080016;
-        public static final int et_Regiester_Phone=0x7f080015;
-        public static final int et_Regiester_confirmpassWord=0x7f080014;
-        public static final int et_Regiester_passWord=0x7f080013;
-        public static final int et_Regiester_userName=0x7f080012;
+        public static final int et_Regiester_confirmpassWord=0x7f080010;
+        public static final int et_Regiester_passWord=0x7f08000f;
+        public static final int et_Regiester_userName=0x7f08000e;
         public static final int iv_Image=0x7f080000;
         public static final int lv_loginList=0x7f080006;
         public static final int textView1=0x7f080002;
-        public static final int tv_PersonalInfo_Email=0x7f080010;
-        public static final int tv_PersonalInfo_Password=0x7f08000e;
-        public static final int tv_PersonalInfo_Phone=0x7f08000f;
-        public static final int tv_PersonalInfo_Username=0x7f08000d;
+        public static final int tv_PersonalInfo_Password=0x7f08000c;
+        public static final int tv_PersonalInfo_Username=0x7f08000b;
         public static final int tv_Regiester=0x7f080005;
         public static final int tv_fetchPassword=0x7f080004;
     }

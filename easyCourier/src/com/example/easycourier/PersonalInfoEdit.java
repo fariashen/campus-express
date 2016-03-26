@@ -28,12 +28,13 @@ public class PersonalInfoEdit extends Activity {
 	 * 参数
 	 * 
 	 * 用户名，密码，电话，邮件的EditText
+	 * 
+	 * 网络连接的URL
+	 * 
 	 */
 
 	private EditText et_PersonalInfoEdit_UserName;
 	private EditText et_PersonalInfoEdit_PassWord;
-	private EditText et_PersonalInfoEdit_Phone;
-	private EditText et_PersonalInfoEdit_Email;
 
 	private Button bt_PersonalInfoEdit_Commit;
 
@@ -47,7 +48,7 @@ public class PersonalInfoEdit extends Activity {
 	public static Context pieContext;
 
 	// 链接地址
-	public static String PIEDIT_CONNECTURL = "http://119.29.4.159/phpserver/PIshow.php";
+	public static String PIEDIT_CONNECTURL = "http://119.29.4.159/phpserver/PIedit.php";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +56,12 @@ public class PersonalInfoEdit extends Activity {
 		setContentView(R.layout.activity_personalinfo_edit);
 
 		// 获取 PersonalInfoEdit 的 Context
-		pieContext = getApplicationContext();
+		pieContext = PersonalInfoEdit.this;
 
 		// 获取各个控件
 
 		et_PersonalInfoEdit_UserName = (EditText) findViewById(R.id.et_PersonalInfo_Username);
 		et_PersonalInfoEdit_PassWord = (EditText) findViewById(R.id.et_PersonalInfo_Password);
-		et_PersonalInfoEdit_Phone = (EditText) findViewById(R.id.et_PersonalInfo_Phone);
-		et_PersonalInfoEdit_Email = (EditText) findViewById(R.id.et_PersonalInfo_Email);
 
 		bt_PersonalInfoEdit_Commit = (Button) findViewById(R.id.bt_PersonalInfo_Commit);
 
@@ -70,8 +69,6 @@ public class PersonalInfoEdit extends Activity {
 
 		et_PersonalInfoEdit_UserName.setText(Login.LOGIN_USERNAME);
 		et_PersonalInfoEdit_PassWord.setText(PersonalInfoShow.PIS_PASSWORD);
-		et_PersonalInfoEdit_Phone.setText(PersonalInfoShow.PIS_PHONE);
-		et_PersonalInfoEdit_Email.setText(PersonalInfoShow.PIS_EMAIL);
 
 		// 点击“确定”按钮后将修改的值传给 PIEditHttpPost 线程
 
@@ -84,13 +81,8 @@ public class PersonalInfoEdit extends Activity {
 
 						EDITED_PASSWORD = et_PersonalInfoEdit_PassWord
 								.getText().toString();
-						EDITED_PHONE = et_PersonalInfoEdit_Phone.getText()
-								.toString();
-						EDITED_EMAIL = et_PersonalInfoEdit_Email.getText()
-								.toString();
 
-						mEditHandle = new PIEditHttpPost(EDITED_PASSWORD,
-								EDITED_PHONE, EDITED_EMAIL);
+						mEditHandle = new PIEditHttpPost(EDITED_PASSWORD);
 
 						// 启动PIEditHttpPost 线程
 						mEditHandle.start();
@@ -116,6 +108,7 @@ public class PersonalInfoEdit extends Activity {
 				// 修改成功后跳转回 个人信息展示界面
 				Intent intent = new Intent(pieContext, PersonalInfoShow.class);
 				pieContext.startActivity(intent);
+				((Activity) pieContext).finish();
 				break;
 
 			default:

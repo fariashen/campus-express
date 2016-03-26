@@ -36,8 +36,6 @@ public class RegiesterHttpPost extends Thread {
 
 	private String regiesterUserName;
 	private String regiesterPassWord;
-	private String regiesterPhone;
-	private String regiesterEmail;
 
 	private String regiesterConnectUrl;
 
@@ -49,13 +47,10 @@ public class RegiesterHttpPost extends Thread {
 	HttpEntity mHttpEntity;
 	ArrayList<NameValuePair> params;
 
-	public RegiesterHttpPost(String userName, String passWord, String phone,
-			String email, String connectUrl) {
+	public RegiesterHttpPost(String userName, String passWord, String connectUrl) {
 		// TODO Auto-generated constructor stub
 		this.regiesterUserName = userName;
 		this.regiesterPassWord = passWord;
-		this.regiesterPhone = phone;
-		this.regiesterEmail = email;
 
 		this.regiesterConnectUrl = connectUrl;
 
@@ -75,13 +70,11 @@ public class RegiesterHttpPost extends Thread {
 		mHttpPost = new HttpPost(regiesterConnectUrl);
 
 		// 构建NameValuePair[]阵列存储Post请求变量（name,value）
-		
+
 		params = new ArrayList<NameValuePair>();
 
 		params.add(new BasicNameValuePair("userName", regiesterUserName));
 		params.add(new BasicNameValuePair("passWord", regiesterPassWord));
-		params.add(new BasicNameValuePair("phone", regiesterPhone));
-		params.add(new BasicNameValuePair("email", regiesterEmail));
 
 		// 发送HTTP请求
 
@@ -91,22 +84,24 @@ public class RegiesterHttpPost extends Thread {
 
 			// 取得HTTP response
 
+			System.out.println("------------------->RegiesterHttpPost"+params.toString());
 			mHttpResponse = mHttpClient.execute(mHttpPost);
 
 			if (mHttpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 				// 此时插入用户数据操作成功
-
 
 				// 如果出现 服务器错误 服务器返回 ：1
 				// 如果出现 用户名重复 服务器返回 ：2
 				// 如果出现 成功注册 服务器返回 ：3
 				// String类型
 
-				Regiester_result = EntityUtils.toString(mHttpResponse.getEntity());
-				
-				//将结果返回给 Login线程进行处理
-				System.out.println("---------------------->"+Regiester_result);
-				
+				Regiester_result = EntityUtils.toString(mHttpResponse
+						.getEntity());
+
+				// 将结果返回给 Login线程进行处理
+				System.out
+						.println("---------------------->" + Regiester_result);
+
 				Message rhpMessage = new Message();
 				rhpMessage.what = Integer.parseInt(Regiester_result);
 				Regiester.regiesterHandler.sendMessage(rhpMessage);

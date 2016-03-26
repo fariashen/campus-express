@@ -22,8 +22,8 @@
         android:layout_marginLeft="30dip"
         android:layout_marginRight="30dip"
         android:layout_marginTop="15dip"
+        android:inputType="text"
         android:background="@drawable/fillet_shape"
-        android:inputType="number"
         android:paddingLeft="50dip" />
 
     <TextView

@@ -29,29 +29,6 @@
         android:layout_height="wrap_content"
         android:textSize="28sp" />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="电话："
-        android:textSize="28sp" />
-
-    <EditText
-        android:id="@+id/et_PersonalInfo_Phone"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="28sp" />
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="邮箱："
-        android:textSize="28sp" />
-
-    <EditText
-        android:id="@+id/et_PersonalInfo_Email"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="28sp" />
 
     <Button
         android:id="@+id/bt_PersonalInfo_Commit"

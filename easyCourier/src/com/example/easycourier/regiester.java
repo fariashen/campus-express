@@ -48,16 +48,15 @@ public class Regiester extends Activity implements OnClickListener {
 	String REGIESTER_USERNAME;
 	String REGIESTER_PASSWORD_1;
 	String REGIESTER_PASSWORD_2;
-	String REGIESTER_PHONE;
-	String REGIESTER_EMAIL;
+
+	// 注册链接URL
+
+	public static String REGIESTER_CONNECTURL = "http://119.29.4.159/phpserver/register.php";
 
 	// 实现注册功能的数据库操作类
-	RegiesterHttpPost rgHandle;
+	RegiesterHttpPost rgHttpPost;
 
 	private static Context regiestContext;
-
-	// 链接地址
-	public static String REGIESTER_CONNECTURL = "http://119.29.4.159/phpserver/register.php";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,15 +65,13 @@ public class Regiester extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_regiester);
 
 		// 获取 Regiester 的Context
-		regiestContext = getApplicationContext();
+		regiestContext = Regiester.this;
 
 		// 获取EditText控件
 
 		et_Regiester_userName = (EditText) findViewById(R.id.et_Regiester_userName);
 		et_Regiester_passWord = (EditText) findViewById(R.id.et_Regiester_passWord);
 		et_Regiester_confirmpassWord = (EditText) findViewById(R.id.et_Regiester_confirmpassWord);
-		et_Regiester_Phone = (EditText) findViewById(R.id.et_Regiester_Phone);
-		et_Regiester_Email = (EditText) findViewById(R.id.et_Regiester_Email);
 
 		// 得到控件"btCommit"
 		btCommit = (Button) findViewById(R.id.bt_Regiester_commit);
@@ -120,6 +117,7 @@ public class Regiester extends Activity implements OnClickListener {
 
 		case R.id.bt_Regiester_commit:
 
+			System.out.println("--------------->click Button");
 			// 注册按钮被点击后触发的行为
 
 			// 获取用户名
@@ -129,10 +127,6 @@ public class Regiester extends Activity implements OnClickListener {
 			// 获取确认密码
 			REGIESTER_PASSWORD_2 = et_Regiester_confirmpassWord.getText()
 					.toString();
-			// 获取电话
-			REGIESTER_PHONE = et_Regiester_Phone.getText().toString();
-			// 获取邮箱
-			REGIESTER_EMAIL = et_Regiester_Email.getText().toString();
 
 			// 检查两次输入密码是否正确
 
@@ -147,12 +141,11 @@ public class Regiester extends Activity implements OnClickListener {
 			// 实例化数据操作类
 			// 将 用户名，密码，电话，邮箱 的值传入函数方法
 
-			rgHandle = new RegiesterHttpPost(REGIESTER_USERNAME,
-					REGIESTER_PASSWORD_1, REGIESTER_PHONE, REGIESTER_EMAIL,
-					REGIESTER_CONNECTURL);
+			rgHttpPost = new RegiesterHttpPost(REGIESTER_USERNAME,
+					REGIESTER_PASSWORD_1, REGIESTER_CONNECTURL);
 
 			// 点击后触发调用 RegiesterHttpPost 线程
-			rgHandle.start();
+			rgHttpPost.start();
 
 			break;
 		}
@@ -163,10 +156,7 @@ public class Regiester extends Activity implements OnClickListener {
 	 * 
 	 * 三种情况
 	 * 
-	 * 情况一：服务器错误 
-	 * 情况二：用户名重复 
-	 * 情况三：成功注册
-	 * 
+	 * 情况一：服务器错误 情况二：用户名重复 情况三：成功注册
 	 */
 
 	public static Handler regiesterHandler = new Handler() {
@@ -185,7 +175,7 @@ public class Regiester extends Activity implements OnClickListener {
 			case 2:
 				// 插入用户记录失败，返回用户名重复信息
 				Toast.makeText(regiestContext, "用户名重复", Toast.LENGTH_SHORT)
-				.show();
+						.show();
 				break;
 
 			// 情况三：成功注册
@@ -197,6 +187,7 @@ public class Regiester extends Activity implements OnClickListener {
 				// 跳转到登录界面
 				Intent intent = new Intent(regiestContext, Login.class);
 				regiestContext.startActivity(intent);
+				((Activity) regiestContext).finish();
 				break;
 			}
 

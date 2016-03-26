@@ -38,11 +38,9 @@ public class PIShowHttpPost extends Thread {
 	 * 
 	 * 查询的用户名
 	 * 
-	 * 返回 String 密码 String 电话 String 邮箱
+	 * 返回 String 密码
 	 */
-	String result_Password;
-	String result_Phone;
-	String result_Email;
+	String result_Password = "";
 
 	// 发送网络请求的参数
 
@@ -76,8 +74,6 @@ public class PIShowHttpPost extends Thread {
 						.setText(Login.LOGIN_USERNAME);
 				PersonalInfoShow.tv_PersonalInfoPassWord
 						.setText(result_Password);
-				PersonalInfoShow.tv_PersonalInfoPhone.setText(result_Phone);
-				PersonalInfoShow.tv_PersonalInfoEmail.setText(result_Email);
 			}
 		});
 	}
@@ -115,31 +111,26 @@ public class PIShowHttpPost extends Thread {
 				mInputStream = mEntity.getContent();
 				mBufferedReader = new BufferedReader(new InputStreamReader(
 						mInputStream, "UTF-8"));
-
+				
+				mStringBuilder = new StringBuilder();
 				String line = null;
 				while ((line = mBufferedReader.readLine()) != null) {
 
 					mStringBuilder.append(line);
 
 				}
-				System.out.println("------------>"+mInputStream.toString());
+				System.out.println("------------>"+mStringBuilder.toString());
 				mInputStream.close();
 
 				// 解析JSON
 
-				mJsonArray = new JSONArray(mStringBuilder.toString());
+//				mJsonArray = new JSONArray(mStringBuilder.toString());
 
-				for (int i = 0; i < mJsonArray.length(); i++) {
-					mJsonObject = mJsonArray.getJSONObject(i);
-					result_Password = mJsonObject.getString("Password");
-					result_Phone = mJsonObject.getString("Phone");
-					result_Email = mJsonObject.getString("Email");
+					mJsonObject = new JSONObject(mStringBuilder.toString());
+					result_Password = mJsonObject.getString("passWord");
 					
-					System.out.println("----------->"+result_Password);
-					System.out.println("----------->"+result_Phone);
-					System.out.println("----------->"+result_Email);
+					System.out.println("----------->JSON"+result_Password);
 					
-				}
 			}
 
 		} catch (UnsupportedEncodingException e) {

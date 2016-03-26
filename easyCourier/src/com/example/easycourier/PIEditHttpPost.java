@@ -12,6 +12,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
@@ -34,25 +35,19 @@ public class PIEditHttpPost extends Thread {
 	ArrayList<NameValuePair> params;
 	
 //	需要传递的参数
-	String UserName;
 	String PassWord;
-	String Phone;
-	String Email;
 	
 	public static String PIEdit_result;
 	
-	public PIEditHttpPost(String PassWord,String Phone,String Email) {
+	public PIEditHttpPost(String PassWord) {
 
 		this.PassWord = PassWord;
-		this.Phone = Phone;
-		this.Email = Email;
 	}
 	
 	@Override
 	public void run() {
 		
 		editPersonalInfo();
-		super.run();
 	}
 
 	private void editPersonalInfo() {
@@ -60,10 +55,13 @@ public class PIEditHttpPost extends Thread {
 //		设置参数(name,value)
 		
 		params = new ArrayList<NameValuePair>();
-		params.add(new BasicNameValuePair("UserName", UserName));
-		params.add(new BasicNameValuePair("PassWord", PassWord));
-		params.add(new BasicNameValuePair("Phone", Phone));
-		params.add(new BasicNameValuePair("Email", Email));
+		params.add(new BasicNameValuePair("userName", Login.LOGIN_USERNAME));
+		params.add(new BasicNameValuePair("passWord", PassWord));
+		params.add(new BasicNameValuePair("phone", "111"));
+		params.add(new BasicNameValuePair("email", "111"));
+		params.add(new BasicNameValuePair("address", "111"));
+		params.add(new BasicNameValuePair("stunum", "111"));
+		params.add(new BasicNameValuePair("sex", "111"));
 		
 //		设置HTTPPOST
 		mHttpPost = new HttpPost(PersonalInfoEdit.PIEDIT_CONNECTURL);
@@ -73,18 +71,19 @@ public class PIEditHttpPost extends Thread {
 //			设置参数
 			
 			mHttpPost.setEntity(new UrlEncodedFormEntity(params));
-			
+			System.out.println("-------------->"+params.toString());
 //			发送请求
+			mHttpClient = new DefaultHttpClient();
 			mHttpResponse = mHttpClient.execute(mHttpPost);
+			System.out.println("-------------->");
 			
 //			判断请求是否发送成功
 			if(mHttpResponse.getStatusLine().getStatusCode()==HttpStatus.SC_OK){
 
 //				获取服务器返回数据
-				
 //				如果修改成功则返回 "success" 字符串
 				PIEdit_result = EntityUtils.toString(mHttpResponse.getEntity());
-				
+				System.out.println("-------------->"+PIEdit_result);
 //				将服务器返回的结果，传给PersonalInfoEdit处理
 				Message pieHttpPostMessage = new Message();
 				

@@ -78,7 +78,7 @@ public class PIShowHandle extends Thread {
 
 		// 新建POST请求
 
-		mPost = new HttpPost(Login.LOGIN_CONNECTURL);
+		mPost = new HttpPost(PersonalInfoShow.PISHOW_CONNECTURL);
 
 		// 设置参数
 

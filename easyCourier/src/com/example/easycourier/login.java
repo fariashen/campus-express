@@ -140,6 +140,7 @@ public class Login extends Activity implements OnClickListener {
 				
 				Intent intent = new Intent(loginContext, PersonalInfoShow.class);
 				loginContext.startActivity(intent);
+//				((Activity) loginContext).finish();
 				break;
 
 			case 2:
