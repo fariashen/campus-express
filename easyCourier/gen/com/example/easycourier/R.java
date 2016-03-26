@@ -51,6 +51,7 @@ public final class R {
         public static final int bt_PersonalInfo_Edit=0x7f080011;
         public static final int bt_Regiester_Server=0x7f080018;
         public static final int bt_Regiester_commit=0x7f080019;
+        public static final int cb_Regiester_checkBox=0x7f080017;
         public static final int et_Login_passWord=0x7f080003;
         public static final int et_Login_userName=0x7f080001;
         public static final int et_PersonalInfo_Email=0x7f08000b;
@@ -59,7 +60,6 @@ public final class R {
         public static final int et_PersonalInfo_Username=0x7f080008;
         public static final int et_Regiester_Email=0x7f080016;
         public static final int et_Regiester_Phone=0x7f080015;
-        public static final int et_Regiester_checkBox=0x7f080017;
         public static final int et_Regiester_confirmpassWord=0x7f080014;
         public static final int et_Regiester_passWord=0x7f080013;
         public static final int et_Regiester_userName=0x7f080012;

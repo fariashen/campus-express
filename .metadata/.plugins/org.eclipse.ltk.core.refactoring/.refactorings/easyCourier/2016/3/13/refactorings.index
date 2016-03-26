@@ -10,3 +10,8 @@
 1458795656071	Rename field 'bt_PersonalInfo_Edit'
 1458817971418	Rename compilation unit 'regiester.java'
 1458818044823	Rename compilation unit 'login.java'
+1458979684426	Rename type 'LoginHandle'
+1458979714369	Rename type 'PIEditHandle'
+1458979726786	Rename type 'PIShowHandle'
+1458979737432	Rename type 'RegiesterHandle'
+1458981146344	Rename field 'et_Regiester_checkBox'

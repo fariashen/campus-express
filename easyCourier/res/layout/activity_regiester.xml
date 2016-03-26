@@ -135,7 +135,7 @@
     android:layout_width="fill_parent"  
     android:layout_height="wrap_content" > 
     <CheckBox
-        android:id="@+id/et_Regiester_checkBox"
+        android:id="@+id/cb_Regiester_checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
