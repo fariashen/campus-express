@@ -88,54 +88,13 @@
         android:password="true"
     />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="电话号码"
-        android:textSize="10pt"
-        android:textColor="#000000"
-         />
-    <EditText
-        android:id="@+id/et_Regiester_Phone"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/qq_edit_login"
-        android:hint="请填写电话号码"
-        android:selectAllOnFocus="true"
-        android:phoneNumber="true"
-    />
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="邮箱"
-        android:textSize="10pt"
-        android:textColor="#000000"
-         />
-    <EditText
-        android:id="@+id/et_Regiester_Email"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/qq_edit_login"
-        android:hint="请填写邮箱"
-        android:selectAllOnFocus="true"
-        
-    />
 
   
 <LinearLayout  
     android:layout_width="fill_parent"  
     android:layout_height="wrap_content" > 
     <CheckBox
-        android:id="@+id/et_Regiester_checkBox"
+        android:id="@+id/cb_Regiester_checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"

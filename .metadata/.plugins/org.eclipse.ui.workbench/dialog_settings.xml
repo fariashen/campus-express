@@ -5,7 +5,7 @@
 		<item value="10" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
-		<item value="525" key="dialogHeight"/>
+		<item value="555" key="dialogHeight"/>
 		<item value="1025" key="dialogWidth"/>
 		<list key="textEntries">
 		</list>
@@ -16,6 +16,19 @@
 		<list key="textArray">
 		</list>
 	</section>
+<<<<<<< HEAD
 	<section name="ImportExportAction">
+=======
+	<section name="ShowViewDialog">
+		<item value="345" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="com.android.ide.eclipse.ddms.views.LogCatView" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
+		<item value="452" key="DIALOG_HEIGHT"/>
+		<item value="340" key="DIALOG_X_ORIGIN"/>
+		<item value="83" key="DIALOG_Y_ORIGIN"/>
+		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="com.android.ide.eclipse.ddms.views.category"/>
+		</list>
+>>>>>>> 42040e0472af99da5dc1211080867d434667af4d
 	</section>
 </section>

@@ -1,7 +1,10 @@
 package com.example.easycourier;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,44 +35,42 @@ public class PersonalInfoEdit extends Activity {
 
 	private EditText et_PersonalInfoEdit_UserName;
 	private EditText et_PersonalInfoEdit_PassWord;
-	private EditText et_PersonalInfoEdit_Phone;
-	private EditText et_PersonalInfoEdit_Email;
 
 	private Button bt_PersonalInfoEdit_Commit;
-	
-//	链接URL
-	
-	public static String PIEDIT_CONNECTURL="http://172.25.224.12:801/phpserver/PIedit.php";
 
 	String EDITED_USERNAME;
 	String EDITED_PASSWORD;
 	String EDITED_PHONE;
 	String EDITED_EMAIL;
 
-	PIEditHandle mEditHandle;
+	PIEditHttpPost mEditHandle;
+
+	public static Context pieContext;
+
+	// 链接地址
+	public static String PIEDIT_CONNECTURL = "http://119.29.4.159/phpserver/PIedit.php";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_personalinfo_edit);
 
+		// 获取 PersonalInfoEdit 的 Context
+		pieContext = PersonalInfoEdit.this;
+
 		// 获取各个控件
 
 		et_PersonalInfoEdit_UserName = (EditText) findViewById(R.id.et_PersonalInfo_Username);
 		et_PersonalInfoEdit_PassWord = (EditText) findViewById(R.id.et_PersonalInfo_Password);
-		et_PersonalInfoEdit_Phone = (EditText) findViewById(R.id.et_PersonalInfo_Phone);
-		et_PersonalInfoEdit_Email = (EditText) findViewById(R.id.et_PersonalInfo_Email);
 
 		bt_PersonalInfoEdit_Commit = (Button) findViewById(R.id.bt_PersonalInfo_Commit);
 
 		// 设置EditText的初始值
 
 		et_PersonalInfoEdit_UserName.setText(Login.LOGIN_USERNAME);
-		et_PersonalInfoEdit_PassWord.setText(PIShowHandle.result_Password);
-		et_PersonalInfoEdit_Phone.setText(PIShowHandle.result_Phone);
-		et_PersonalInfoEdit_Email.setText(PIShowHandle.result_Email);
+		et_PersonalInfoEdit_PassWord.setText(PersonalInfoShow.PIS_PASSWORD);
 
-		// 点击“确定”按钮后将修改的值传给数据库
+		// 点击“确定”按钮后将修改的值传给 PIEditHttpPost 线程
 
 		bt_PersonalInfoEdit_Commit
 				.setOnClickListener(new View.OnClickListener() {
@@ -77,27 +78,44 @@ public class PersonalInfoEdit extends Activity {
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-						EDITED_USERNAME = et_PersonalInfoEdit_UserName
-								.getText().toString();
+
 						EDITED_PASSWORD = et_PersonalInfoEdit_PassWord
 								.getText().toString();
-						EDITED_PHONE = et_PersonalInfoEdit_Phone.getText()
-								.toString();
-						EDITED_EMAIL = et_PersonalInfoEdit_Email.getText()
-								.toString();
 
-						mEditHandle = new PIEditHandle(EDITED_USERNAME,
-								EDITED_PASSWORD, EDITED_PHONE, EDITED_EMAIL);
+						mEditHandle = new PIEditHttpPost(EDITED_PASSWORD);
 
+						// 启动PIEditHttpPost 线程
 						mEditHandle.start();
-
-						if (PIEditHandle.PIEdit_result.equals("success")) {
-							Toast.makeText(PersonalInfoEdit.this, "修改信息成功",
-									Toast.LENGTH_SHORT).show();
-						}
 
 					}
 				});
 	}
+
+	/*
+	 * 处理 PIEditHttpPost 线程返回的消息
+	 * 
+	 * 两种情况
+	 * 
+	 * 情况一：修改成功 情况二：修改失败
+	 */
+
+	public static Handler PIE_Handler = new Handler() {
+
+		public void handleMessage(android.os.Message msg) {
+			switch (msg.what) {
+			case 1:
+				Toast.makeText(pieContext, "修改信息成功", Toast.LENGTH_SHORT).show();
+				// 修改成功后跳转回 个人信息展示界面
+				Intent intent = new Intent(pieContext, PersonalInfoShow.class);
+				pieContext.startActivity(intent);
+				((Activity) pieContext).finish();
+				break;
+
+			default:
+				Toast.makeText(pieContext, "修改信息失败", Toast.LENGTH_SHORT).show();
+				break;
+			}
+		};
+	};
 
 }
