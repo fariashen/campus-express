@@ -149,7 +149,7 @@ public class RequsetShowFragHttpPost extends Thread {
 								bundle.putString("size",
 										itemBeanList.get(position-1).itemSize);
 								
-								bundle.putString("kinds",
+								bundle.putString("kind",
 										itemBeanList.get(position-1).itemKind);
 								
 								bundle.putString(
