@@ -1,0 +1,196 @@
+package com.example.easycourier;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
+import android.widget.ListView;
+
+public class ReFlashListView extends ListView implements OnScrollListener  {
+
+	private View header;	//顶部布局文件
+	private int headerHeight;	//顶部布局文件的高度
+	private int firstVisibleItem; //当前第一个可见控件
+	
+	boolean isRemark;// 标记，当前是在页面的最顶端摁下
+	int startY;//摁下时的Y值
+	
+	int state;// 摁下移动时的状态
+	final int NONE = 0;// 正常状态
+	final int PULL = 1;// 提示下拉可以刷新
+	final int RELESE = 2;// 提示松开可以释放
+	final int REFLASHING = 3;// 正在刷新
+	
+	public ReFlashListView(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		// TODO Auto-generated constructor stub
+		
+		initView(context);
+		
+	}
+
+	public ReFlashListView(Context context, AttributeSet attrs) {
+		this(context,attrs,0);
+	}
+
+	public ReFlashListView(Context context) {
+		this(context, null);
+	}
+	
+	
+	/**
+	 * 初始化界面，添加顶部布局文件到listView内
+	 * @param context
+	 */
+	private void initView(Context context){
+		
+		LayoutInflater inflater = LayoutInflater.from(context);
+		header = inflater.inflate(R.layout.header_layout, null);
+		
+		measureView(header);
+		headerHeight = header.getMeasuredHeight();
+		topPadding(-headerHeight);
+		//添加到listview
+		this.addHeaderView(header);
+		this.setOnScrollListener(this);
+		
+	}
+	
+	/**
+	 * 通知父布局占用的宽高
+	 * @param view
+	 */
+	private void measureView(View view){
+		
+		ViewGroup.LayoutParams p = view.getLayoutParams();
+		if(p == null){
+			
+			p = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+					ViewGroup.LayoutParams.WRAP_CONTENT);
+		}
+		
+		int width = ViewGroup.getChildMeasureSpec(0, 0, p.width);
+		int height;
+		int tempHeight = p.height;
+		if(tempHeight>0){
+			height = MeasureSpec.makeMeasureSpec(tempHeight, MeasureSpec.EXACTLY);
+		}else{
+			height = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
+		}
+		
+		view.measure(width, height);
+	}
+	
+	//通过设置顶部的padding隐藏下拉刷新的布局
+	private void topPadding(int topPadding){
+		header.setPadding(header.getPaddingLeft(), topPadding,
+				header.getPaddingRight(), header.getPaddingBottom());
+		
+		header.invalidate();
+	}
+
+	@Override
+	public void onScrollStateChanged(AbsListView view, int scrollState) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onScroll(AbsListView view, int firstVisibleItem,
+			int visibleItemCount, int totalItemCount) {
+		// TODO Auto-generated method stub
+		
+		//根据firstVisibleItem判断当前界面是否在最顶端
+		this.firstVisibleItem = firstVisibleItem;
+	}
+
+	//手势的判断
+	@Override
+	public boolean onTouchEvent(MotionEvent ev) {
+		// TODO Auto-generated method stub
+		
+		switch (ev.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+			if (firstVisibleItem == 0) {
+				isRemark = true;
+				startY = (int) ev.getY();
+			}
+			break;
+
+		case MotionEvent.ACTION_MOVE:
+			onMove(ev);
+			break;
+		case MotionEvent.ACTION_UP:
+			if (state == RELESE) {
+				state = REFLASHING;
+				reflashViewByState();
+				iReflashListener.onReflash();
+			} else if (state == PULL) {
+				state = NONE;
+				isRemark = false;
+				reflashViewByState();
+			}
+			break;
+		}
+		
+		return super.onTouchEvent(ev);
+	}
+
+	//移动过程中的操作
+	private void onMove(MotionEvent ev) {
+
+		if (!isRemark) {
+			return;
+		}
+		//当前移动的位置
+		int tempY = (int) ev.getY();
+		
+		//已移动的距离
+		int space = tempY - startY;
+		
+		//根据移动的距离不断设置topPadding
+		int topPadding = space - headerHeight;
+		
+		switch (state) {
+		case NONE:
+			if (space > 0) {
+				//往下移动了
+				
+				state = PULL;
+				reflashViewByState();
+			}
+			break;
+		case PULL:
+			topPadding(topPadding);
+			if (space > headerHeight + 30
+					&& scrollState == SCROLL_STATE_TOUCH_SCROLL) {
+				//大于一定高度，并且正在当前滚动状态正在滚动
+				//提示可以松开
+				
+				state = RELESE;
+				reflashViewByState();
+			}
+			break;
+		case RELESE:
+			topPadding(topPadding);
+			if (space < headerHeight + 30) {
+				//往上移动，或者小于一定高度
+				
+				state = PULL;
+				reflashViewByState();
+			} else if (space <= 0) {
+				//没有拖拽过
+				
+				state = NONE;
+				isRemark = false;
+				reflashViewByState();
+			}
+			break;
+			
+		}
+	}
+}

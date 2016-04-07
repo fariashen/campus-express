@@ -1,0 +1,68 @@
+package easyCourierHttpPostRequest;
+
+import java.util.ArrayList;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+
+import android.widget.EditText;
+
+/**
+ * 
+ * @author vacation
+ * 
+ *         根据传入的参数：
+ * 
+ *         快递类型， 收件人名称， 收件人联系方式， 收件时限
+ * 
+ *         与数据库进行通信，插入记录
+ * 
+ */
+public class RULHttpPost extends Thread {
+
+	/**
+	 * 
+	 * 插入数据库的数据参数
+	 * 
+	 */
+	private String RUL_CourierType;
+	private String RUL_ReceiverName;
+	private String RUL_ReceiverContact;
+	private String RUL_ReceiveTime;
+
+	// 访问数据库链接地址
+	private final String REQUEST_UPLOAD_URL = "";
+
+	// 进行POST请求的变量
+	HttpClient mHttpClient;
+	HttpPost mHttpPost;
+	HttpResponse mHttpResponse;
+	HttpEntity mHttpEntity;
+	ArrayList<NameValuePair> params;
+
+	public RULHttpPost(String CourierType, String ReceiverName,
+			String ReceiverContact, String ReceiveTime) {
+
+		this.RUL_CourierType = CourierType;
+		this.RUL_ReceiverName = ReceiverName;
+		this.RUL_ReceiverContact = ReceiverContact;
+		this.RUL_ReceiveTime = ReceiveTime;
+
+	}
+
+	@Override
+	public void run() {
+
+		addRequest();
+
+	}
+
+	private void addRequest() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

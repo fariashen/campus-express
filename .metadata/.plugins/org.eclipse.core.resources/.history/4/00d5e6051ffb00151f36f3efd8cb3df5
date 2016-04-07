@@ -1,0 +1,75 @@
+package com.example.easycourier;
+
+import java.util.List;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class MyBaseAdapter extends BaseAdapter{
+
+	//将item的布局文件转换为View对象
+	private LayoutInflater mInflater;
+	
+	//创建一个成员变量，保存传入的数据
+	private List<ItemBean> mList;
+	
+	//为了从数据源中获取要传入的数据
+	//创建一个构造方法
+	public MyBaseAdapter(Context context,List<ItemBean> mList) {
+		super();
+		
+		this.mList = mList;
+		mInflater = LayoutInflater.from(context);
+	}
+	
+	@Override
+	public int getCount() {
+
+		return mList.size();
+	}
+
+
+	@Override
+	public Object getItem(int position) {
+		return mList.get(position);
+	}
+
+	@Override
+	public long getItemId(int position) {
+		return position;
+	}
+
+	/**
+	 * 
+	 * 返回每一项的显示内容
+	 * 
+	 */
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		
+		//通过mInflate对象将xml文件转换为需要的View对象
+		View view = mInflater.inflate(R.layout.item_request, null);
+		
+		//找到item的布局文件中的控件
+		ImageView imageView = (ImageView) view.findViewById(R.id.iv_itemimage);
+		TextView title = (TextView) view.findViewById(R.id.tv_title);
+		TextView content = (TextView) view.findViewById(R.id.tv_content);
+		
+		//创建一个bean对象，获取保存在List中的数据
+		ItemBean bean = mList.get(position);
+		
+		//通过bean对象，设置相应的控件
+		imageView.setImageResource(bean.itemImageResid);
+		title.setText(bean.itemTitle);
+		title.setText(bean.itemContent);
+		
+		
+		return view;
+	}
+
+}

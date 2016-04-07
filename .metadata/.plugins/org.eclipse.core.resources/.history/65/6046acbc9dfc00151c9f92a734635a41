@@ -1,0 +1,34 @@
+package com.example.easycourier;
+
+/**
+ * 
+ * @author vacation 
+ * 
+ * 封装Item中的三个属性 
+ * 
+ * ResourceId 
+ * 
+ * 要显示的题目 
+ * 
+ * 要显示的内容
+ * 
+ * TODO
+ * 
+ * 布局文件中控件需重新设置，成员变量待定
+ */
+
+public class ItemBean {
+
+	public int itemImageResid;
+	public String itemTitle;
+	public String itemContent;
+	
+	//与item_request的布局文件形成了一一对应的关系
+	public ItemBean(int itemImageResid, String itemTitle, String itemContent) {
+		super();
+		this.itemImageResid = itemImageResid;
+		this.itemTitle = itemTitle;
+		this.itemContent = itemContent;
+	}
+	
+}

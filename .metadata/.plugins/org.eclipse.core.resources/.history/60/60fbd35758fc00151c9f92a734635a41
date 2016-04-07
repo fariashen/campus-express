@@ -1,0 +1,261 @@
+package easyCourierHttpPost;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+
+import com.example.easycourier.ItemBean;
+import com.example.easycourier.MyBaseAdapter;
+
+import easyCourierFragment.RequestShowFragment;
+import easyCourierFunction.RequestDetailShow;
+
+/**
+ * 
+ * @author vacation
+ * 
+ *         向远程数据库发送查询的操作请求
+ * 
+ *         获取Json格式的数据
+ * 
+ *         解释Json数据
+ * 
+ *         将解释后的数据封装在List<ItemBean> 中
+ * 
+ *         向主线程发送更新UI的请求：
+ * 
+ *         1、将获取的数据绑定适配器
+ * 
+ *         2、监听ListView的Item点击事件
+ * 
+ * 
+ */
+public class RequsetShowFragHttpPost extends Thread {
+
+	// 发送请求的远程数据库地址
+	private final String RSF_URL = "";// TODO
+
+	// 发送网络请求的成员变量
+	private HttpClient mHttpClient;
+	private HttpPost mHttpPost;
+	private HttpResponse mHttpResponse;
+	private HttpEntity mEntity;
+
+	// 解析Json数据的成员变量
+	private InputStream mInputStream;
+	private InputStreamReader mInputStreamReader;
+	private BufferedReader mBufferedReader;
+	private JSONObject mJsonObject;
+	private JSONArray mJsonArray;
+
+	// 保存返回的json字符串信息
+	private String jsonString;
+
+	// 保存已解释的json数据
+	public static List<ItemBean> itemBeanList;
+
+	// 要添加数据的数据项
+	private ItemBean mItemBean;
+	private int itemImageResid;
+	private String itemTitle;
+	private String itemContent;
+	
+	//启动Activity的成员变量
+	private Intent mIntent;
+	
+	//将用户点击的Item的所有信息值写入Bundle
+	//在启动RequestDetailShow.class的时候，将Bundle传过去
+	private Bundle bundle;
+
+
+	@Override
+	public void run() {
+
+		// 获取已有的请求数据
+		
+		// -------------》
+		//           测试阶段暂时注释
+		// -------------》TODO
+		
+				//getRequestData();
+
+		// -------------》
+		//           测试阶段暂时注释
+		// -------------》
+
+		
+		// 向主线程发送更新UI的请求
+		RequestShowFragment.RSF_Handler.post(new Runnable() {
+
+			@Override
+			public void run() {
+
+				// 将ListView绑定数据适配器
+				RequestShowFragment.RSF_ListView.setAdapter(new MyBaseAdapter(
+						RequestShowFragment.view.getContext(), RequestShowFragment.itemBeanList));
+				
+				RequestShowFragment.RSF_ListView.setOnItemClickListener(new OnItemClickListener() {
+
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						// TODO
+						/**
+						 * 
+						 * 获取被点击的数据项的所有信息
+						 * 
+						 * 根据获取的信息设置RequestDetailShow.class的控件值
+						 * 
+						 */
+						
+						//TODO 将传入Bundle的值换成itemBeanList
+//						itemBeanList.get(position).itemImageResid
+//						itemBeanList.get(position).itemTitle
+//						itemBeanList.get(position).itemContent
+						
+
+						
+//						System.out.println("------------>position"+itemBeanList.get(position).itemTitle);
+//						System.out.println("------------>id"+id);
+						
+						//启动RequestDetailShow.class
+						mIntent = new Intent(view.getContext(), RequestDetailShow.class);
+						
+						bundle = new Bundle();
+						
+						//------------------>TODO
+						//          RequestShowFragment.itemBeanList仅供测试使用
+						//------------------>
+						
+						bundle.putInt("resourceId", RequestShowFragment.itemBeanList.get(position).itemImageResid);
+						bundle.putString("Title", RequestShowFragment.itemBeanList.get(position).itemTitle);
+						bundle.putString("Content", RequestShowFragment.itemBeanList.get(position).itemContent);
+						
+						//------------------>
+						//          RequestShowFragment.itemBeanList仅供测试使用
+						//------------------>	
+						
+						mIntent.putExtra("RequestItemClick", bundle);
+						
+						RequestShowFragment.view.getContext().startActivity(mIntent);
+						
+					}
+				});
+			}
+		});
+	}
+
+	private void getRequestData() {
+
+		// 实例化网络请求的变量
+		mHttpClient = new DefaultHttpClient();
+		mHttpPost = new HttpPost(RSF_URL);
+
+		try {
+
+			// 发送请求
+			mHttpResponse = mHttpClient.execute(mHttpPost);
+
+			if (mHttpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				// 如果发送请求成功
+
+				// 获取服务器返回的字节流
+				mEntity = mHttpResponse.getEntity();
+				mInputStream = mEntity.getContent();
+
+				// 将字节流转换为json字符串
+				readSteam();
+
+				// 关闭字节流
+				mInputStream.close();
+
+				// 将jsonString转换为jsonObject
+				mJsonObject = new JSONObject(jsonString);
+
+				// 得到数组名为"data"对应的jsonArray
+				mJsonArray = mJsonObject.getJSONArray("data");
+
+				// 获取jsonArray中的每一个元素的值
+				for (int i = 0; i < mJsonArray.length(); i++) {
+
+					mJsonObject = mJsonArray.getJSONObject(i);
+
+					// 根据元素名设置ItemBean中成员变量的值
+					itemImageResid = mJsonObject.getInt("ImageResid");
+					itemTitle = mJsonObject.getString("Title");
+					itemContent = mJsonObject.getString("Content");
+					mItemBean = new ItemBean(itemImageResid, itemTitle,
+							itemContent);
+
+					// 将添加好数据的ItemBean对象,加入List中
+					itemBeanList.add(mItemBean);
+
+				}
+
+			}
+
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 
+	 * 将服务器返回的字节流转换为json字符串
+	 * 
+	 */
+	private void readSteam() {
+
+		try {
+
+			// 将字节流转换为字符流
+			mInputStreamReader = new InputStreamReader(mInputStream, "UTF-8");
+
+			// 将字符流以BufferReader的形式读出
+			mBufferedReader = new BufferedReader(mInputStreamReader);
+
+			// 逐行读取字符流
+			String line = "";
+			while ((line = mBufferedReader.readLine()) != null) {
+
+				jsonString += line;
+			}
+
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

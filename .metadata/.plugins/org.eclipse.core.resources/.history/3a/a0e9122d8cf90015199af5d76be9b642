@@ -1,0 +1,7 @@
+package easyCourierFragment;
+
+import android.support.v4.app.Fragment;
+
+public class FriendShowFragment extends Fragment {
+
+}

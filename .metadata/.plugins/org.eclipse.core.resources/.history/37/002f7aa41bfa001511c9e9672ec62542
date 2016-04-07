@@ -1,0 +1,41 @@
+package com.example.easycourier;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
+
+/**
+ * 
+ * @author vacation
+ * 
+ *         该类实现的功能
+ * 
+ *         绘制底部自定义的三个Tab
+ * 
+ *         控制fragment滑动时Tab的颜色变化
+ * 
+ */
+
+public class ChangeColorIconWithText extends View {
+
+	/**
+	 * 
+	 * 定义底部Tab的四个基本属性
+	 * 
+	 */
+
+	public ChangeColorIconWithText(Context context, AttributeSet attrs,
+			int defStyleAttr) {
+		super(context, attrs, defStyleAttr);
+
+	}
+
+	public ChangeColorIconWithText(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
+	}
+
+	public ChangeColorIconWithText(Context context) {
+		this(context, null);
+	}
+
+}

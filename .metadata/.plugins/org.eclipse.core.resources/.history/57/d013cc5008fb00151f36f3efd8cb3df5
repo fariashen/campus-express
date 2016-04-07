@@ -1,0 +1,129 @@
+package easyCourierHttpPostRequest;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+
+import android.os.Message;
+import android.widget.EditText;
+
+/**
+ * 
+ * @author vacation
+ * 
+ *         根据传入的参数：
+ * 
+ *         快递类型， 收件人名称， 收件人联系方式， 收件时限
+ * 
+ *         与数据库进行通信，插入记录
+ * 
+ */
+public class RULHttpPost extends Thread {
+
+	/**
+	 * 
+	 * 插入数据库的数据参数
+	 * 
+	 */
+	private String RUL_CourierType;
+	private String RUL_ReceiverName;
+	private String RUL_ReceiverContact;
+	private String RUL_ReceiveTime;
+
+	// 访问数据库链接地址
+	private final String REQUEST_UPLOAD_URL = "";
+
+	// 进行POST请求的变量
+	HttpClient mHttpClient;
+	HttpPost mHttpPost;
+	HttpResponse mHttpResponse;
+	ArrayList<NameValuePair> params;
+
+	// 发送网络请求后返回的结果码
+	private int RUL_RESULT_CODE;
+
+	public RULHttpPost(String CourierType, String ReceiverName,
+			String ReceiverContact, String ReceiveTime) {
+
+		this.RUL_CourierType = CourierType;
+		this.RUL_ReceiverName = ReceiverName;
+		this.RUL_ReceiverContact = ReceiverContact;
+		this.RUL_ReceiveTime = ReceiveTime;
+
+	}
+
+	@Override
+	public void run() {
+
+		addRequest();
+
+	}
+
+	private void addRequest() {
+
+		/**
+		 * 初始化网络请求的变量
+		 */
+		mHttpClient = new DefaultHttpClient();
+		// 设置HttpPost
+		mHttpPost = new HttpPost(REQUEST_UPLOAD_URL);
+		params = new ArrayList<NameValuePair>();
+
+		/**
+		 * 设置参数
+		 */
+		params.add(new BasicNameValuePair("CourierType", RUL_CourierType));
+		params.add(new BasicNameValuePair("ReceiverName", RUL_ReceiverName));
+		params.add(new BasicNameValuePair("ReceiverContact",
+				RUL_ReceiverContact));
+		params.add(new BasicNameValuePair("ReceiveTime", RUL_ReceiveTime));
+
+		try {
+
+			// 将参数设置在HttpPost请求内
+			mHttpPost.setEntity(new UrlEncodedFormEntity(params));
+
+			// 发送请求
+			mHttpResponse = mHttpClient.execute(mHttpPost);
+
+			// 判断请求是否发送成功
+			if (mHttpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+
+				// 获取服务器返回的结果码
+				RUL_RESULT_CODE = Integer.parseInt(EntityUtils
+						.toString(mHttpResponse.getEntity()));
+				
+				//将结果码传给 RequestUpLoad.class 处理
+				Message rulHttpPostMessage = new Message();
+				rulHttpPostMessage.what = RUL_RESULT_CODE;
+				
+				
+
+			}
+
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

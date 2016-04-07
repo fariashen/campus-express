@@ -1,0 +1,48 @@
+package easyCourierFunction;
+
+import org.w3c.dom.Text;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.easycourier.R;
+
+public class RequestDetailShow extends Activity {
+
+	/**
+	 * 根据用户点击的Item来更新UI
+	 * 
+	 * 在RequestShowFragment.class中进行调用
+	 */
+	private ImageView mImageView;
+	private TextView mTitle;
+	private TextView mContent;
+	
+	private Intent mIntent;
+	private Bundle mBundle;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		getActionBar().setDisplayShowHomeEnabled(false);
+		setContentView(R.layout.activity_requestdetail);
+		
+		mImageView = (ImageView) findViewById(R.id.iv_DetailIv);
+		mTitle =  (TextView) findViewById(R.id.tv_DetailTitle);
+		mContent = (TextView) findViewById(R.id.tv_DetailContent);
+		
+		mIntent = new Intent();
+		mBundle = mIntent.getBundleExtra("RequestItemClick");
+		
+		mImageView.setImageResource(mBundle.getInt("resourceId"));
+		mTitle.setText(mBundle.getString("Title"));
+		mContent.setText(mBundle.getString("Content"));
+		
+		
+	}
+	
+}

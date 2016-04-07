@@ -1,0 +1,29 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.easycourier.MainActivity" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_settings"/>
+    
+    <item 
+        android:id="@+id/action_addrequest"
+        android:icon="@drawable/create_contact"
+        android:title="@string/menu_addreuqest"
+        />
+    
+    <item 
+        android:id="@+id/action_addfriend"
+        android:icon="@drawable/ic_menu_invite"
+        android:title="@string/menu_addfriend"
+        />
+    
+    <item 
+        android:id="@+id/action_feedback"
+        android:icon="@drawable/sym_action_email"
+        android:title="@string/menu_feedback"
+        />
+
+</menu>

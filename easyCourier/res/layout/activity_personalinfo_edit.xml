@@ -2,39 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="20sp"
+    android:paddingRight="20sp" >
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="用户名："
-        android:textSize="28sp" />
+        android:textSize="25sp" />
 
     <EditText
         android:id="@+id/et_PersonalInfo_Username"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:editable="false"
-        android:textSize="28sp" />
+        android:paddingBottom="15sp"
+        android:paddingTop="15sp"
+        android:textSize="22sp" />
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="密码："
-        android:textSize="28sp" />
+        android:textSize="25sp" />
 
     <EditText
         android:id="@+id/et_PersonalInfo_Password"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="28sp" />
-
+        android:paddingBottom="15sp"
+        android:paddingTop="15sp"
+        android:singleLine="true"
+        android:textSize="22sp" />
 
     <Button
         android:id="@+id/bt_PersonalInfo_Commit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="确定"
-        android:textSize="28sp" />
+        android:textSize="25sp" />
 
 </LinearLayout>

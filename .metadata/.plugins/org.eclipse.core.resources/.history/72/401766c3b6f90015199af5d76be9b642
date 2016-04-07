@@ -1,0 +1,7 @@
+package com.example.easycourier;
+
+import android.view.View;
+
+public class ChangeColorIconWithText extends View {
+
+}

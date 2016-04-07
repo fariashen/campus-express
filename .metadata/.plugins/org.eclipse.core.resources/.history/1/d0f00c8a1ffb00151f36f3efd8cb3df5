@@ -1,0 +1,53 @@
+package easyCourierFragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.example.easycourier.ItemBean;
+import com.example.easycourier.R;
+
+/**
+ * 
+ * @author vacation
+ *
+ *	通过BaseAdapter 将所有请求显示在ListView 中
+ *
+ */
+public class RequestShowFragment extends Fragment {
+
+	private View view;
+	@Override
+	public View onCreateView(LayoutInflater inflater,
+			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+		view = inflater.inflate(R.layout.fragment_requestshow,container,false);
+		
+		/**
+		 * 
+		 * 创建一个ItemBean List
+		 * 
+		 * 每一个ItemBean对象相当于ListView中的一条数据
+		 * 
+		 */
+		List<ItemBean> itemBeanList= new ArrayList<ItemBean>();
+		for(int i=0;i<20;i++){
+			
+			//往List中添加itemBean对象
+			itemBeanList.add(new ItemBean(
+					R.drawable.ic_launcher, 
+					"CourierType"+i, 
+					"receiveTime"+i));
+		}
+		
+		
+		return view;
+	}
+	
+}
