@@ -9,6 +9,38 @@ package com.example.easycourier;
 
 public final class R {
     public static final class attr {
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int color=0x7f010001;
+        /**  底部自定义View的自定义属性 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int icon=0x7f010000;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int text=0x7f010002;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int text_size=0x7f010003;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -25,47 +57,90 @@ public final class R {
         public static final int anniu=0x7f020000;
         public static final int background_button_div=0x7f020001;
         public static final int bottom_bar=0x7f020002;
-        public static final int edit=0x7f020003;
-        public static final int fillet_shape=0x7f020004;
-        public static final int fx1=0x7f020005;
-        public static final int fx2=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int input_over=0x7f020008;
-        public static final int kuaidi2=0x7f020009;
-        public static final int login_input=0x7f02000a;
-        public static final int qq_edit_login=0x7f02000b;
-        public static final int top_add=0x7f02000c;
-        public static final int top_search=0x7f02000d;
-        public static final int txl1=0x7f02000e;
-        public static final int txl2=0x7f02000f;
-        public static final int wo1=0x7f020010;
-        public static final int wo2=0x7f020011;
-        public static final int xiala=0x7f020012;
-        public static final int xiaoxi1=0x7f020013;
-        public static final int xiaoxi2=0x7f020014;
+        public static final int create_contact=0x7f020003;
+        public static final int edit=0x7f020004;
+        public static final int fillet_shape=0x7f020005;
+        public static final int fx1=0x7f020006;
+        public static final int fx2=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int ic_menu_friendslist=0x7f020009;
+        public static final int ic_menu_goto=0x7f02000a;
+        public static final int ic_menu_invite=0x7f02000b;
+        public static final int ic_menu_myplaces=0x7f02000c;
+        public static final int ic_menu_paste_holo_dark=0x7f02000d;
+        public static final int input_over=0x7f02000e;
+        public static final int kuaidi2=0x7f02000f;
+        public static final int login_input=0x7f020010;
+        public static final int pull_to_refresh_arrow=0x7f020011;
+        public static final int qq_edit_login=0x7f020012;
+        public static final int stat_sys_download_anim5=0x7f020013;
+        public static final int sym_action_email=0x7f020014;
+        public static final int tab_bg=0x7f020015;
+        public static final int top_add=0x7f020016;
+        public static final int top_search=0x7f020017;
+        public static final int txl1=0x7f020018;
+        public static final int txl2=0x7f020019;
+        public static final int wo1=0x7f02001a;
+        public static final int wo2=0x7f02001b;
+        public static final int xiala=0x7f02001c;
+        public static final int xiaoxi1=0x7f02001d;
+        public static final int xiaoxi2=0x7f02001e;
     }
     public static final class id {
-        public static final int action_settings=0x7f080014;
+        public static final int action_addfriend=0x7f080034;
+        public static final int action_addrequest=0x7f080033;
+        public static final int action_feedback=0x7f080035;
         public static final int bt_Login_Commit=0x7f080007;
-        public static final int bt_PersonalInfo_Commit=0x7f08000a;
-        public static final int bt_PersonalInfo_Edit=0x7f08000d;
-        public static final int bt_Regiester_Server=0x7f080012;
-        public static final int bt_Regiester_commit=0x7f080013;
-        public static final int cb_Regiester_checkBox=0x7f080011;
+        public static final int bt_PersonalCenter_Edit=0x7f080028;
+        public static final int bt_PersonalCenter_PI=0x7f080027;
+        public static final int bt_PersonalCenter_Request=0x7f080029;
+        public static final int bt_PersonalInfo_Commit=0x7f08000e;
+        public static final int bt_RUL_Commit=0x7f080026;
+        public static final int bt_Regiester_Server=0x7f080015;
+        public static final int bt_Regiester_commit=0x7f080016;
+        public static final int cb_Regiester_checkBox=0x7f080014;
         public static final int et_Login_passWord=0x7f080003;
         public static final int et_Login_userName=0x7f080001;
-        public static final int et_PersonalInfo_Password=0x7f080009;
-        public static final int et_PersonalInfo_Username=0x7f080008;
-        public static final int et_Regiester_confirmpassWord=0x7f080010;
-        public static final int et_Regiester_passWord=0x7f08000f;
-        public static final int et_Regiester_userName=0x7f08000e;
+        public static final int et_PersonalInfo_Password=0x7f08000d;
+        public static final int et_PersonalInfo_Username=0x7f08000c;
+        public static final int et_RUL_addFrom=0x7f08001f;
+        public static final int et_RUL_addTo=0x7f080020;
+        public static final int et_RUL_kinds=0x7f080024;
+        public static final int et_RUL_nickName=0x7f08001d;
+        public static final int et_RUL_phone=0x7f080023;
+        public static final int et_RUL_providerName=0x7f08001c;
+        public static final int et_RUL_remarks=0x7f080025;
+        public static final int et_RUL_reward=0x7f08001e;
+        public static final int et_RUL_size=0x7f080022;
+        public static final int et_RUL_timeLimit=0x7f080021;
+        public static final int et_Regiester_confirmpassWord=0x7f080013;
+        public static final int et_Regiester_passWord=0x7f080012;
+        public static final int et_Regiester_userName=0x7f080011;
+        public static final int header_layout=0x7f08002b;
+        public static final int header_progress=0x7f08002f;
+        public static final int id_personalcenter=0x7f08000b;
+        public static final int id_showfriend=0x7f08000a;
+        public static final int id_showrequest=0x7f080009;
+        public static final int id_viewpager=0x7f080008;
         public static final int iv_Image=0x7f080000;
+        public static final int iv_header_arrow=0x7f08002e;
+        public static final int lv_RequestShow=0x7f08002a;
         public static final int lv_loginList=0x7f080006;
         public static final int textView1=0x7f080002;
-        public static final int tv_PersonalInfo_Password=0x7f08000c;
-        public static final int tv_PersonalInfo_Username=0x7f08000b;
+        public static final int tv_DetailKinds=0x7f08001a;
+        public static final int tv_DetailProviderName=0x7f080017;
+        public static final int tv_DetailReward=0x7f080018;
+        public static final int tv_DetailSize=0x7f080019;
+        public static final int tv_DetailTimeLimit=0x7f08001b;
+        public static final int tv_PersonalInfo_Password=0x7f080010;
+        public static final int tv_PersonalInfo_Username=0x7f08000f;
         public static final int tv_Regiester=0x7f080005;
         public static final int tv_fetchPassword=0x7f080004;
+        public static final int tv_header_lastupdate_time=0x7f08002d;
+        public static final int tv_header_tip=0x7f08002c;
+        public static final int tv_itemKinds=0x7f080030;
+        public static final int tv_itemReward=0x7f080031;
+        public static final int tv_itemSize=0x7f080032;
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;
@@ -73,14 +148,28 @@ public final class R {
         public static final int activity_personalinfo_edit=0x7f030002;
         public static final int activity_personalinfo_show=0x7f030003;
         public static final int activity_regiester=0x7f030004;
+        public static final int activity_requestdetail=0x7f030005;
+        public static final int activity_requestupload=0x7f030006;
+        public static final int fragment_friendshow=0x7f030007;
+        public static final int fragment_personalcenter=0x7f030008;
+        public static final int fragment_requestshow=0x7f030009;
+        public static final int header_layout=0x7f03000a;
+        public static final int item_request=0x7f03000b;
     }
     public static final class menu {
         public static final int main=0x7f070000;
     }
     public static final class string {
-        public static final int action_settings=0x7f050001;
-        public static final int app_name=0x7f050002;
+        public static final int app_name=0x7f050001;
+        /**  添加软件名称，功能菜单，底部自定义View的字符串 
+         */
         public static final int hello_world=0x7f050000;
+        public static final int menu_addfriend=0x7f050004;
+        public static final int menu_addreuqest=0x7f050002;
+        public static final int menu_feedback=0x7f050003;
+        public static final int tab_contact=0x7f050005;
+        public static final int tab_me=0x7f050007;
+        public static final int tab_request=0x7f050006;
     }
     public static final class style {
         /** 
@@ -110,4 +199,82 @@ public final class R {
          */
         public static final int AppTheme=0x7f060001;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a ChangeColorIconWithText.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ChangeColorIconWithText_color com.example.easycourier:color}</code></td><td></td></tr>
+           <tr><td><code>{@link #ChangeColorIconWithText_icon com.example.easycourier:icon}</code></td><td> 底部自定义View的自定义属性 </td></tr>
+           <tr><td><code>{@link #ChangeColorIconWithText_text com.example.easycourier:text}</code></td><td></td></tr>
+           <tr><td><code>{@link #ChangeColorIconWithText_text_size com.example.easycourier:text_size}</code></td><td></td></tr>
+           </table>
+           @see #ChangeColorIconWithText_color
+           @see #ChangeColorIconWithText_icon
+           @see #ChangeColorIconWithText_text
+           @see #ChangeColorIconWithText_text_size
+         */
+        public static final int[] ChangeColorIconWithText = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.example.easycourier.R.attr#color}
+          attribute's value can be found in the {@link #ChangeColorIconWithText} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.easycourier:color
+        */
+        public static final int ChangeColorIconWithText_color = 1;
+        /**
+          <p>
+          @attr description
+           底部自定义View的自定义属性 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.example.easycourier:icon
+        */
+        public static final int ChangeColorIconWithText_icon = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.example.easycourier.R.attr#text}
+          attribute's value can be found in the {@link #ChangeColorIconWithText} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.easycourier:text
+        */
+        public static final int ChangeColorIconWithText_text = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.example.easycourier.R.attr#text_size}
+          attribute's value can be found in the {@link #ChangeColorIconWithText} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.easycourier:text_size
+        */
+        public static final int ChangeColorIconWithText_text_size = 3;
+    };
 }

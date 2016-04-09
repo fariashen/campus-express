@@ -1,0 +1,184 @@
+package easyCourierFragment;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+
+import com.example.easycourier.ItemBean;
+import com.example.easycourier.MyBaseAdapter;
+import com.example.easycourier.R;
+
+/**
+ * 
+ * @author vacation
+ *
+ *	通过BaseAdapter 将所有请求显示在ListView 中
+ *
+ */
+public class RequestShowFragment extends Fragment {
+
+	private View view;
+	private ListView listView;
+	
+	//接受子线程发送的更新UI的请求
+	public static Handler RSF_Handler;
+	
+	public static ListView RSF_ListView;
+	
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater,
+			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+		view = inflater.inflate(R.layout.fragment_requestshow,container,false);
+		
+		/**
+		 * 
+		 * 创建一个ItemBean List
+		 * 
+		 * 每一个ItemBean对象相当于ListView中的一条数据
+		 * 
+		 */
+		List<ItemBean> itemBeanList= new ArrayList<ItemBean>();
+		for(int i=0;i<20;i++){
+			
+			//往List中添加itemBean对象
+			itemBeanList.add(new ItemBean(
+					R.drawable.ic_launcher, 
+					"CourierType"+i, 
+					"receiveTime"+i));
+		}
+		
+		//建立ListView和BaseAdapter的联系
+		ListView listView = (ListView) view.findViewById(R.id.lv_RequestShow);
+		listView.setAdapter(new MyBaseAdapter(view.getContext(), itemBeanList));
+		
+		new RSFAsyncTask().execute(RSF_URL);
+		return view;
+	}
+	
+	
+	private List<ItemBean> getJsonData(String url){
+		List<ItemBean> itemBeans = new ArrayList<ItemBean>();
+		
+		try {
+			
+			//获取Json格式的数据的字符串
+			String jsonString = readStream(new URL(url).openStream());
+			
+			JSONObject jsonObject;
+			ItemBean itemBean;
+			
+			//将json格式的字符串转化为JsonObject
+			jsonObject = new JSONObject(jsonString);
+			
+			//得到数组名为"data"对应的JsonArray
+			JSONArray jsonArray=jsonObject.getJSONArray("data"); 
+			
+			//获取jsonArray中每一个元素的值
+			for(int i=0;i<jsonArray.length();i++){
+				
+				jsonObject = jsonArray.getJSONObject(i);
+				
+				//根据元素名设置ItemBean中成员变量的值
+				int itemImageResid = jsonObject.getInt("ImageResid");
+				String itemTitle = jsonObject.getString("Title");
+				String itemContent = jsonObject.getString("Content");
+				itemBean = new ItemBean(itemImageResid, itemTitle, itemContent);
+				
+				//将itemBean添加到itemBeans中
+				itemBeans.add(itemBean);
+			}
+			
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return itemBeans;
+	}
+	
+	//获取网页返回的字符串信息
+	private String readStream(InputStream is){
+		InputStreamReader isReader;
+		
+		//返回的结果
+		String result="";
+		
+		try {
+			String line = "";
+			
+			//将网页返回的字节流转化为字符流
+			isReader = new InputStreamReader(is,"utf-8");
+			
+			//将字符流以Buffer的形式读取出来
+			BufferedReader mBufferedReader = new BufferedReader(isReader);
+			
+			//逐行读取字符
+			while((line = mBufferedReader.readLine())!=null){
+				
+				//添加到result中
+				result += line;
+			}
+			
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return result;
+	}
+	
+	/**
+	 * 
+	 * @author vacation
+	 *
+	 * Params 请求的地址
+	 * 
+	 * Progress 记录中间过程
+	 * 
+	 * Result 返回的数据
+	 *
+	 */
+	class RSFAsyncTask extends AsyncTask<String, Void, List<ItemBean>>{
+
+
+		//每一个ItemBean对象代表一行数据
+		protected List<ItemBean> doInBackground(String... params) {
+			// TODO Auto-generated method stub
+			return getJsonData(params[0]);
+		}
+		
+	}
+	
+}

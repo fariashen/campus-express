@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="10dp" >
+
+    <TextView
+        android:id="@+id/tv_itemKinds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:text="快递类型" />
+
+    <TextView
+        android:id="@+id/tv_itemReward"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:gravity="center"
+        android:text="Rewards"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/tv_itemSize"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:layout_below="@id/tv_itemReward"
+        android:gravity="center"
+        android:text="Size"
+        android:textSize="22sp" />
+
+</RelativeLayout>

@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- 添加软件名称，功能菜单，底部自定义View的字符串 -->
+    
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
     <string name="app_name">easyCourier</string>
+    <string name="menu_addreuqest">添加请求</string>
+    <string name="menu_feedback">意见反馈</string>
+    <string name="menu_addfriend">添加朋友</string>
+    <string name="tab_contact">通讯录</string>
+    <string name="tab_request">请求</string>
+    <string name="tab_me">我</string>
 
 </resources>

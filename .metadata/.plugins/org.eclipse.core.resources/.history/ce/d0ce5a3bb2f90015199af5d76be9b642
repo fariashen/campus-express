@@ -1,0 +1,80 @@
+package com.example.easycourier;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuItem;
+import easyCourierFragment.FriendShowFragment;
+import easyCourierFragment.PersonalCenterFragment;
+import easyCourierFragment.RequestShowFragment;
+
+
+public class MainActivity extends FragmentActivity {
+	
+	private ViewPager mViewPager;
+	private FragmentPagerAdapter mAdapter;
+	private List<Fragment> mDatas;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        initView();
+    }
+
+    private void initView() {
+
+    	mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
+    	mDatas = new ArrayList<Fragment>();
+    	
+    	RequestShowFragment tab01 = new RequestShowFragment();
+    	FriendShowFragment tab02 = new FriendShowFragment();
+    	PersonalCenterFragment tab03 = new PersonalCenterFragment();
+    	
+    	mDatas.add(tab01);
+    	mDatas.add(tab02);
+    	mDatas.add(tab03);
+    	
+    	mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+			
+			@Override
+			public int getCount() {
+
+				return mDatas.size();
+			}
+			
+			@Override
+			public Fragment getItem(int location) {
+
+				return mDatas.get(location);
+			}
+		};
+    	
+		mViewPager.setAdapter(mAdapter);
+    	
+	}
+
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        return super.onOptionsItemSelected(item);
+    }
+}
