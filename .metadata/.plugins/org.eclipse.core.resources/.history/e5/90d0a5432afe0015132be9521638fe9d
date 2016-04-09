@@ -60,7 +60,7 @@ public class Login extends Activity implements OnClickListener {
 	
 	//发送网络请求的地址
 	//TODO
-	private String LOGIN_CONNECTURL = "http://www.caiweicheng.cn/phpserver/login.php";;
+	private String LOGIN_CONNECTURL = "http://172.25.224.12:801/phpserver/login.php";;
 
 	public static Context loginContext;
 

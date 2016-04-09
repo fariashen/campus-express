@@ -55,7 +55,7 @@ public class PersonalInfoEdit extends Activity {
 
 	// ¡¥Ω”µÿ÷∑
 	//TODO
-	public static String PIEDIT_CONNECTURL = "http://www.caiweicheng.cn/phpserver/PIedit.php";
+	public static String PIEDIT_CONNECTURL = "http://172.25.224.12:801/phpserver/PIedit.php";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -56,7 +56,7 @@ public class RequsetShowFragHttpPost extends Thread {
 
 	// 发送请求的远程数据库地址
 	//TODO
-	private final String RSF_URL = "http://www.caiweicheng.cn/phpserver/ordshow.php";// TODO
+	private final String RSF_URL = "http://172.25.224.12:801/phpserver/ordshow.php";// TODO
 
 	// 发送网络请求的成员变量
 	private HttpClient mHttpClient;

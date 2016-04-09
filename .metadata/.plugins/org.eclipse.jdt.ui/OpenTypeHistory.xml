@@ -1,12 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-<typeInfo handle="=easyCourier/F:\/campus_express\/easyCourier\/libs\/android-support-v4.jar&lt;android.support.v4.app(Fragment.class[Fragment" modifiers="33" timestamp="1458352125227"/>
-<typeInfo handle="=easyCourier/F:\/campus_express\/easyCourier\/libs\/android-support-v4.jar&lt;android.support.v4.view(ViewPager.class[ViewPager" modifiers="33" timestamp="1458352125227"/>
-<typeInfo handle="=easyCourier/F:\/Bundle\/adt-bundle-windows-x86_64-20140702\/sdk\/platforms\/android-4.4.2\/android.jar&lt;android.view(View.class[View" modifiers="33" timestamp="1411394426000"/>
-<typeInfo handle="=easyCourier/src&lt;easyCourierFunction{PersonalInfoShow.java[PersonalInfoShow" modifiers="1" timestamp="1460040075078"/>
-<typeInfo handle="=easyCourier/src&lt;easyCourierFunction{PersonalInfoEdit.java[PersonalInfoEdit" modifiers="1" timestamp="1460041062339"/>
-<typeInfo handle="=easyCourier/F:\/Bundle\/adt-bundle-windows-x86_64-20140702\/sdk\/platforms\/android-4.4.2\/android.jar&lt;android.app(Activity.class[Activity" modifiers="33" timestamp="1411394426000"/>
-<typeInfo handle="=easyCourier/src&lt;easyCourierFunction{RequestDetailShow.java[RequestDetailShow" modifiers="1" timestamp="1460023789979"/>
-<typeInfo handle="=easyCourier/F:\/Bundle\/adt-bundle-windows-x86_64-20140702\/sdk\/platforms\/android-4.4.2\/android.jar&lt;android.widget(ListView.class[ListView" modifiers="33" timestamp="1411394426000"/>
-<typeInfo handle="=easyCourier/src&lt;easyCourierFunction{Regiester.java[Regiester" modifiers="1" timestamp="1460040083865"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>

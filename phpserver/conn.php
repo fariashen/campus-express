@@ -1,5 +1,5 @@
 <?php
- $dbhost = "119.29.4.159"; 
+ $dbhost = "119.29.4.159";//"119.29.4.159"; 
  $dbuser = "root"; //我的用户名 
  $dbpw = "cheng1006mysql"; //我的密码 
  $dbname = "easycourier"; //我的mysql库名 

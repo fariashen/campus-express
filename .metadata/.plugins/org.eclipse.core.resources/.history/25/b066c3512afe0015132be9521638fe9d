@@ -58,7 +58,7 @@ public class PersonalInfoShow extends Activity {
 
 	// 网络请求发送地址
 	//TODO
-	public static String PISHOW_CONNECTURL = "http://www.caiweicheng.cn/phpserver/PIshow.php";
+	public static String PISHOW_CONNECTURL = "http://172.25.224.12:801/phpserver/PIshow.php";
 
 	// 获取个人信息，作为PersonalInfoEdit各个控件的默认值
 	public static String PIS_PASSWORD;

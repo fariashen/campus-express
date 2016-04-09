@@ -4,7 +4,7 @@
     $passWord=str_replace(" ","",$_POST['passWord']);//接收客户端发来的passWord；
     //$phone=str_replace(" ","",$_POST['phone']);//接收客户端发来的phone；
     //$email=str_replace(" ","",$_POST['email']);//接收客户端发来的email；
-    //$userName="user3";
+    //$userName="user4";
     //$passWord="123456";
     //$phone="15633333333";
     //$email="abc@126.com";
@@ -17,7 +17,7 @@
     else {
 	   $sql1="insert into users (userName,passWord) values ('$userName','$passWord')";
 	   $query1=mysqli_query($cn,$sql1);
-	   if (!$query1) echo "success";//若插入失败，返回失败原因(注册失败)
+	   if (!$query1) echo "1";//若插入失败，返回失败原因(注册失败)
        else echo "3";//否则返回3(注册成功)
 	 }
     mysqli_close($cn);
