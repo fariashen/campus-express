@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:paddingLeft="20dp" >
+    android:paddingLeft="20dp" 
+     android:background="#F0F3F6">
 
 <!--     	当前 Activity 是 PersonalInfoShow 时 -->
 

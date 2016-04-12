@@ -5,29 +5,58 @@
     android:gravity="center"
     android:orientation="vertical"
     android:paddingLeft="20sp"
-    android:paddingRight="20sp" >
+    android:paddingRight="20sp"
+    android:background="#55FFFFF">
 
-    <Button
-        android:id="@+id/bt_PersonalCenter_PI"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="个人信息"
-        android:textSize="25sp" />
+    <LinearLayout style="@style/wrap_layout" >
+      
+      <LinearLayout style="@style/top_layout" >
 
-    <Button
-        android:id="@+id/bt_PersonalCenter_Edit"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15sp"
-        android:layout_marginTop="15sp"
-        android:text="信息修改"
-        android:textSize="25sp" />
+          <Button
+              android:id="@+id/bt_PersonalCenter_PI"
+              android:layout_width="187dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="0.51"
+              android:background="@drawable/background_button_div2"
+              android:text="个人信息"
+              android:textSize="25sp" />
+          <ImageView style="@style/img_arrow" />
+      </LinearLayout>
 
-    <Button
-        android:id="@+id/bt_PersonalCenter_Request"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="已接受请求"
-        android:textSize="25sp" />
+      <!-- 分割线 -->
+          <View style="@style/bg_line"/>
+    
+     <LinearLayout style="@style/mid_layout" >
 
+         <Button
+             android:id="@+id/bt_PersonalCenter_Edit"
+             android:layout_width="196dp"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="15sp"
+             android:layout_marginTop="15sp"
+             android:layout_weight="0.66"
+             android:background="@drawable/background_button_div2"
+             android:text="信息修改"
+             android:textSize="25sp" />
+
+         <ImageView style="@style/img_arrow" />
+     </LinearLayout>
+     
+     <View style="@style/bg_line"/>
+     
+     <LinearLayout style="@style/bottom_layout" >
+
+         <Button
+             android:id="@+id/bt_PersonalCenter_Request"
+             android:layout_width="206dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="0.58"
+             android:background="@drawable/background_button_div2"
+             android:text="已接受请求"
+             android:textSize="25sp" />
+
+         <ImageView style="@style/img_arrow" />
+     </LinearLayout>
+ 
+    </LinearLayout>
 </LinearLayout>
