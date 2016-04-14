@@ -1,7 +1,0 @@
-package easyCourierFunction;
-
-import android.app.Activity;
-
-public class RequestUpLoad extends Activity {
-
-}

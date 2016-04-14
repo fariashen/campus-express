@@ -1,5 +1,0 @@
-package easyCourierHttpPostRequest;
-
-public class RULHttpPost extends Thread {
-
-}

@@ -49,7 +49,7 @@ public class RULHttpPost extends Thread {
 
 	// 访问数据库链接地址
 
-	private final String REQUEST_UPLOAD_URL = "http://www.caiweicheng.cn/phpserver/ordrelease.php";
+	private final String REQUEST_UPLOAD_URL = "http://172.25.224.12:801/phpserver/ordrelease.php";
 	// TODO
 
 	// 进行POST请求的变量
