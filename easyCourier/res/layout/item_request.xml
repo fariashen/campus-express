@@ -2,17 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginBottom="10dp" >
+    android:layout_marginBottom="10dp"
+    android:orientation="vertical" 
+    style="@style/common_vertical_division_line_style">
 
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+         >
     <TextView
         android:id="@+id/tv_itemKinds"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
+        android:layout_height="wrap_content"     
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"
-        android:text="快递类型" />
+        android:text="快递类型"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/tv_itemReward"
@@ -20,17 +28,57 @@
         android:layout_height="30dp"
         android:layout_toEndOf="@id/tv_itemKinds"
         android:gravity="center"
-        android:text="Rewards"
+        android:text="(Rewards)"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_itemRewardchinese"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:text="型号"
         android:textSize="22sp" />
 
     <TextView
         android:id="@+id/tv_itemSize"
         android:layout_width="fill_parent"
         android:layout_height="30dp"
-        android:layout_toEndOf="@id/tv_itemKinds"
         android:layout_below="@id/tv_itemReward"
+        android:layout_toEndOf="@id/tv_itemKinds"
         android:gravity="center"
-        android:text="Size"
-        android:textSize="22sp" />
+        android:text="(Size)"
+        android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/tv_itemRewardchinese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:text="报酬"
+        android:textSize="22sp" />
+</RelativeLayout>
+
+ <RelativeLayout
+     android:layout_width="400dp"
+     android:layout_height="match_parent"
+     android:layout_marginLeft="10dp"
+     android:layout_marginRight="10dp"
+     android:layout_marginTop="50dp"
+     android:orientation="vertical" >
+
+    <Spinner
+        android:id="@+id/tv_itemKinds_Spinner01"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content" >
+    </Spinner>
+    <Spinner
+        android:id="@+id/tv_itemKinds_Spinner02"
+        android:layout_toEndOf="@id/tv_itemKinds_Spinner01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </Spinner>
+  </RelativeLayout>
 </RelativeLayout>

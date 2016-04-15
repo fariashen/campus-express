@@ -39,6 +39,7 @@
         <activity android:name="easyCourierFunction.RequestUpLoad" >
         </activity>
         <activity android:name="easyCourierFunction.RequestDetailShow"></activity>
+        <activity android:name="ScanActivity"></activity>
     </application>
 
 </manifest>

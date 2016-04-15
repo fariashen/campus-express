@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.Toast;
 import easyCourierFragment.FriendShowFragment;
 import easyCourierFragment.PersonalCenterFragment;
 import easyCourierFragment.RequestShowFragment;
@@ -191,11 +192,20 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 		case R.id.action_addfriend:
 
 			break;
+	    //选中“扫二维码”	
+		case R.id.action_scan: 
+									
+		    intent = new Intent(MainActivity.this,ScanActivity.class);
+		    startActivity(intent);
+			break;  
 
+		
 		// 选中“意见反馈”
 		case R.id.action_feedback:
 
 			break;
+			
+		
 
 		}
 		return super.onOptionsItemSelected(item);
