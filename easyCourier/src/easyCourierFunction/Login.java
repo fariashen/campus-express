@@ -83,9 +83,8 @@ public class Login extends Activity implements OnClickListener {
 		 * 
 		 */
 
-		ImageView imageView1 = (ImageView) findViewById(R.id.iv_Image);
-		imageView1.setImageDrawable(getResources().getDrawable(
-				R.drawable.kuaidi2));
+		
+		
 
 		et_Login_userName = (EditText) findViewById(R.id.et_Login_userName);
 		et_Login_passWord = (EditText) findViewById(R.id.et_Login_passWord);

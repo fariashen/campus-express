@@ -14,7 +14,8 @@
         android:layout_marginRight="100dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:background="@drawable/fillet_shape" />
+        android:background="@drawable/fillet_shape"
+        android:src="@drawable/kuaidi2" />
 
     <EditText
         android:id="@+id/et_Login_userName"
