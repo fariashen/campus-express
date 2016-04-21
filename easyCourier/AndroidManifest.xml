@@ -18,17 +18,22 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+        <activity android:name="easyCourierFunction.WelcomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
         <activity
             android:name=".MainActivity"
             android:enabled="true"
             android:label="@string/app_name" >
         </activity>
         <activity android:name="easyCourierFunction.Login" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         <activity android:name="easyCourierFunction.Regiester" >
         </activity>

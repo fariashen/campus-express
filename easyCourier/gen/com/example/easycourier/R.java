@@ -114,11 +114,12 @@ containing a value of this type.
         public static final int txl2=0x7f02002d;
         public static final int user_info_bg=0x7f02002e;
         public static final int user_info_bg1=0x7f02002f;
-        public static final int wo1=0x7f020030;
-        public static final int wo2=0x7f020031;
-        public static final int xiala=0x7f020032;
-        public static final int xiaoxi1=0x7f020033;
-        public static final int xiaoxi2=0x7f020034;
+        public static final int welcome=0x7f020030;
+        public static final int wo1=0x7f020031;
+        public static final int wo2=0x7f020032;
+        public static final int xiala=0x7f020033;
+        public static final int xiaoxi1=0x7f020034;
+        public static final int xiaoxi2=0x7f020035;
     }
     public static final class id {
         public static final int MorePageTableLayout_Client=0x7f0a003b;
@@ -213,11 +214,12 @@ containing a value of this type.
         public static final int activity_requestdetail=0x7f030006;
         public static final int activity_requestupload=0x7f030007;
         public static final int activity_scan=0x7f030008;
-        public static final int fragment_friendshow=0x7f030009;
-        public static final int fragment_personalcenter=0x7f03000a;
-        public static final int fragment_requestshow=0x7f03000b;
-        public static final int header_layout=0x7f03000c;
-        public static final int item_request=0x7f03000d;
+        public static final int activity_welcome=0x7f030009;
+        public static final int fragment_friendshow=0x7f03000a;
+        public static final int fragment_personalcenter=0x7f03000b;
+        public static final int fragment_requestshow=0x7f03000c;
+        public static final int header_layout=0x7f03000d;
+        public static final int item_request=0x7f03000e;
     }
     public static final class menu {
         public static final int main=0x7f090000;
