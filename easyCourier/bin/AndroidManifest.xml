@@ -39,6 +39,9 @@
         <activity android:name="easyCourierFunction.RequestUpLoad" >
         </activity>
         <activity android:name="easyCourierFunction.RequestDetailShow"></activity>
+        <activity android:name="easyCourierFunction.ShowRequestAllInfo"></activity>
+        <activity android:name="easyCourierFunction.ShowAcceptedRequest"></activity>
+        <activity android:name="easyCourierFunction.ShowUpLoadedRequest"></activity>
     </application>
 
 </manifest>

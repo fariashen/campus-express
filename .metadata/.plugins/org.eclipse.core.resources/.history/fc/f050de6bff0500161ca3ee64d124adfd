@@ -1,0 +1,66 @@
+package easyCourierFunction;
+
+import com.example.easycourier.R;
+
+import easyCourierHttpPost.HttpPostRequest;
+import easyCourierHttpPost.SRAIHttpPost;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.widget.TextView;
+/**
+ * 
+ * @author vacation
+ *	成功接收请求后跳转到此界面
+ *
+ *	显示请求的全部信息
+ */
+/**
+ * 
+ * @author vacation
+ *	成功接收请求后跳转到此界面
+ *
+ *	显示请求的全部信息
+ */
+public class ShowRequestAllInfo extends Activity {
+
+	//待赋值的控件
+	public static TextView tv_SRAI_NickName;
+	public static TextView tv_SRAI_Reward;
+	public static TextView tv_SRAI_AddForm;
+	public static TextView tv_SRAI_AddTo;
+	public static TextView tv_SRAI_TimeLimit;
+	public static TextView tv_SRAI_Size;
+	public static TextView tv_SRAI_Phone;
+	public static TextView tv_SRAI_Kinds;
+	public static TextView tv_SRAI_Remarks;
+	
+	//网络请求成员变量
+	private HttpPostRequest sraiHttpPost = new SRAIHttpPost();
+	
+	//处理网络请求线程的成员变量
+	public static Handler sraiHandler = new Handler();
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_showrequestallinfo);
+		getActionBar().setDisplayShowHomeEnabled(false);
+		
+		//获取控件
+		tv_SRAI_NickName = (TextView) findViewById(R.id.tv_SRAI_NickName);
+		tv_SRAI_Reward = (TextView) findViewById(R.id.tv_SRAI_Reward);
+		tv_SRAI_AddForm = (TextView) findViewById(R.id.tv_SRAI_AddForm);
+		tv_SRAI_AddTo = (TextView) findViewById(R.id.tv_SRAI_AddTo);
+		tv_SRAI_TimeLimit = (TextView) findViewById(R.id.tv_SRAI_TimeLimit);
+		tv_SRAI_Size = (TextView) findViewById(R.id.tv_SRAI_Size);
+		tv_SRAI_Phone = (TextView) findViewById(R.id.tv_SRAI_Phone);
+		tv_SRAI_Kinds = (TextView) findViewById(R.id.tv_SRAI_Kinds);
+		tv_SRAI_Remarks = (TextView) findViewById(R.id.tv_SRAI_Remarks);
+		
+		
+		
+	}
+	
+}

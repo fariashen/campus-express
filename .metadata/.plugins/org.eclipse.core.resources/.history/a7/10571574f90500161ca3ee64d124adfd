@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingTop="10dp" >
+
+    <TextView
+        android:id="@+id/tv_tip_SRAI_NickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="收件人姓名："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_SRAI_Reward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_tip_SRAI_NickName"
+        android:gravity="center"
+        android:text="报酬："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_SRAI_AddForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/tv_tip_SRAI_Reward"
+        android:text="取件地址："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_SRAI_AddTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/tv_tip_SRAI_AddForm"
+        android:text="收件地址："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_SRAINickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="时间限制："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_SRAINickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="快递规格："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_SRAINickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="联系电话："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_SRAINickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="快递公司："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_SRAINickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="备注："
+        android:textSize="20sp" />
+
+</RelativeLayout>

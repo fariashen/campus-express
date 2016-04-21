@@ -47,7 +47,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 	private List<ChangeColorIconWithText> mTab = new ArrayList<ChangeColorIconWithText>();
 
 	//跳转到不同的功能模块执行不同个响应操作
-	Intent intent;
+	private Intent intent;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

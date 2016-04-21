@@ -1,18 +1,17 @@
 package easyCourierFunction;
 
-import com.example.easycourier.R;
-import com.example.easycourier.R.id;
-import com.example.easycourier.R.layout;
-
-import easyCourierHttpPost.PIShowHttpPost;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.easycourier.R;
+
+import easyCourierHttpPost.HttpPostRequest;
+import easyCourierHttpPost.PIShowHttpPost;
 
 /*
  * 实现个人信息的展示
@@ -28,60 +27,97 @@ import android.widget.TextView;
 public class PersonalInfoShow extends Activity {
 
 	/*
-	 * 参数
-	 * 
-	 * 用户名控件 tv_PersonalInfo_Username
-	 * 
-	 * 密码控件 tv_PersonalInfo_Password
-	 * 
+	 *所有控件
 	 */
 
-	public static TextView tv_PersonalInfoUserName;
-	public static TextView tv_PersonalInfoPassWord;
-	/**
-	 * 子线程执行网络请求，获取数据后，会向主线程发送更新UI请求
-	 * 涉及到更新的控件需要设置成全局静态属性，以供调用
-	 */
+	public static TextView tv_PIS_UserName;
+	public static TextView tv_PIS_PassWord;
+	public static TextView tv_PIS_Phone;
+	public static TextView tv_PIS_Address;
+	public static TextView tv_PIS_Sex;
+	public static TextView tv_PIS_Balances;
+	
+	private Button bt_PIS_Edit;
 	
 	/**
+	 * 子线程执行网络请求，获取数据后，会向主线程发送更新UI请求 涉及到更新的控件需要设置成全局静态属性，以供调用
+	 */
+
+	/**
 	 * 
-	 * 网络线程操作
-	 * 获取用户的个人信息
-	 * 并设置相应控件的值
+	 * 网络线程操作 获取用户的个人信息 并设置相应控件的值
 	 * 
 	 */
 
-	PIShowHttpPost mPiShowHttpPost;
+	HttpPostRequest mPiShowHttpPost = new PIShowHttpPost();
 
-	//处理子线程发送的更新UI的请求
+	// 处理子线程发送的更新UI的请求
 	public static Handler pisHandler = new Handler();
 
 	// 网络请求发送地址
-	//TODO
-	public static String PISHOW_CONNECTURL = "http://172.25.224.12:801/phpserver/PIshow.php";
+	// TODO
+	public static String PISHOW_CONNECTURL = "http://www.caiweicheng.cn/phpserver/PIshow.php";
 
 	// 获取个人信息，作为PersonalInfoEdit各个控件的默认值
-	public static String PIS_PASSWORD;
+	private String PIS_PassWord;
+	private String PIS_Phone;
+	private String PIS_Address;
+	private String PIS_Sex;
+	
+	//启动Activity的成员变量
+	private Intent mIntent;
+	private Bundle mBundle;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_personalinfo_show);
 		getActionBar().setDisplayShowHomeEnabled(false);
-		
+
 		// 获取各个控件
 
-		tv_PersonalInfoUserName = (TextView) findViewById(R.id.tv_PersonalInfo_Username);
-		tv_PersonalInfoPassWord = (TextView) findViewById(R.id.tv_PersonalInfo_Password);
+		tv_PIS_UserName = (TextView) findViewById(R.id.tv_PIS_UserName);
+		tv_PIS_PassWord = (TextView) findViewById(R.id.tv_PIS_PassWord);
+		tv_PIS_Phone = (TextView) findViewById(R.id.tv_PIS_Phone);
+		tv_PIS_Address = (TextView) findViewById(R.id.tv_PIS_Address);
+		tv_PIS_Sex = (TextView) findViewById(R.id.tv_PIS_Sex);
+		tv_PIS_Balances = (TextView) findViewById(R.id.tv_PIS_Balances);
 
+		bt_PIS_Edit = (Button) findViewById(R.id.bt_PIS_Edit);
 		// 发送网络线程操作请求
 
-		mPiShowHttpPost = new PIShowHttpPost();
 		mPiShowHttpPost.start();
 
-		// 获取个人信息，作为PersonalInfoEdit各个控件的默认值
-		PIS_PASSWORD = tv_PersonalInfoPassWord.getText().toString();
+		//点击“信息修改”按钮，触发调用信息修改功能界面
+		bt_PIS_Edit.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
 
+				// 获取个人信息，作为PersonalInfoEdit各个控件的默认值
+				PIS_PassWord = tv_PIS_PassWord.getText().toString();
+				PIS_Phone = tv_PIS_Phone.getText().toString();
+				PIS_Address = tv_PIS_Address.getText().toString();
+				PIS_Sex = tv_PIS_Sex.getText().toString();
+				
+				//实例化启动Activity的成员变量
+				mIntent = new Intent(PersonalInfoShow.this, PersonalInfoEdit.class);
+				mBundle = new Bundle();
+				
+				//将初始化参数传入mBundle
+				mBundle.putString("password", PIS_PassWord);
+				mBundle.putString("phone", PIS_Phone);
+				mBundle.putString("address", PIS_Address);
+				mBundle.putString("sex", PIS_Sex);
+				
+				//启动Activity
+				mIntent.putExtra("PIS_Init", mBundle);
+				startActivity(mIntent);
+				
+				finish();
+				
+			}
+		});
 
 	}
 

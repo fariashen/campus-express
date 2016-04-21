@@ -13,18 +13,16 @@
         android:layout_height="wrap_content"
         android:text="个人信息"
         android:textSize="25sp" />
-
+    
     <Button
-        android:id="@+id/bt_PersonalCenter_Edit"
+        android:id="@+id/bt_PersonalCenter_UpLoadedRequest"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15sp"
-        android:layout_marginTop="15sp"
-        android:text="信息修改"
+        android:text="已发送请求"
         android:textSize="25sp" />
 
     <Button
-        android:id="@+id/bt_PersonalCenter_Request"
+        android:id="@+id/bt_PersonalCenter_AcceptedRequest"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="已接受请求"

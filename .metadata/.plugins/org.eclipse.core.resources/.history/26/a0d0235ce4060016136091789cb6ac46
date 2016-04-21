@@ -1,0 +1,29 @@
+package easyCourierFunction;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.widget.ListView;
+
+/**
+ * 
+ * @author vacation
+ * 
+ * 展示已发送的请求
+ */
+
+public class ShowUploadedRequest extends Activity {
+
+	public static ListView lv_ShowUpLoaded;
+	
+	public static Handler SULR_Handler = new Handler();
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		getActionBar().setDisplayShowHomeEnabled(false);
+		
+		
+	}
+	
+}

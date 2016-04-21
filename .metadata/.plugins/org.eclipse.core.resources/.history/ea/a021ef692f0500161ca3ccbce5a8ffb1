@@ -1,0 +1,92 @@
+package easyCourierHttpPost;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+
+import android.os.Message;
+
+public abstract class HttpPostRequest extends Thread {
+
+	// 发送请求的远程数据库地址
+	//TODO
+	protected String urlAddress="";
+	
+	// 发送网络请求的成员变量
+	protected HttpClient mHttpClient = new DefaultHttpClient();
+	protected HttpPost mHttpPost;
+	protected HttpResponse mHttpResponse;
+	protected HttpEntity mEntity;
+	protected ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+	
+	protected String result;
+	protected Message message = new Message();
+	
+	@Override
+	public void run() {
+
+		doHttpPostRequest();
+	}
+
+	protected void doHttpPostRequest() {
+
+		//设置数据库地址
+		setUrlAddress();
+		
+		//向数据库地址发送请求
+		mHttpPost = new HttpPost(urlAddress);
+		
+		try {
+			
+			//设置HttpPost的请求参数
+			setParamsIntoPost();
+			
+			//发送Http请求并获取HttpResponse
+			mHttpResponse = mHttpClient.execute(mHttpPost);
+			
+			//检测请求是否发送成功
+			if (mHttpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+
+				//获取请求结果
+				mEntity = mHttpResponse.getEntity();
+				
+				//处理请求结果并设置消息
+				handleResult();
+				
+				//将消息返回给相应主线程处理
+				backToMainThreadHandleMessage();
+				
+			}
+			
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	//处理请求结果并设置消息
+	protected abstract void handleResult();
+
+	//设置URL
+	protected abstract void setUrlAddress(); 
+	
+	//设置params和HttpPost请求参数
+	protected abstract void setParamsIntoPost();
+
+	//设置相应的handler
+	protected abstract void backToMainThreadHandleMessage();
+	
+}

@@ -1,0 +1,97 @@
+package easyCourierHttpPost;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
+import org.apache.http.ParseException;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
+
+import easyCourierFunction.Login;
+import easyCourierFunction.PersonalInfoEdit;
+
+/**
+ * @author vacation
+ * 
+ *         根据传入的参数：用户名，密码，电话，邮箱 与数据库进行通信，修改个人信息
+ * 
+ */
+public class PIEditHttpPost extends HttpPostRequest {
+
+	private String PassWord;
+
+	public PIEditHttpPost(String PassWord) {
+
+		this.PassWord = PassWord;
+
+	}
+
+	@Override
+	protected void setUrlAddress() {
+		// 设置地址
+		urlAddress = PersonalInfoEdit.PIEDIT_CONNECTURL;
+
+	}
+
+	@Override
+	protected void setParamsIntoPost() {
+
+		// 设置参数
+		params.add(new BasicNameValuePair("userName", Login.LOGIN_USERNAME));
+		params.add(new BasicNameValuePair("passWord", PassWord));
+		params.add(new BasicNameValuePair("phone", "111"));
+		params.add(new BasicNameValuePair("email", "111"));
+		params.add(new BasicNameValuePair("address", "111"));
+		params.add(new BasicNameValuePair("stunum", "111"));
+		params.add(new BasicNameValuePair("sex", "111"));
+
+		try {
+			mHttpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	protected void backToMainThreadHandleMessage() {
+
+		// 设置相应的handler
+		PersonalInfoEdit.PIE_Handler.sendMessage(message);
+
+	}
+
+	@Override
+	protected void handleResult() {
+
+		// 处理请求结果
+		try {
+
+			result = EntityUtils.toString(mEntity);
+
+			// 如果修改成功则返回 "success" 字符串
+			if (result.equals("success")) {
+				message.what = 1;
+			} else {
+				message.what = 0;
+			}
+
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	protected void setIsJsonData() {
+
+		isJsonData = false;
+		
+	}
+
+}

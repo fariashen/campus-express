@@ -1,0 +1,77 @@
+package easyCourierHttpPost;
+
+import org.json.JSONException;
+
+import easyCourierFunction.ShowRequestAllInfo;
+
+public class SRAIHttpPost extends HttpPostRequest {
+
+	//获取的订单信息
+	private String nickName = "";
+	private String reward = "";
+	private String addForm = "";
+	private String addTo = "";
+	private String timeLimit = "";
+	private String size = "";
+	private String phone = "";
+	private String kinds = "";
+	private String remarks = "";
+	
+	@Override
+	protected void setUrlAddress() {
+		// TODO 设置网络请求地址
+		urlAddress = "";
+
+	}
+
+	@Override
+	protected void setParamsIntoPost() {
+		// TODO 设置传送的参数
+
+	}
+
+	@Override
+	protected void setIsJsonData() {
+		
+		isJsonData = true;
+
+	}
+
+	@Override
+	protected void getDifferentJsonArrayValue() {
+		// TODO 获取Json数组中的所有订单信息
+		
+		try {
+			
+			nickName = mJsonObject.getString("");
+			reward = mJsonObject.getString("");
+			addForm = mJsonObject.getString("");
+			addTo = mJsonObject.getString("");
+			timeLimit = mJsonObject.getString("");
+			size = mJsonObject.getString("");
+			phone = mJsonObject.getString("");
+			kinds = mJsonObject.getString("");
+			remarks = mJsonObject.getString("");
+			
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+	}
+
+	@Override
+	protected void backToMainThreadHandleMessage() {
+
+		ShowRequestAllInfo.sraiHandler.post(new Runnable() {
+			
+			@Override
+			public void run() {
+
+				
+			}
+		});
+	}
+
+}

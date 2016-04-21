@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.AnyRes;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.easycourier.R;
 
+import easyCourierHttpPost.HttpPostRequest;
 import easyCourierHttpPost.RULHttpPost;
 
 /**
@@ -123,7 +123,7 @@ public class RequestUpLoad extends Activity {
 				} else {
 
 					// 将获取的信息作为参数，传入网络请求线程
-					RULHttpPost mHttpPost = new RULHttpPost(providerName,
+					HttpPostRequest mHttpPost = new RULHttpPost(providerName,
 							nickName, reward, addFrom, addTo, timeLimit, size,
 							phone, kinds, remarks);
 

@@ -1,12 +1,5 @@
 package easyCourierFunction;
 
-import com.example.easycourier.MainActivity;
-import com.example.easycourier.R;
-import com.example.easycourier.R.drawable;
-import com.example.easycourier.R.id;
-import com.example.easycourier.R.layout;
-
-import easyCourierHttpPost.LoginHttpPost;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +12,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.easycourier.MainActivity;
+import com.example.easycourier.R;
+
+import easyCourierHttpPost.HttpPostRequest;
+import easyCourierHttpPost.LoginHttpPost;
 
 /**
  * 
@@ -50,27 +49,26 @@ public class Login extends Activity implements OnClickListener {
 
 	TextView tv_Regiester;
 
-	LoginHttpPost lgHandle;
+	HttpPostRequest lgHandle = new LoginHttpPost();
 
 	/**
 	 * 供各个功能模块设置用户名和密码的初始值
 	 */
 	public static String LOGIN_USERNAME;
 	public static String LOGIN_PASSWORD;
-	
-	//发送网络请求的地址
-	//TODO
-	private String LOGIN_CONNECTURL = "http://172.25.224.12:801/phpserver/login.php";;
+
+	// 发送网络请求的地址
+	// TODO
+	public static String LOGIN_CONNECTURL = "http://www.caiweicheng.cn/phpserver/login.php";;
 
 	public static Context loginContext;
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		getActionBar().setDisplayShowHomeEnabled(false);
-		
+
 		loginContext = Login.this;
 
 		// 获取各个控件
@@ -116,9 +114,6 @@ public class Login extends Activity implements OnClickListener {
 
 			// 触发调用线程 发送HttpPost请求
 
-			lgHandle = new LoginHttpPost(LOGIN_USERNAME, LOGIN_PASSWORD,
-					LOGIN_CONNECTURL);
-
 			lgHandle.start();
 			break;
 
@@ -130,16 +125,14 @@ public class Login extends Activity implements OnClickListener {
 
 		}
 	}
+
 	/*
 	 * 处理 LoginHttpPost 线程返回的消息
 	 * 
 	 * 三种情况
 	 * 
-	 * 情况一：登录成功
-	 * 情况二：密码错误
-	 * 情况三：无该用户
-	 * 
-	*/
+	 * 情况一：登录成功 情况二：密码错误 情况三：无该用户
+	 */
 	public static Handler loginHandler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 
@@ -149,9 +142,9 @@ public class Login extends Activity implements OnClickListener {
 				// 第一种情况：登录成功
 
 				Toast.makeText(loginContext, "登录成功", Toast.LENGTH_SHORT).show();
-				
+
 				// 跳转返回 MainActivity
-				
+
 				Intent intent = new Intent(loginContext, MainActivity.class);
 				loginContext.startActivity(intent);
 				((Activity) loginContext).finish();

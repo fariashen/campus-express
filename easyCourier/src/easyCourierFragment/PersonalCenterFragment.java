@@ -2,7 +2,6 @@ package easyCourierFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,15 +9,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.easycourier.MainActivity;
 import com.example.easycourier.R;
 
 import easyCourierFunction.PersonalInfoEdit;
 import easyCourierFunction.PersonalInfoShow;
-import easyCourierHttpPost.PIShowHttpPost;
+import easyCourierFunction.ShowAcceptedRequest;
+import easyCourierFunction.ShowUpLoadedRequest;
 
 /**
  * 
@@ -49,8 +46,8 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 	 */
 	
 	private Button bt_PersonalCenter_PI;
-	private Button bt_PersonalCenter_Edit;
-	private Button bt_PersonalCenter_Request;
+	private Button bt_PersonalCenter_UpLoadedRequest;
+	private Button bt_PersonalCenter_AcceptedRequest;
 	
 	//启动相应的操作类
 	private Intent intent;
@@ -65,13 +62,13 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 		 * 初始化控件
 		 */
 		bt_PersonalCenter_PI = (Button) view.findViewById(R.id.bt_PersonalCenter_PI);
-		bt_PersonalCenter_Edit = (Button) view.findViewById(R.id.bt_PersonalCenter_Edit);
-		bt_PersonalCenter_Request = (Button) view.findViewById(R.id.bt_PersonalCenter_Request);
+		bt_PersonalCenter_UpLoadedRequest = (Button) view.findViewById(R.id.bt_PersonalCenter_UpLoadedRequest);
+		bt_PersonalCenter_AcceptedRequest = (Button) view.findViewById(R.id.bt_PersonalCenter_AcceptedRequest);
 		
 		//为修改按钮设置监听
 		bt_PersonalCenter_PI.setOnClickListener(this);
-		bt_PersonalCenter_Edit.setOnClickListener(this);
-		bt_PersonalCenter_Request.setOnClickListener(this);
+		bt_PersonalCenter_UpLoadedRequest.setOnClickListener(this);
+		bt_PersonalCenter_AcceptedRequest.setOnClickListener(this);
 		return view;
 	}
 
@@ -95,20 +92,20 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 			startActivity(intent);
 			break;
 			
-		//当点击“信息修改”按钮时，触发调用 PersonalInfoEdit.java
-		case R.id.bt_PersonalCenter_Edit:
+		//当点击“已发送请求”按钮时，触发调用查询已发送请求方法
+		case R.id.bt_PersonalCenter_UpLoadedRequest:
 			
-			intent = new Intent(view.getContext(), PersonalInfoEdit.class);
+			//TODO
+			intent = new Intent(view.getContext(), ShowUpLoadedRequest.class);
 			startActivity(intent);
 			
 			break;
-			
 		//当点击“已接受请求”按钮时，触发调用查询已接受请求方法
-		case R.id.bt_PersonalCenter_Request:
+		case R.id.bt_PersonalCenter_AcceptedRequest:
 			
-			/**
-			 * 待定
-			 */
+			intent = new Intent(view.getContext(), ShowAcceptedRequest.class);
+			startActivity(intent);
+			
 			break;
 
 		}

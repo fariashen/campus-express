@@ -1,30 +1,15 @@
 package easyCourierHttpPost;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
 
 import com.example.easycourier.ItemBean;
 import com.example.easycourier.MyBaseAdapter;
@@ -52,41 +37,24 @@ import easyCourierFunction.RequestDetailShow;
  * 
  * 
  */
-public class RequsetShowFragHttpPost extends Thread {
-
-	// 发送请求的远程数据库地址
-	//TODO
-	private final String RSF_URL = "http://172.25.224.12:801/phpserver/ordshow.php";// TODO
-
-	// 发送网络请求的成员变量
-	private HttpClient mHttpClient;
-	private HttpPost mHttpPost;
-	private HttpResponse mHttpResponse;
-	private HttpEntity mEntity;
-
-	// 解析Json数据的成员变量
-	private InputStream mInputStream;
-	private InputStreamReader mInputStreamReader;
-	private BufferedReader mBufferedReader;
-	private JSONObject mJsonObject;
-	private JSONArray mJsonArray;
-
-	// 保存返回的json字符串信息
-	private String jsonString = "";
-	private String jsonArrayName;
+public class RequsetShowFragHttpPost extends HttpPostRequest {
 
 	// 保存已解释的json数据
 	public static List<ItemBean> itemBeanList = new ArrayList<ItemBean>();
 
-	private Boolean firstStart = true;
-
 	// 要添加数据的数据项
 	private ItemBean mItemBean;
-	private String itemProviderName;
-	private String itemReward;
-	private String itemSize;
-	private String itemKind;
-	private String itemTimeLimit;
+	private String itemOrederId="";
+	private String itemProviderName="";
+	private String itemNickName="";
+	private String itemReward="";
+	private String itemAddForm="";
+	private String itemAddTo="";
+	private String itemTimeLimit="";
+	private String itemSize="";
+	private String itemPhone="";
+	private String itemKind="";
+	private String itemRemarks="";
 
 	// 数据适配器
 	private MyBaseAdapter myBaseAdapter;
@@ -99,10 +67,60 @@ public class RequsetShowFragHttpPost extends Thread {
 	private Bundle bundle;
 
 	@Override
-	public void run() {
+	protected void setUrlAddress() {
 
-		// 获取已有的请求数据
-		getRequestData();
+		urlAddress = "http://www.caiweicheng.cn/phpserver/ordshow.php";
+	}
+
+	@Override
+	protected void setParamsIntoPost() {
+
+	}
+
+	@Override
+	protected void setIsJsonData() {
+
+		isJsonData = true;
+		itemBeanList.clear();
+	}
+
+	@Override
+	protected void getDifferentJsonArrayValue() {
+
+		// 根据元素名设置ItemBean中成员变量的值
+
+		try {
+			
+			System.out.println("------------->RequestShow item");
+			itemOrederId = mJsonObject.getString("orderID");
+			itemProviderName = mJsonObject.getString("providerName");
+			itemNickName = mJsonObject.getString("nickName");
+			itemReward = mJsonObject.getString("reward");
+			itemAddForm = mJsonObject.getString("addFrom");
+			itemAddTo = mJsonObject.getString("addTo");
+			itemTimeLimit = mJsonObject.getString("timeLimit");
+			itemSize = mJsonObject.getString("size");
+			itemPhone = mJsonObject.getString("phone");
+			itemKind = mJsonObject.getString("kinds");
+			itemRemarks = mJsonObject.getString("remarks");
+			
+System.out.println("------------------->RequestShow orderId"+mJsonObject.getString("orderID"));
+			mItemBean = new ItemBean(itemOrederId, itemProviderName,
+					itemNickName, itemReward, itemAddForm, itemAddTo,
+					itemTimeLimit, itemSize, itemPhone, itemKind, itemRemarks);
+
+			System.out.println("------------>RequestShow mItemBean"+mItemBean.toString());
+			itemBeanList.add(mItemBean);
+
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	protected void backToMainThreadHandleMessage() {
 
 		// 向主线程发送更新UI的请求
 		RequestShowFragment.RSF_Handler.post(new Runnable() {
@@ -114,6 +132,7 @@ public class RequsetShowFragHttpPost extends Thread {
 				myBaseAdapter = new MyBaseAdapter(RequestShowFragment.view
 						.getContext(), itemBeanList);
 
+//				System.out.println("--------------->requestShowFrag"+itemBeanList.toString());
 				// 将ListView绑定数据适配器
 				RequestShowFragment.RSF_ListView.setAdapter(myBaseAdapter);
 
@@ -140,21 +159,46 @@ public class RequsetShowFragHttpPost extends Thread {
 
 								// 将设置详细信息控件的参数传入
 								bundle.putString(
+										"orderId",
+										itemBeanList.get(position - 1).itemOrederId);
+
+								bundle.putString(
 										"providerName",
-										itemBeanList.get(position-1).itemProviderName);
-								
-								bundle.putString("reward",
-										itemBeanList.get(position-1).itemReward);
-								
-								bundle.putString("size",
-										itemBeanList.get(position-1).itemSize);
-								
-								bundle.putString("kinds",
-										itemBeanList.get(position-1).itemKind);
-								
+										itemBeanList.get(position - 1).itemProviderName);
+
+								bundle.putString(
+										"nickName",
+										itemBeanList.get(position - 1).itemNickName);
+
+								bundle.putString(
+										"reward",
+										itemBeanList.get(position - 1).itemReward);
+
+								bundle.putString(
+										"addForm",
+										itemBeanList.get(position - 1).itemAddForm);
+
+								bundle.putString(
+										"addTo",
+										itemBeanList.get(position - 1).itemAddTo);
+
 								bundle.putString(
 										"timeLimit",
-										itemBeanList.get(position-1).itemTimeLimit);
+										itemBeanList.get(position - 1).itemTimeLimit);
+
+								bundle.putString("size",
+										itemBeanList.get(position - 1).itemSize);
+
+								bundle.putString(
+										"phone",
+										itemBeanList.get(position - 1).itemPhone);
+
+								bundle.putString("kinds",
+										itemBeanList.get(position - 1).itemKind);
+
+								bundle.putString(
+										"remarks",
+										itemBeanList.get(position - 1).itemRemarks);
 
 								mIntent.putExtra("RequestItemClick", bundle);
 
@@ -165,125 +209,6 @@ public class RequsetShowFragHttpPost extends Thread {
 						});
 			}
 		});
-	}
-
-	private void getRequestData() {
-
-		// 实例化网络请求的变量
-		mHttpClient = new DefaultHttpClient();
-		mHttpPost = new HttpPost(RSF_URL);
-
-		try {
-
-			// 发送请求
-			mHttpResponse = mHttpClient.execute(mHttpPost);
-
-			if (mHttpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-				// 如果发送请求成功
-
-				// 获取服务器返回的字节流
-				mEntity = mHttpResponse.getEntity();
-				mInputStream = mEntity.getContent();
-
-				// 将字节流转换为json字符串
-				readSteam();
-
-				// 关闭字节流
-				mInputStream.close();
-
-				// 将jsonString转换为jsonObject
-				System.out.println("--------->"+jsonString);
-				mJsonObject = new JSONObject(jsonString);
-				
-				// 得到数组名为""对应的jsonArray
-				mJsonArray = mJsonObject.getJSONArray("data");
-//				mJsonArray = new JSONArray("");
-				System.out.println("---------->"+mJsonArray.toString());
-				// 获取jsonArray中的每一个元素的值
-				
-				//TODO	不规范操作
-				itemBeanList.clear();
-				
-				for (int i = 0; i < mJsonArray.length(); i++) {
-
-					mJsonObject = mJsonArray.getJSONObject(i);
-
-					// 根据元素名设置ItemBean中成员变量的值
-
-					itemProviderName = mJsonObject.getString("providerName");
-					itemReward = mJsonObject.getString("reward");
-					itemSize = mJsonObject.getString("size");
-					itemKind = mJsonObject.getString("kinds");
-					itemTimeLimit = mJsonObject.getString("timeLimit");
-
-					mItemBean = new ItemBean(itemProviderName, itemReward,
-							itemSize, itemKind, itemTimeLimit);
-
-//					if (firstStart) {
-						// 如果当前第一次启动线程
-
-						// 将添加好数据的ItemBean对象,加入List中
-						itemBeanList.add(mItemBean);
-					/*	firstStart = false;
-
-					} else {
-
-						// TODO
-						// 刷新数据时，将刷新的数据放到最顶端
-						itemBeanList.add(0, mItemBean);
-						// 通知界面刷新
-						myBaseAdapter.notifyDataSetChanged();
-
-					}*/
-				}
-
-			}
-
-		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * 
-	 * 将服务器返回的字节流转换为json字符串
-	 * 
-	 */
-	private void readSteam() {
-
-		try {
-
-			// 将字节流转换为字符流
-			mInputStreamReader = new InputStreamReader(mInputStream, "UTF-8");
-
-			// 将字符流以BufferReader的形式读出
-			mBufferedReader = new BufferedReader(mInputStreamReader);
-
-			System.out.println("-------->"+mInputStreamReader.toString());
-			// 逐行读取字符流
-			String line = "";
-			
-			while ((line = mBufferedReader.readLine()) != null) {
-
-				jsonString += line;
-			}
-
-			
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
 	}
 
 }
