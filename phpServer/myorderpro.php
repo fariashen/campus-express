@@ -1,8 +1,8 @@
 <?php
     include 'conn.php';
-    $courierName=str_replace(" ","",$_POST['userName']);
-    //$courierName="test";
-    $sql="select * from expressorder where courierName='$courierName' order by orderID desc";
+    $providerName=str_replace(" ","",$_POST['userName']);
+    //$providerName="test";
+    $sql="select * from expressorder where providerName='$providerName' order by orderID desc";
     $query=mysqli_query($cn, $sql);
     while($result=mysqli_fetch_assoc($query)){
         $data[]=$result; }
