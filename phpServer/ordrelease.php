@@ -1,6 +1,6 @@
 <?php
     include 'conn.php';
-    $providerName=str_replace(" ","",$_POST['userName']);//接收客户端发来的userName；
+    $providerName=iconv("UTF-8","GBK//IGNORE",str_replace(" ","",$_POST['userName']));//接收客户端发来的userName；
     $nickName=str_replace(" ","",$_POST['nickName']);
     $reward=str_replace(" ","",$_POST['reward']);
     $addFrom=str_replace(" ","",$_POST['addFrom']);
@@ -10,16 +10,6 @@
     $phone=str_replace(" ","",$_POST['phone']);
     $kinds=str_replace(" ","",$_POST['kinds']);
     $remarks=str_replace(" ","",$_POST['remarks']);
-    //$providerName='12345';
-    //$nickName='林先生aa';
-    //$reward='10';
-    //$addFrom='东门';
-    //$addTo='新西楼';
-    //$timeLimit='8号晚上5点前';
-    //$size='大';
-    //$phone='15600000000';
-    //$kinds='中通';
-    //$remarks='无';
     $result=mysqli_fetch_array(mysqli_query($cn,"select balances from users where userName='$providerName'"));
     $balance=$result['0'];
     //echo $balance;
@@ -42,5 +32,5 @@
             echo'3';//余额不足，发单失败
         }
         mysqli_close($cn);
-?>
+
     

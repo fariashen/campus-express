@@ -1,7 +1,7 @@
 <?php
     include 'conn.php';
-    $userName=str_replace(" ","",$_POST['userName']);//接收客户端发来的userName；
-    $passWord=str_replace(" ","",$_POST['passWord']);//接收客户端发来的passWord；
+    $userName=mb_convert_encoding(str_replace(" ","",$_POST['userName']),'utf8','gbk');//接收客户端发来的userName；
+    $passWord=mb_convert_encoding(str_replace(" ","",$_POST['passWord']),'UTF-8','GBK');//接收客户端发来的passWord；
     //$phone=str_replace(" ","",$_POST['phone']);//接收客户端发来的phone；
     //$email=str_replace(" ","",$_POST['email']);//接收客户端发来的email；
     //$userName="user4";
