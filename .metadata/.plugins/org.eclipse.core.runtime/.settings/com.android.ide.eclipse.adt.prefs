@@ -3,7 +3,6 @@
 >>>>>>>=3cd7c65bbdc8f5d0bf5c736b94d0ecbd762b6628
 com.android.ide.eclipse.adt.autoPickTarget=false
 com.android.ide.eclipse.adt.fixLegacyEditors=1
-com.android.ide.eclipse.adt.sdk=D\:\\AndroidSDK\\AppData\\sdk
-com.android.ide.eclipse.adt.xmlEditor=true
+com.android.ide.eclipse.adt.sdk=F\:\\Bundle\\adt-bundle-windows-x86_64-20140702\\sdk
 eclipse.preferences.version=1
 |||||||=merged common ancestors
