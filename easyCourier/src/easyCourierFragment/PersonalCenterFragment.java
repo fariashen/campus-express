@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -16,17 +15,20 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+<<<<<<< HEAD
 import android.widget.PopupWindow;
 import android.widget.PopupWindow.OnDismissListener;
 import android.widget.TextView;
 import android.widget.Toast;
+=======
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 
-import com.example.easycourier.MainActivity;
 import com.example.easycourier.R;
 
 import easyCourierFunction.PersonalInfoEdit;
 import easyCourierFunction.PersonalInfoShow;
-import easyCourierHttpPost.PIShowHttpPost;
+import easyCourierFunction.ShowAcceptedRequest;
+import easyCourierFunction.ShowUpLoadedRequest;
 
 /**
  * 
@@ -58,11 +60,17 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 	 * 
 	 */
 	
+<<<<<<< HEAD
 	private TextView tv_PersonalCenter_1;
 	private TextView tv_PersonalCenter_2;
 	private TextView tv_PersonalCenter_3;
 	private TextView tv_PersonalCenter_4;
 	private TextView tv_PersonalCenter_5;
+=======
+	private Button bt_PersonalCenter_PI;
+	private Button bt_PersonalCenter_UpLoadedRequest;
+	private Button bt_PersonalCenter_AcceptedRequest;
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 	
 	private Button bt_PersonalCenter_Exit;
 	//启动相应的操作类
@@ -77,14 +85,21 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 		/**
 		 * 初始化控件
 		 */
+<<<<<<< HEAD
 		tv_PersonalCenter_1 = (TextView) view.findViewById(R.id.tv_PersonalCenter_1);
 		tv_PersonalCenter_2 = (TextView) view.findViewById(R.id.tv_PersonalCenter_2);
 		tv_PersonalCenter_3 = (TextView) view.findViewById(R.id.tv_PersonalCenter_3);
 		tv_PersonalCenter_4 = (TextView) view.findViewById(R.id.tv_PersonalCenter_4);
 		tv_PersonalCenter_5 = (TextView) view.findViewById(R.id.tv_PersonalCenter_5);
+=======
+		bt_PersonalCenter_PI = (Button) view.findViewById(R.id.bt_PersonalCenter_PI);
+		bt_PersonalCenter_UpLoadedRequest = (Button) view.findViewById(R.id.bt_PersonalCenter_UpLoadedRequest);
+		bt_PersonalCenter_AcceptedRequest = (Button) view.findViewById(R.id.bt_PersonalCenter_AcceptedRequest);
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 		
 		bt_PersonalCenter_Exit=(Button) view.findViewById(R.id.bt_PersonalCenter_Exit);
 		//为修改按钮设置监听
+<<<<<<< HEAD
 		tv_PersonalCenter_1.setOnClickListener(this);
 		tv_PersonalCenter_2.setOnClickListener(this);
 		tv_PersonalCenter_3.setOnClickListener(this);
@@ -94,6 +109,11 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 		bt_PersonalCenter_Exit.setOnClickListener(this);
 		
 		
+=======
+		bt_PersonalCenter_PI.setOnClickListener(this);
+		bt_PersonalCenter_UpLoadedRequest.setOnClickListener(this);
+		bt_PersonalCenter_AcceptedRequest.setOnClickListener(this);
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 		return view;
 	}
 
@@ -117,15 +137,21 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 			startActivity(intent);
 			break;
 			
+<<<<<<< HEAD
 		//当点击“信息修改”按钮时，触发调用 PersonalInfoEdit.java
 		case R.id.tv_PersonalCenter_2:
+=======
+		//当点击“已发送请求”按钮时，触发调用查询已发送请求方法
+		case R.id.bt_PersonalCenter_UpLoadedRequest:
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 			
-			intent = new Intent(view.getContext(), PersonalInfoEdit.class);
+			//TODO
+			intent = new Intent(view.getContext(), ShowUpLoadedRequest.class);
 			startActivity(intent);
 			
 			break;
-			
 		//当点击“已接受请求”按钮时，触发调用查询已接受请求方法
+<<<<<<< HEAD
 		case R.id.tv_PersonalCenter_3:
 			
 			/**
@@ -141,10 +167,13 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 			break;
        
         case R.id.tv_PersonalCenter_5:
+=======
+		case R.id.bt_PersonalCenter_AcceptedRequest:
 			
-			/**
-			 * 待定
-			 */
+			intent = new Intent(view.getContext(), ShowAcceptedRequest.class);
+			startActivity(intent);
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
+			
 			break;
 
         case R.id.bt_PersonalCenter_Exit:

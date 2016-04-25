@@ -2,9 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+<<<<<<< HEAD
     android:layout_marginBottom="10dp"
     android:orientation="vertical" 
     style="@style/common_vertical_division_line_style">
+=======
+    android:paddingBottom="20dp"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_tip_itemKinds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="类型："
+        android:textSize="20sp" />
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 
     <RelativeLayout
         android:layout_width="400dp"
@@ -17,17 +33,35 @@
     <TextView
         android:id="@+id/tv_itemKinds"
         android:layout_width="wrap_content"
+<<<<<<< HEAD
         android:layout_height="wrap_content"     
         android:layout_marginTop="15dp"
         android:text="快递类型"
         android:textSize="25sp" />
+=======
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/tv_tip_itemKinds"
+        android:text="快递类型"
+        android:textSize="20sp" />
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
+
+    <TextView
+        android:id="@+id/tv_tip_itemReward"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:text="报酬："
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_itemReward"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_toEndOf="@id/tv_itemKinds"
+        android:layout_toEndOf="@id/tv_tip_itemReward"
         android:gravity="center"
+<<<<<<< HEAD
         android:text="(Rewards)"
         android:textSize="20sp" />
 
@@ -39,11 +73,16 @@
         android:layout_toEndOf="@id/tv_itemKinds"
         android:text="型号"
         android:textSize="22sp" />
+=======
+        android:text="Rewards"
+        android:textSize="20sp" />
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 
     <TextView
-        android:id="@+id/tv_itemSize"
-        android:layout_width="fill_parent"
+        android:id="@+id/tv_tip_itemSize"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
+<<<<<<< HEAD
         android:layout_below="@id/tv_itemReward"
         android:layout_toEndOf="@id/tv_itemKinds"
         android:gravity="center"
@@ -60,6 +99,23 @@
         android:text="报酬"
         android:textSize="22sp" />
 </RelativeLayout>
+=======
+        android:layout_below="@id/tv_tip_itemReward"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:layout_marginLeft="15dp"
+        android:text="规格："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_itemSize"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/tv_itemReward"
+        android:layout_toEndOf="@id/tv_tip_itemSize"
+        android:gravity="center"
+        android:text="Size"
+        android:textSize="20sp" />
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 
  <RelativeLayout
      android:layout_width="400dp"

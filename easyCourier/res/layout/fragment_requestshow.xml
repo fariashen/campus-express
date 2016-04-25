@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:padding="15sp"
+    android:padding="10dp"
     android:orientation="vertical" >
 
  <com.example.easycourier.ReFlashListView 
@@ -13,5 +13,7 @@
         >
         
     </com.example.easycourier.ReFlashListView>
+    
+
 
 </LinearLayout>

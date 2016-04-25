@@ -44,7 +44,13 @@
         <activity android:name="easyCourierFunction.RequestUpLoad" >
         </activity>
         <activity android:name="easyCourierFunction.RequestDetailShow"></activity>
+<<<<<<< HEAD
         <activity android:name="ScanActivity"></activity>
+=======
+        <activity android:name="easyCourierFunction.ShowRequestAllInfo"></activity>
+        <activity android:name="easyCourierFunction.ShowAcceptedRequest"></activity>
+        <activity android:name="easyCourierFunction.ShowUpLoadedRequest"></activity>
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
     </application>
 
 </manifest>

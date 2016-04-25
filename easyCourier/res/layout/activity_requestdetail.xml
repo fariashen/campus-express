@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
+<<<<<<< HEAD
     android:layout_margin="20dp"
     android:gravity="center"
     android:background="@drawable/requestupload_shape" >
@@ -13,11 +14,16 @@
     android:orientation="vertical" 
     android:layout_margin="20dp"
     android:gravity="center">
+=======
+	android:paddingLeft="10dp"
+   android:gravity="center">
+
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="发单人用户名："
-        android:textSize="22sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_DetailProviderName"
@@ -25,15 +31,19 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" 
+<<<<<<< HEAD
         android:textSize="22sp"
         android:background="@drawable/requestdetailshape"
         />
+=======
+        android:textSize="20sp"/>
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="报酬："
-        android:textSize="22sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_DetailReward"
@@ -41,14 +51,18 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" 
+<<<<<<< HEAD
         android:textSize="22sp"
         android:background="@drawable/requestdetailshape"/>
+=======
+        android:textSize="20sp"/>
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="快递规格："
-        android:textSize="22sp" />
+        android:textSize="20sp" />
 
        <TextView
         android:id="@+id/tv_DetailSize"
@@ -56,14 +70,18 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" 
+<<<<<<< HEAD
         android:textSize="22sp"
         android:background="@drawable/requestdetailshape"/>
+=======
+        android:textSize="20sp"/>
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="快递公司："
-        android:textSize="22sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_DetailKinds"
@@ -71,14 +89,18 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" 
+<<<<<<< HEAD
         android:textSize="22sp"
         android:background="@drawable/requestdetailshape"/>
+=======
+        android:textSize="20sp"/>
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="时间限制："
-        android:textSize="22sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_DetailTimeLimit"
@@ -86,7 +108,21 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" 
+<<<<<<< HEAD
         android:textSize="22sp"
         android:background="@drawable/requestdetailshape"/>
 </LinearLayout>
+=======
+        android:textSize="20sp"/>
+    
+    <Button 
+        android:id="@+id/bt_acceptRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="接受请求"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        />
+
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 </LinearLayout>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingTop="10dp" 
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tv_tip_PIS_UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="用户名："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_PIS_UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/tv_tip_PIS_UserName"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="用户名："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_PIS_PassWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_tip_PIS_UserName"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="密码："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_PIS_PassWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_PIS_UserName"
+        android:layout_toEndOf="@id/tv_tip_PIS_PassWord"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="密码："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_PIS_Phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_tip_PIS_PassWord"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="联系电话："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_PIS_Phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_PIS_PassWord"
+        android:layout_toEndOf="@id/tv_tip_PIS_Phone"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="联系电话："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_PIS_Address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_tip_PIS_Phone"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="联系地址："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_PIS_Address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_PIS_Phone"
+        android:layout_toEndOf="@id/tv_tip_PIS_Address"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="联系地址："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_PIS_Sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_tip_PIS_Address"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="性别："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_PIS_Sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_PIS_Address"
+        android:layout_toEndOf="@id/tv_tip_PIS_Sex"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="性别："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_PIS_Balances"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_tip_PIS_Sex"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="余额："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_PIS_Balances"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_PIS_Sex"
+        android:layout_toEndOf="@id/tv_tip_PIS_Sex"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="余额："
+        android:textSize="20sp" />
+
+        <Button
+        android:id="@+id/bt_PersonalCenter_Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15sp"
+        android:layout_marginTop="15sp"
+        android:gravity="center"
+        android:layout_below="@id/tv_PIS_Balances"
+        android:text="信息修改"
+        android:textSize="25sp" />
+   
+
+</RelativeLayout>

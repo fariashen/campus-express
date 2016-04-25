@@ -1,0 +1,15 @@
+package easyCourierFunction;
+
+import android.app.Activity;
+/**
+ * 
+ * @author vacation
+ *	成功接收请求后跳转到此界面
+ *
+ *	显示请求的全部信息
+ */
+public class ShowRequestAllInfo extends Activity {
+
+	//待赋值的控件
+	
+}

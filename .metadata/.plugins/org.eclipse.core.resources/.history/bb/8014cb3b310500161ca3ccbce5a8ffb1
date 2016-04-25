@@ -1,0 +1,127 @@
+package easyCourierHttpPost;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import android.os.Message;
+
+public abstract class HttpPostRequest extends Thread {
+
+	// 发送请求的远程数据库地址
+	//TODO
+	protected String urlAddress="";
+	
+	// 发送网络请求的成员变量
+	protected HttpClient mHttpClient = new DefaultHttpClient();
+	protected HttpPost mHttpPost;
+	protected HttpResponse mHttpResponse;
+	protected HttpEntity mEntity;
+	protected ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+	
+	//判断是否Json数据
+	protected Boolean isJsonData;
+	
+	// 解析Json数据的成员变量
+	private InputStream mInputStream;
+	private InputStreamReader mInputStreamReader;
+	private BufferedReader mBufferedReader;
+	private JSONObject mJsonObject;
+	private JSONArray mJsonArray;
+
+	// 保存返回的json字符串信息
+	private String jsonString = "";
+	
+	protected String result;
+	protected Message message = new Message();
+	
+	@Override
+	public void run() {
+
+		doHttpPostRequest();
+	}
+
+	protected void doHttpPostRequest() {
+
+		//设置数据库地址
+		setUrlAddress();
+		
+		//向数据库地址发送请求
+		mHttpPost = new HttpPost(urlAddress);
+		
+		try {
+			
+			//设置HttpPost的请求参数
+			setParamsIntoPost();
+			
+			//发送Http请求并获取HttpResponse
+			mHttpResponse = mHttpClient.execute(mHttpPost);
+			
+			//检测请求是否发送成功
+			if (mHttpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+
+				//获取请求结果
+				mEntity = mHttpResponse.getEntity();
+				
+				setIsJsonData();
+				
+				//如果是Json的数据格式
+				if(isJsonData){
+					
+					//对Json进行解释操作
+					encodeJson();
+					
+				}
+				//处理请求结果并设置消息
+				handleResult();
+				
+				//将消息返回给相应主线程处理
+				backToMainThreadHandleMessage();
+				
+			}
+			
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	private void encodeJson() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	//设置请求结果的数据类型
+	protected abstract void setIsJsonData();
+	
+	//处理请求结果并设置消息
+	protected abstract void handleResult();
+
+	//设置URL
+	protected abstract void setUrlAddress(); 
+	
+	//设置params和HttpPost请求参数
+	protected abstract void setParamsIntoPost();
+
+	//设置相应的handler
+	protected abstract void backToMainThreadHandleMessage();
+	
+}

@@ -1,10 +1,5 @@
 package easyCourierFunction;
 
-import com.example.easycourier.R;
-import com.example.easycourier.R.id;
-import com.example.easycourier.R.layout;
-
-import easyCourierHttpPost.RegiesterHttpPost;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -17,6 +12,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.easycourier.R;
+
+import easyCourierHttpPost.HttpPostRequest;
+import easyCourierHttpPost.RegiesterHttpPost;
 
 /**
  * @author vacation
@@ -59,7 +59,7 @@ public class Regiester extends Activity implements OnClickListener {
 	public static String REGIESTER_CONNECTURL = "http://www.caiweicheng.cn/phpserver/register.php";
 
 	// 实现注册功能的网络请求类
-	RegiesterHttpPost rgHttpPost;
+	HttpPostRequest rgHttpPost;
 
 	private static Context regiestContext;
 
@@ -147,7 +147,7 @@ public class Regiester extends Activity implements OnClickListener {
 			// 将 用户名，密码，电话，邮箱 的值传入函数方法
 
 			rgHttpPost = new RegiesterHttpPost(REGIESTER_USERNAME,
-					REGIESTER_PASSWORD_1, REGIESTER_CONNECTURL);
+					REGIESTER_PASSWORD_1);
 
 			// 点击后触发调用 RegiesterHttpPost 线程
 			rgHttpPost.start();

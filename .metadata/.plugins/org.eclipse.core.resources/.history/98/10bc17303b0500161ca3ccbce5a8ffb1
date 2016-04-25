@@ -1,0 +1,90 @@
+package easyCourierHttpPost;
+
+import java.io.UnsupportedEncodingException;
+
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
+import org.json.JSONException;
+
+import easyCourierFunction.Login;
+import easyCourierFunction.PersonalInfoShow;
+
+/**
+ * @author vacation
+ * 
+ *         实现PersonalInfoShow访问远程数据库的查询操作
+ * 
+ *         将查询结果存储在 String 字符串result_Password内 通过该字符串设置TextView控件
+ * 
+ */
+public class PIShowHttpPost extends HttpPostRequest {
+
+	private String result_Password = "";
+
+	@Override
+	protected void setUrlAddress() {
+
+		// 设置URL
+		urlAddress = PersonalInfoShow.PISHOW_CONNECTURL;
+	}
+
+	@Override
+	protected void setParamsIntoPost() {
+
+		// 设置params和HttpPost请求参数
+		params.add(new BasicNameValuePair("userName", Login.LOGIN_USERNAME));
+		try {
+			mHttpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	protected void handleResult() {
+
+	}
+
+	@Override
+	protected void backToMainThreadHandleMessage() {
+		// 向主线程发送更新UI请求
+
+		PersonalInfoShow.pisHandler.post(new Runnable() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				PersonalInfoShow.tv_PersonalInfoUserName
+						.setText(Login.LOGIN_USERNAME);
+				PersonalInfoShow.tv_PersonalInfoPassWord
+						.setText(result_Password);
+			}
+		});
+
+	}
+
+	@Override
+	protected void setIsJsonData() {
+
+		isJsonData = true;
+		// jsonString = "{\"data\":[";
+	}
+
+	@Override
+	protected void getDifferentJsonArrayValue() {
+
+		try {
+
+			result_Password = mJsonObject.getString("passWord");
+
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

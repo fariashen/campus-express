@@ -1,0 +1,57 @@
+package easyCourierHttpPost;
+
+import java.io.UnsupportedEncodingException;
+
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
+
+import easyCourierFunction.Login;
+import easyCourierFunction.RequestDetailShow;
+
+public class AcceptRequestHttpPost extends HttpPostRequest {
+
+	@Override
+	protected void setUrlAddress() {
+		// TODO 设置发送请求地址
+		urlAddress = "http://www.caiweicheng.cn/phpserver/ordaccept.php";
+
+	}
+
+	@Override
+	protected void setParamsIntoPost() {
+
+		// TODO设置传送给数据库的参数
+		params.add(new BasicNameValuePair("userName", Login.LOGIN_USERNAME));
+		params.add(new BasicNameValuePair("orderID", RequestDetailShow.itemOrderId));
+
+		try {
+			mHttpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	protected void setIsJsonData() {
+
+		isJsonData = false;
+	}
+
+	@Override
+	protected void getDifferentJsonArrayValue() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void backToMainThreadHandleMessage() {
+
+		// 将消息回传到主线程中处理
+		// 接单成功 回传 1
+		// 接单失败 回传 0
+		RequestDetailShow.handler_RequestDetailShow.sendMessage(message);
+	}
+
+}

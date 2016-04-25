@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/empty_cart_view"
@@ -202,6 +203,33 @@
       <Button
         android:id="@+id/bt_PersonalCenter_Exit"
         android:layout_marginTop="15dp"
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="20sp"
+    android:paddingRight="20sp" >
+
+    <Button
+        android:id="@+id/bt_PersonalCenter_PI"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="个人信息"
+        android:textSize="25sp" />
+    
+    <Button
+        android:id="@+id/bt_PersonalCenter_UpLoadedRequest"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="已发送请求"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/bt_PersonalCenter_AcceptedRequest"
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -1,11 +1,5 @@
 package easyCourierFunction;
 
-import com.example.easycourier.R;
-import com.example.easycourier.R.id;
-import com.example.easycourier.R.layout;
-
-import easyCourierFragment.PersonalCenterFragment;
-import easyCourierHttpPost.PIEditHttpPost;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.easycourier.R;
+
+import easyCourierHttpPost.PIEditHttpPost;
 
 /**
  * @author vacation
@@ -36,25 +34,34 @@ public class PersonalInfoEdit extends Activity {
 	 * 用户名，密码，电话，邮件的EditText
 	 * 
 	 * 网络连接的URL
-	 * 
 	 */
 
-	private EditText et_PersonalInfoEdit_UserName;
-	private EditText et_PersonalInfoEdit_PassWord;
+	private EditText et_PIE_UserName;
+	private EditText et_PIE_PassWord;
+	private EditText et_PIE_Phone;
+	private EditText et_PIE_Address;
+	private EditText et_PIE_Sex;
 
-	private Button bt_PersonalInfoEdit_Commit;
+	private Button bt_PIE_Commit;
 
-	String EDITED_USERNAME;
-	String EDITED_PASSWORD;
-	String EDITED_PHONE;
-	String EDITED_EMAIL;
+	private String PIE_Password;
+	private String PIE_Phone;
+	private String PIE_Address;
+	private String PIE_Sex;
 
 	PIEditHttpPost mEditHandle;
 
 	public static Context pieContext;
 
+	private Intent mIntent;
+	private Bundle mBundle;
+
 	// 链接地址
+<<<<<<< HEAD
 	//TODO
+=======
+	// TODO
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
 	public static String PIEDIT_CONNECTURL = "http://www.caiweicheng.cn/phpserver/PIedit.php";
 
 	@Override
@@ -62,41 +69,54 @@ public class PersonalInfoEdit extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_personalinfo_edit);
 		getActionBar().setDisplayShowHomeEnabled(false);
-		
+
 		// 获取 PersonalInfoEdit 的 Context
 		pieContext = PersonalInfoEdit.this;
 
 		// 获取各个控件
 
-		et_PersonalInfoEdit_UserName = (EditText) findViewById(R.id.et_PersonalInfo_Username);
-		et_PersonalInfoEdit_PassWord = (EditText) findViewById(R.id.et_PersonalInfo_Password);
+		et_PIE_UserName = (EditText) findViewById(R.id.et_PIE_UserName);
+		et_PIE_PassWord = (EditText) findViewById(R.id.et_PIE_PassWord);
+		et_PIE_Phone = (EditText) findViewById(R.id.et_PIE_Phone);
+		et_PIE_Address = (EditText) findViewById(R.id.et_PIE_Address);
+		et_PIE_Sex = (EditText) findViewById(R.id.et_PIE_Sex);
 
-		bt_PersonalInfoEdit_Commit = (Button) findViewById(R.id.bt_PersonalInfo_Commit);
+		bt_PIE_Commit = (Button) findViewById(R.id.bt_PIE_Commit);
+
+		// 获取从PersonalInfoShow传送过来的参数
+		mIntent = getIntent();
+		mBundle = mIntent.getBundleExtra("PIS_Init");
 
 		// 设置EditText的初始值
 
-		et_PersonalInfoEdit_UserName.setText(Login.LOGIN_USERNAME);
-		et_PersonalInfoEdit_PassWord.setText(Login.LOGIN_PASSWORD);
+		et_PIE_UserName.setText(Login.LOGIN_USERNAME);
+		et_PIE_PassWord.setText(mBundle.getString("password"));
+		et_PIE_Phone.setText(mBundle.getString("phone"));
+		et_PIE_Address.setText(mBundle.getString("address"));
+		et_PIE_Sex.setText(mBundle.getString("sex"));
 
 		// 点击“确定”按钮后将修改的值传给 PIEditHttpPost 线程
 
-		bt_PersonalInfoEdit_Commit
-				.setOnClickListener(new View.OnClickListener() {
+		bt_PIE_Commit.setOnClickListener(new View.OnClickListener() {
 
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
 
-						EDITED_PASSWORD = et_PersonalInfoEdit_PassWord
-								.getText().toString();
+				// 获取修改值
+				PIE_Password = et_PIE_PassWord.getText().toString();
+				PIE_Phone = et_PIE_Phone.getText().toString();
+				PIE_Address = et_PIE_Address.getText().toString();
+				PIE_Sex = et_PIE_Sex.getText().toString();
 
-						mEditHandle = new PIEditHttpPost(EDITED_PASSWORD);
+				mEditHandle = new PIEditHttpPost(PIE_Password, PIE_Phone,
+						PIE_Address, PIE_Sex);
 
-						// 启动PIEditHttpPost 线程
-						mEditHandle.start();
+				// 启动PIEditHttpPost 线程
+				mEditHandle.start();
 
-					}
-				});
+			}
+		});
 	}
 
 	/*
@@ -104,7 +124,7 @@ public class PersonalInfoEdit extends Activity {
 	 * 
 	 * 两种情况
 	 * 
-	 * 情况一：修改成功 
+	 * 情况一：修改成功
 	 * 
 	 * 情况二：修改失败
 	 */
@@ -115,10 +135,10 @@ public class PersonalInfoEdit extends Activity {
 			switch (msg.what) {
 			case 1:
 				Toast.makeText(pieContext, "修改信息成功", Toast.LENGTH_SHORT).show();
-				
+
 				// 修改成功后跳转回 个人中心界面
 				((Activity) pieContext).finish();
-				
+
 				break;
 
 			default:
