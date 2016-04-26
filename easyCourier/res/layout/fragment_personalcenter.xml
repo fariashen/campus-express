@@ -2,15 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/empty_cart_view"
     android:layout_width="fill_parent"
+android:gravity="center"
     android:layout_height="fill_parent"
     android:background="#ffefebe7" >
 
-    <ScrollView
-        android:id="@+id/scrollView1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/top_relative"
-        android:fadingEdge="none" >
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -21,6 +16,17 @@
             android:paddingLeft="10.0dip"
             android:paddingRight="10.0dip"
             android:paddingTop="10.0dip" >
+            
+                        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:gravity="center_vertical"
+                android:paddingLeft="4.0dip"
+                android:text="查看信息"
+                android:textColor="#ff888888"
+                android:textSize="16.0sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -43,7 +49,7 @@
                         android:paddingTop="8.0dip" >
 
                         <TextView
-                            android:id="@+id/tv_PersonalCenter_1"
+                            android:id="@+id/tv_PersonalCenter_PI"
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
                             android:clickable="true"
@@ -57,7 +63,7 @@
                     </TableRow>
                 </TableLayout>
             </LinearLayout>
-
+<!-- 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -89,7 +95,6 @@
                         android:background="@drawable/fillet_shape"
                         android:paddingBottom="16.0dip"
                         android:paddingTop="16.0dip" >
-
                         <TextView
                             android:id="@+id/tv_PersonalCenter_2"
                             android:layout_width="wrap_content"
@@ -128,7 +133,7 @@
                     </TableRow>
                 </TableLayout>
             </LinearLayout>
-
+ -->
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -162,7 +167,7 @@
                         android:paddingTop="16.0dip" >
 
                         <TextView
-                            android:id="@+id/tv_PersonalCenter_4"
+                            android:id="@+id/tv_PersonalCenter_UpLoadedRequest"
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
                             android:clickable="true"
@@ -185,7 +190,7 @@
                         android:paddingTop="16.0dip" >
 
                         <TextView
-                            android:id="@+id/tv_PersonalCenter_5"
+                            android:id="@+id/tv_PersonalCenter_AcceptedRequest"
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
                             android:clickable="true"
@@ -199,23 +204,23 @@
                     </TableRow>
                 </TableLayout>
             </LinearLayout>
-      <Button
-        android:id="@+id/bt_PersonalCenter_Exit"
-        android:layout_marginTop="15dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="38dp"
-        android:layout_marginLeft="15.0dip"
-        android:layout_marginRight="15.0dip" 
-        android:background="@drawable/anniu"
-        android:gravity="center"
-        android:text="退出"
-        android:textColor="#ffffff"
-        android:textSize="20sp" />
-    </LinearLayout>    
-    </ScrollView>
 
-    
+      <Button
+          android:id="@+id/bt_PersonalCenter_Exit"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          android:layout_gravity="bottom"
+          android:layout_marginBottom="38dp"
+          android:layout_marginLeft="15.0dip"
+          android:layout_marginRight="15.0dip"
+          android:layout_marginTop="15dp"
+          android:background="@drawable/anniu"
+          android:gravity="center"
+          android:text="退出"
+          android:textColor="#ffffff"
+          android:textSize="20sp" />
+
+    </LinearLayout>    
 
 </RelativeLayout>

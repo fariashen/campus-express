@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp" >
+
+    <TextView
+        android:id="@+id/tv_tip_PIE_UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="用户名："
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_PIE_UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/tv_tip_PIE_UserName"
+        android:editable="false"
+        android:gravity="center"
+        android:hint="用户名"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:singleLine="true"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_PIE_PassWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_tip_PIE_UserName"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="密码："
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_PIE_PassWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_PIE_UserName"
+        android:layout_toEndOf="@id/tv_tip_PIE_PassWord"
+        android:gravity="center"
+        android:hint="密码"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:singleLine="true"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_PIE_Phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_tip_PIE_PassWord"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="联系电话："
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_PIE_Phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_PIE_PassWord"
+        android:layout_toEndOf="@id/tv_tip_PIE_Phone"
+        android:gravity="center"
+        android:hint="联系电话"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:singleLine="true"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_PIE_Address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_tip_PIE_Phone"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="联系地址："
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_PIE_Address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_PIE_Phone"
+        android:layout_toEndOf="@id/tv_tip_PIE_Address"
+        android:gravity="center"
+        android:hint="联系地址"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:singleLine="true"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_PIE_Sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_tip_PIE_Address"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="性别："
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_PIE_Sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_PIE_Address"
+        android:layout_toEndOf="@id/tv_tip_PIE_Sex"
+        android:gravity="center"
+        android:hint="性别"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:singleLine="true"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_PIE_Sex"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/bt_PIE_Commit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:gravity="center"
+            android:text="确定"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_PersonalInfo_Commit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="16dip"
+        android:background="@drawable/background_button_div"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="确认修改"
+        android:textSize="20sp" >
+    </Button>
+
+</RelativeLayout>

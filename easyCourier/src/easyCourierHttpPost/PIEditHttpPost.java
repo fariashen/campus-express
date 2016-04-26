@@ -1,112 +1,84 @@
 package easyCourierHttpPost;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
+import org.apache.http.protocol.HTTP;
 
 import easyCourierFunction.Login;
 import easyCourierFunction.PersonalInfoEdit;
 
-import android.os.Message;
-
 /**
  * @author vacation
- *
- *根据传入的参数：用户名，密码，电话，邮箱
- *与数据库进行通信，修改个人信息
- *
+ * 
+ *         根据传入的参数：用户名，密码，电话，邮箱 与数据库进行通信，修改个人信息
+ * 
  */
-public class PIEditHttpPost extends Thread {
+public class PIEditHttpPost extends HttpPostRequest {
 
-//	进行POST请求的参数
-	HttpClient mHttpClient;
-	HttpPost mHttpPost;
-	HttpResponse mHttpResponse;
-	HttpEntity mHttpEntity;
-	ArrayList<NameValuePair> params;
-	
-//	需要传递的参数
-	String PassWord;
-	
-	private String PIEdit_result;
-	
-	public PIEditHttpPost(String PassWord) {
+	private String Password="";
+	private String Phone="";
+	private String Address="";
+	private String Sex="";
 
-		this.PassWord = PassWord;
+	public PIEditHttpPost(String PassWord, String Phone, String Address,
+			String Sex) {
+
+		this.Password = PassWord;
+		this.Phone = Phone;
+		this.Address = Address;
+		this.Sex = Sex;
+
 	}
-	
+
 	@Override
-	public void run() {
-		
-		editPersonalInfo();
+	protected void setUrlAddress() {
+		// 设置地址
+		urlAddress = PersonalInfoEdit.PIEDIT_CONNECTURL;
+
 	}
 
-	private void editPersonalInfo() {
+	@Override
+	protected void setParamsIntoPost() {
 
-//		设置参数(name,value)
-		
-		params = new ArrayList<NameValuePair>();
+		// 设置参数
 		params.add(new BasicNameValuePair("userName", Login.LOGIN_USERNAME));
-		params.add(new BasicNameValuePair("passWord", PassWord));
-		params.add(new BasicNameValuePair("phone", "111"));
-		params.add(new BasicNameValuePair("email", "111"));
-		params.add(new BasicNameValuePair("address", "111"));
-		params.add(new BasicNameValuePair("stunum", "111"));
-		params.add(new BasicNameValuePair("sex", "111"));
-		
-//		设置HTTPPOST
-		mHttpPost = new HttpPost(PersonalInfoEdit.PIEDIT_CONNECTURL);
-		
+		params.add(new BasicNameValuePair("passWord", Password));
+		params.add(new BasicNameValuePair("phone", Phone));
+		params.add(new BasicNameValuePair("address", Address));
+		params.add(new BasicNameValuePair("sex", Sex));
+
 		try {
 			
-//			设置参数
-			
-			mHttpPost.setEntity(new UrlEncodedFormEntity(params));
-//			发送请求
-			mHttpClient = new DefaultHttpClient();
-			mHttpResponse = mHttpClient.execute(mHttpPost);
-			
-//			判断请求是否发送成功
-			if(mHttpResponse.getStatusLine().getStatusCode()==HttpStatus.SC_OK){
-
-//				获取服务器返回数据
-//				如果修改成功则返回 "success" 字符串
-				PIEdit_result = EntityUtils.toString(mHttpResponse.getEntity());
-				
-//				将服务器返回的结果，传给PersonalInfoEdit处理
-				Message pieHttpPostMessage = new Message();
-				
-				if(PIEdit_result.equals("success")){
-					pieHttpPostMessage.what = 1;
-				}else{
-					pieHttpPostMessage.what = 0;
-				}
-				PersonalInfoEdit.PIE_Handler.sendMessage(pieHttpPostMessage);
-				
-				
-			}
+			mHttpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
 			
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
+
+	@Override
+	protected void backToMainThreadHandleMessage() {
+
+		// 设置相应的handler
+		PersonalInfoEdit.PIE_Handler.sendMessage(message);
+		System.out.println("--------------->message"+message);
+
+	}
+
+	@Override
+	protected void setIsJsonData() {
+
+		isJsonData = false;
+
+	}
+
+	@Override
+	protected void getDifferentJsonArrayValue() {
+		// TODO Auto-generated method stub
+
+	}
+
 }

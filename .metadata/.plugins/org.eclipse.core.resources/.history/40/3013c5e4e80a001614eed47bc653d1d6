@@ -1,0 +1,135 @@
+package easyCourierFunction;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.TextView;
+
+import com.example.easycourier.R;
+
+/**
+ * 
+ * @author vacation
+ *	成功接收请求后跳转到此界面
+ *
+ *	显示请求的全部信息
+ */
+/**
+ * 
+ * @author vacation 成功接收请求后跳转到此界面
+ * 
+ *         显示请求的全部信息
+ */
+public class ShowRequestAllInfo extends Activity {
+
+	// 待赋值的控件
+	private TextView tv_SRAI_NickName;
+	private TextView tv_SRAI_Reward;
+	private TextView tv_SRAI_AddForm;
+	private TextView tv_SRAI_AddTo;
+	private TextView tv_SRAI_TimeLimit;
+	private TextView tv_SRAI_Size;
+	private TextView tv_SRAI_Phone;
+	private TextView tv_SRAI_Kinds;
+	private TextView tv_SRAI_Remarks;
+
+	// 请求的所有信息
+	private String itemOrederId;
+	private String itemProviderName;
+	private String courierName;
+	private String itemNickName;
+	private String itemReward;
+	private String itemAddForm;
+	private String itemAddTo;
+	private String itemTimeLimit;
+	private String itemSize;
+	private String itemPhone;
+	private String itemKind;
+	private String itemRemarks;
+	private String ordflag;
+
+	private Boolean isCheckUpLoaded = false;
+
+	private Intent mIntent;
+	private Bundle mBundle;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_showrequestallinfo);
+		getActionBar().setDisplayShowHomeEnabled(false);
+
+		// 获取控件
+		tv_SRAI_NickName = (TextView) findViewById(R.id.tv_SRAI_NickName);
+		tv_SRAI_Reward = (TextView) findViewById(R.id.tv_SRAI_Reward);
+		tv_SRAI_AddForm = (TextView) findViewById(R.id.tv_SRAI_AddForm);
+		tv_SRAI_AddTo = (TextView) findViewById(R.id.tv_SRAI_AddTo);
+		tv_SRAI_TimeLimit = (TextView) findViewById(R.id.tv_SRAI_TimeLimit);
+		tv_SRAI_Size = (TextView) findViewById(R.id.tv_SRAI_Size);
+		tv_SRAI_Phone = (TextView) findViewById(R.id.tv_SRAI_Phone);
+		tv_SRAI_Kinds = (TextView) findViewById(R.id.tv_SRAI_Kinds);
+		tv_SRAI_Remarks = (TextView) findViewById(R.id.tv_SRAI_Remarks);
+
+		// 获取传送过来的Bundle
+		mIntent = getIntent();
+		mBundle = mIntent.getBundleExtra("ItemAllInfo");
+
+		// 获取Bundle传来的信息
+		itemOrederId = mBundle.getString("orderId");
+		itemProviderName = mBundle.getString("providerName");
+		courierName = mBundle.getString("courierName");
+		itemNickName = mBundle.getString("nickName");
+		itemReward = mBundle.getString("reward");
+		itemAddForm = mBundle.getString("addForm");
+		itemAddTo = mBundle.getString("addTo");
+		itemTimeLimit = mBundle.getString("timeLimit");
+		itemSize = mBundle.getString("size");
+		itemPhone = mBundle.getString("phone");
+		itemKind = mBundle.getString("kinds");
+		itemRemarks = mBundle.getString("remarks");
+		ordflag = mBundle.getString("ordflag");
+
+		isCheckUpLoaded = mBundle.getBoolean("isCheckUpLoaded");
+
+		// 设置控件显示内容
+		tv_SRAI_NickName.setText(itemNickName);
+		tv_SRAI_NickName.setText(itemNickName);
+
+		tv_SRAI_NickName.setText(itemNickName);
+		tv_SRAI_Reward.setText(itemReward);
+		tv_SRAI_AddForm.setText(itemAddForm);
+		tv_SRAI_AddTo.setText(itemAddTo);
+		tv_SRAI_TimeLimit.setText(itemTimeLimit);
+		tv_SRAI_Size.setText(itemSize);
+		tv_SRAI_Phone.setText(itemPhone);
+		tv_SRAI_Kinds.setText(itemKind);
+		tv_SRAI_Remarks.setText(itemRemarks);
+
+		// 检查是否因为点击查看“已发布请求”而触发此Activity的
+		if (isCheckUpLoaded) {
+
+			// 根据ordflag的不同设置控件
+			switch (Integer.parseInt(ordflag)) {
+			
+			//发布的订单未被接受
+			case 0:
+
+				break;
+				
+			//发布的订单已被接受
+			case 1:
+				
+				break;
+				
+			//发布的订单已经完成
+			case 2:
+				
+				break;
+
+			}
+		}
+
+	}
+
+}

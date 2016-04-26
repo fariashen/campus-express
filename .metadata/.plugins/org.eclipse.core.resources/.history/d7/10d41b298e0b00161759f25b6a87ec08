@@ -1,0 +1,41 @@
+package easyCourierHttpPost;
+
+public class CancelRequestHttpPost extends HttpPostRequest {
+
+	private String orderId;
+	
+	public CancelRequestHttpPost(String orderId) {
+
+		this.orderId = orderId;
+	}
+	@Override
+	protected void setUrlAddress() {
+
+		urlAddress = "http://119.29.4.159/phpserver/ordcompleted.php";
+	}
+
+	@Override
+	protected void setParamsIntoPost() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void setIsJsonData() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void getDifferentJsonArrayValue() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void backToMainThreadHandleMessage() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

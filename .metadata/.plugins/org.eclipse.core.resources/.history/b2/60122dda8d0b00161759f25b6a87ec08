@@ -1,0 +1,35 @@
+package easyCourierHttpPost;
+
+public class CancelRequestHttpPost extends HttpPostRequest {
+
+	@Override
+	protected void setUrlAddress() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void setParamsIntoPost() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void setIsJsonData() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void getDifferentJsonArrayValue() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void backToMainThreadHandleMessage() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

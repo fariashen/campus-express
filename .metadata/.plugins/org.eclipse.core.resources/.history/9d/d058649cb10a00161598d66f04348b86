@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    style="@style/common_vertical_division_line_style"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:layout_marginTop="10dp" >
+
+    <TextView
+        android:id="@+id/tv_tip_itemKinds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:text="类型："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_itemKinds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"     
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="6dp"
+        android:layout_toEndOf="@id/tv_tip_itemKinds"
+        android:text="快递类型"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_tip_itemReward"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:text="报酬："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_itemReward"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/tv_tip_itemReward"
+        android:gravity="center"
+        android:text="(Rewards)"
+        android:textSize="20sp" />
+
+
+
+    <TextView
+        android:id="@+id/tv_tip_itemSize"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:layout_below="@id/tv_tip_itemReward"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:layout_marginLeft="15dp"
+        android:text="规格："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_itemSize"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/tv_itemReward"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:layout_toEndOf="@id/tv_tip_itemSize"
+        android:gravity="center"
+        android:text="(Size)"
+        android:textSize="20sp" />
+
+</RelativeLayout>

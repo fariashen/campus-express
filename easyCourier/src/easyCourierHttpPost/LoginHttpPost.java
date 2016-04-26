@@ -1,23 +1,12 @@
 package easyCourierHttpPost;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
+import org.apache.http.protocol.HTTP;
 
 import easyCourierFunction.Login;
-
-import android.os.Message;
 
 /**
  * 
@@ -34,85 +23,51 @@ import android.os.Message;
  * 
  */
 
-public class LoginHttpPost extends Thread {
+public class LoginHttpPost extends HttpPostRequest {
 
-	String Login_result="";
-
-	private String loginUserName;
-	private String loginPassWord;
-	private String loginConnectUrl;
-
-	// 实现POST请求的参数
-
-	HttpPost mHttpPost;
-	HttpClient mHttpClient = new DefaultHttpClient();
-
-	ArrayList<NameValuePair> params;
-
-	public LoginHttpPost(String loginUserName, String loginPassWord,
-			String loginConnectUrl) {
-		// TODO Auto-generated constructor stub
-		this.loginUserName = loginUserName;
-		this.loginPassWord = loginPassWord;
-		this.loginConnectUrl = loginConnectUrl;
+	@Override
+	protected void setUrlAddress() {
+		urlAddress = Login.LOGIN_CONNECTURL;
 	}
 
 	@Override
-	public void run() {
+	protected void setParamsIntoPost() {
 
-		gotoLogin();
-	}
-
-	private void gotoLogin() {
-
-		// 发送Post请求
-		mHttpPost = new HttpPost(loginConnectUrl);
-
-		// 构建NameValuePair[]阵列存储Post参数
-
-		params = new ArrayList<NameValuePair>();
-		params.add(new BasicNameValuePair("UserName", loginUserName));
-		params.add(new BasicNameValuePair("PassWord", loginPassWord));
-
-		// 发送http请求
-		// 取得httpresponse
-		// 检测是否请求成功
+		params.add(new BasicNameValuePair("UserName", Login.LOGIN_USERNAME));
+		params.add(new BasicNameValuePair("PassWord", Login.LOGIN_PASSWORD));
 
 		try {
-			mHttpPost.setEntity(new UrlEncodedFormEntity(params));
-			
-			HttpResponse mHttpResponse = mHttpClient.execute(mHttpPost);
 
-			if (mHttpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+			mHttpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
 
-				// 如果出现 登录成功 服务器返回：1
-				// 如果出现 密码错误 服务器返回：2
-				// 如果出现 无该用户 服务器返回：3
-
-				Login_result = EntityUtils.toString(mHttpResponse.getEntity());
-				
-				//将结果返回给 Login线程进行处理
-				System.out.println(Login_result+"-Login---------->");
-				
-				Message loginHandleMessage = new Message();
-				
-				loginHandleMessage.what = Integer.parseInt(Login_result);
-				
-				Login.loginHandler.sendMessage(loginHandleMessage);
-				
-			}
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
 
+	@Override
+	protected void backToMainThreadHandleMessage() {
+
+		// 如果出现 登录成功 服务器返回：1
+		// 如果出现 密码错误 服务器返回：2
+		// 如果出现 无该用户 服务器返回：3
+
+		Login.loginHandler.sendMessage(message);
+
+	}
+
+	@Override
+	protected void setIsJsonData() {
+
+		isJsonData = false;
+	}
+
+	@Override
+	protected void getDifferentJsonArrayValue() {
+		// TODO Auto-generated method stub
+
+	}
 
 }

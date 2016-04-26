@@ -1,0 +1,21 @@
+package easyCourierFunction;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+/**
+ * 
+ * @author vacation
+ * 
+ * 展示已发送的请求
+ */
+
+public class ShowUploadedRequest extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+	}
+	
+}
