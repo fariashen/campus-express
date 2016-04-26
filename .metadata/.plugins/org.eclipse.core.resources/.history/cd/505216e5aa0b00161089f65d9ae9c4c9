@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+<<<<<<< HEAD
+    android:background="@drawable/requestupload_shape"
+||||||| merged common ancestors
+    android:orientation="vertical" 
+<<<<<<< Temporary merge branch 1
+    android:layout_margin="20dp"
+=======
+    android:orientation="vertical" 
+<<<<<<< HEAD
+    android:layout_margin="20dp"
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+    android:gravity="center"
+<<<<<<< HEAD
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+||||||| merged common ancestors
+    android:background="@drawable/requestupload_shape" >
+  
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:layout_margin="20dp"
+    android:gravity="center">
+||||||| merged common ancestors
+    android:layout_margin="20dp"
+   android:gravity="center">
+
+=======
+	android:paddingLeft="10dp"
+   android:gravity="center">
+=======
+    android:background="@drawable/requestupload_shape" >
+  
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:layout_margin="20dp"
+    android:gravity="center">
+=======
+	android:paddingLeft="10dp"
+   android:gravity="center">
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+
+<<<<<<< HEAD
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="发单人用户名："
+            android:textSize="20sp" />
+||||||| merged common ancestors
+>>>>>>> Temporary merge branch 2
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="发单人用户名："
+        android:textSize="20sp" />
+=======
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="发单人用户名："
+        android:textSize="20sp" />
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+
+<<<<<<< HEAD
+        <TextView
+            android:id="@+id/tv_DetailProviderName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/requestdetailshape"
+            android:textSize="22sp" />
+||||||| merged common ancestors
+    <TextView
+        android:id="@+id/tv_DetailProviderName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" 
+<<<<<<< Temporary merge branch 1
+        android:textSize="22sp"
+        android:background="@drawable/requestdetailshape"
+        />
+||||||| merged common ancestors
+        android:textSize="22sp"/>
+=======
+        android:textSize="20sp"/>
+>>>>>>> Temporary merge branch 2
+=======
+    <TextView
+        android:id="@+id/tv_DetailProviderName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" 
+<<<<<<< HEAD
+        android:textSize="22sp"
+        android:background="@drawable/requestdetailshape"
+        />
+=======
+        android:textSize="20sp"/>
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="报酬："
+            android:textSize="20sp" />
+
+<<<<<<< HEAD
+        <TextView
+            android:id="@+id/tv_DetailReward"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/requestdetailshape"
+            android:textSize="22sp" />
+||||||| merged common ancestors
+    <TextView
+        android:id="@+id/tv_DetailReward"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" 
+<<<<<<< Temporary merge branch 1
+        android:textSize="22sp"
+        android:background="@drawable/requestdetailshape"/>
+||||||| merged common ancestors
+        android:textSize="22sp"/>
+=======
+        android:textSize="20sp"/>
+>>>>>>> Temporary merge branch 2
+=======
+    <TextView
+        android:id="@+id/tv_DetailReward"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" 
+<<<<<<< HEAD
+        android:textSize="22sp"
+        android:background="@drawable/requestdetailshape"/>
+=======
+        android:textSize="20sp"/>
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="快递规格："
+            android:textSize="20sp" />
+
+<<<<<<< HEAD
+        <TextView
+            android:id="@+id/tv_DetailSize"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/requestdetailshape"
+            android:textSize="22sp" />
+||||||| merged common ancestors
+       <TextView
+        android:id="@+id/tv_DetailSize"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" 
+<<<<<<< Temporary merge branch 1
+        android:textSize="22sp"
+        android:background="@drawable/requestdetailshape"/>
+||||||| merged common ancestors
+        android:textSize="22sp"/>
+=======
+        android:textSize="20sp"/>
+>>>>>>> Temporary merge branch 2
+=======
+       <TextView
+        android:id="@+id/tv_DetailSize"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" 
+<<<<<<< HEAD
+        android:textSize="22sp"
+        android:background="@drawable/requestdetailshape"/>
+=======
+        android:textSize="20sp"/>
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="快递公司："
+            android:textSize="20sp" />
+
+<<<<<<< HEAD
+        <TextView
+            android:id="@+id/tv_DetailKinds"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/requestdetailshape"
+            android:textSize="22sp" />
+||||||| merged common ancestors
+    <TextView
+        android:id="@+id/tv_DetailKinds"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" 
+<<<<<<< Temporary merge branch 1
+        android:textSize="22sp"
+        android:background="@drawable/requestdetailshape"/>
+||||||| merged common ancestors
+        android:textSize="22sp"/>
+=======
+        android:textSize="20sp"/>
+>>>>>>> Temporary merge branch 2
+=======
+    <TextView
+        android:id="@+id/tv_DetailKinds"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" 
+<<<<<<< HEAD
+        android:textSize="22sp"
+        android:background="@drawable/requestdetailshape"/>
+=======
+        android:textSize="20sp"/>
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="时间限制："
+            android:textSize="20sp" />
+
+<<<<<<< HEAD
+        <TextView
+            android:id="@+id/tv_DetailTimeLimit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/requestdetailshape"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/bt_acceptRequest"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15.0dip"
+            android:layout_marginRight="15.0dip"
+            android:background="@drawable/anniu"
+            android:gravity="center"
+            android:text="接受"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+||||||| merged common ancestors
+    <TextView
+        android:id="@+id/tv_DetailTimeLimit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" 
+<<<<<<< Temporary merge branch 1
+        android:textSize="22sp"
+        android:background="@drawable/requestdetailshape"/>
+</LinearLayout>
+||||||| merged common ancestors
+        android:textSize="22sp"/>
+
+=======
+        android:textSize="20sp"/>
+    
+    <Button 
+        android:id="@+id/bt_acceptRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="接受请求"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        />
+=======
+    <TextView
+        android:id="@+id/tv_DetailTimeLimit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" 
+<<<<<<< HEAD
+        android:textSize="22sp"
+        android:background="@drawable/requestdetailshape"/>
+</LinearLayout>
+=======
+        android:textSize="20sp"/>
+    
+    <Button 
+        android:id="@+id/bt_acceptRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="接受请求"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        />
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+
+<<<<<<< HEAD
+||||||| merged common ancestors
+>>>>>>> Temporary merge branch 2
+=======
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+</LinearLayout>

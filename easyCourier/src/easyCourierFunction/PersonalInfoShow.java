@@ -58,7 +58,6 @@ public class PersonalInfoShow extends Activity {
 
 	public static String PISHOW_CONNECTURL = "http://119.29.4.159/phpserver/PIshow.php";
 
-
 	// 获取个人信息，作为PersonalInfoEdit各个控件的默认值
 	private String PIS_PassWord;
 	private String PIS_Phone;

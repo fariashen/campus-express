@@ -81,7 +81,7 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 		tv_PersonalCenter_PI.setOnClickListener(this);
 		tv_PersonalCenter_UpLoadedRequest.setOnClickListener(this);
 		tv_PersonalCenter_AcceptedRequest.setOnClickListener(this);
-		bt_PersonalCenter_Exit.setOnClickListener(this);
+
 		return mView;
 	}
 
@@ -111,14 +111,13 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 			// TODO
 			intent = new Intent(mView.getContext(), ShowUpLoadedRequest.class);
 			startActivity(intent);
-
+			
 			break;
 		// 当点击“已接受请求”按钮时，触发调用查询已接受请求方法
 		case R.id.tv_PersonalCenter_AcceptedRequest:
 
 			intent = new Intent(mView.getContext(), ShowAcceptedRequest.class);
 			startActivity(intent);
-
 			break;
 
 		case R.id.bt_PersonalCenter_Exit:

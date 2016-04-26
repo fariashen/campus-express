@@ -1,19 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.widget.Button"/>
-<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
-<fullyQualifiedTypeName name="android.view.View"/>
-<fullyQualifiedTypeName name="android.widget.TextView"/>
-<fullyQualifiedTypeName name="com.example.easycourier.R.id"/>
-<fullyQualifiedTypeName name="org.apache.http.message.BasicNameValuePair"/>
-<fullyQualifiedTypeName name="org.apache.http.client.entity.UrlEncodedFormEntity"/>
-<fullyQualifiedTypeName name="org.apache.http.protocol.HTTP"/>
-<fullyQualifiedTypeName name="android.os.Handler"/>
-<fullyQualifiedTypeName name="easyCourierFunction.ShowRequestAllInfo"/>
-<fullyQualifiedTypeName name="android.content.Context"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
-<fullyQualifiedTypeName name="easyCourierFunction.ShowUpLoadedRequest"/>
-<fullyQualifiedTypeName name="easyCourierHttpPost.HttpPostRequest"/>
-<fullyQualifiedTypeName name="easyCourierHttpPost.CancelRequestHttpPost"/>
-<fullyQualifiedTypeName name="easyCourierHttpPost.CompletedRequestHttpPost"/>
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>

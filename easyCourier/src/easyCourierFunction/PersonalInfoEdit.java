@@ -60,7 +60,6 @@ public class PersonalInfoEdit extends Activity {
 
 	public static String PIEDIT_CONNECTURL = "http://119.29.4.159/phpserver/PIedit.php";
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

@@ -59,7 +59,7 @@ public class Regiester extends Activity implements OnClickListener {
 	public static String REGIESTER_CONNECTURL = "http://119.29.4.159/phpserver/register.php";
 
 	// 实现注册功能的网络请求类
-	HttpPostRequest rgHttpPost;
+	private HttpPostRequest rgHttpPost;
 
 	private static Context regiestContext;
 

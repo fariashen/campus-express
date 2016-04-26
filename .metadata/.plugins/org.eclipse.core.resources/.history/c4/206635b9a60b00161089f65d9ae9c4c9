@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+<<<<<<< HEAD
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingBottom="10dp" 
+    android:background="@drawable/requestdetailshape">
+||||||| merged common ancestors
+<<<<<<< Temporary merge branch 1
+    android:layout_marginBottom="10dp"
+    android:orientation="vertical" 
+    style="@style/common_vertical_division_line_style">
+||||||| merged common ancestors
+    android:orientation="vertical"
+    android:layout_marginBottom="10dp" >
+=======
+    android:paddingBottom="20dp"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical" >
+=======
+<<<<<<< HEAD
+    android:layout_marginBottom="10dp"
+    android:orientation="vertical" 
+    style="@style/common_vertical_division_line_style">
+=======
+    android:paddingBottom="20dp"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical" >
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+
+    <TextView
+        android:id="@+id/tv_tip_itemKinds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:text="类型："
+        android:textSize="20sp" />
+<<<<<<< HEAD
+||||||| merged common ancestors
+>>>>>>> Temporary merge branch 2
+=======
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+
+    <TextView
+        android:id="@+id/tv_itemKinds"
+<<<<<<< HEAD
+        android:layout_width="90dp"
+||||||| merged common ancestors
+        android:layout_width="wrap_content"
+<<<<<<< Temporary merge branch 1
+=======
+        android:layout_width="wrap_content"
+<<<<<<< HEAD
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+        android:layout_height="wrap_content"     
+        android:layout_marginTop="15dp"
+<<<<<<< HEAD
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@id/tv_tip_itemKinds"
+||||||| merged common ancestors
+<<<<<<< Temporary merge branch 1
+        android:text="快递类型"
+        android:textSize="25sp" />
+||||||| merged common ancestors
+        android:layout_marginLeft="10dp"
+        android:text="快递类型" />
+=======
+        android:layout_toRightOf="@id/tv_tip_itemKinds"
+=======
+        android:text="快递类型"
+        android:textSize="25sp" />
+=======
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/tv_tip_itemKinds"
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+        android:text="快递类型"
+        android:textSize="20sp" />
+<<<<<<< HEAD
+||||||| merged common ancestors
+>>>>>>> Temporary merge branch 2
+=======
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+
+    <TextView
+        android:id="@+id/tv_tip_itemReward"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:text="报酬："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_itemReward"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/tv_tip_itemReward"
+        android:gravity="center"
+<<<<<<< HEAD
+||||||| merged common ancestors
+<<<<<<< Temporary merge branch 1
+=======
+<<<<<<< HEAD
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+        android:text="(Rewards)"
+        android:textSize="20sp" />
+
+<<<<<<< HEAD
+
+||||||| merged common ancestors
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_itemRewardchinese"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:text="型号"
+        android:textSize="22sp" />
+||||||| merged common ancestors
+        android:text="Rewards"
+        android:textSize="22sp" />
+=======
+        android:text="Rewards"
+        android:textSize="20sp" />
+>>>>>>> Temporary merge branch 2
+=======
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_itemRewardchinese"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:text="型号"
+        android:textSize="22sp" />
+=======
+        android:text="Rewards"
+        android:textSize="20sp" />
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+
+    <TextView
+        android:id="@+id/tv_tip_itemSize"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+<<<<<<< HEAD
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:layout_below="@id/tv_tip_itemReward"
+        android:text="规格："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_itemSize"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+||||||| merged common ancestors
+<<<<<<< Temporary merge branch 1
+||||||| merged common ancestors
+        android:layout_toEndOf="@id/tv_itemKinds"
+=======
+        android:layout_below="@id/tv_tip_itemReward"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:layout_marginLeft="15dp"
+        android:text="规格："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_itemSize"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+>>>>>>> Temporary merge branch 2
+=======
+<<<<<<< HEAD
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+        android:layout_below="@id/tv_itemReward"
+<<<<<<< HEAD
+        android:layout_toEndOf="@id/tv_tip_itemSize"
+||||||| merged common ancestors
+<<<<<<< Temporary merge branch 1
+        android:layout_toEndOf="@id/tv_itemKinds"
+||||||| merged common ancestors
+=======
+        android:layout_toEndOf="@id/tv_tip_itemSize"
+>>>>>>> Temporary merge branch 2
+        android:gravity="center"
+<<<<<<< Temporary merge branch 1
+=======
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:gravity="center"
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+        android:text="(Size)"
+        android:textSize="20sp" />
+
+<<<<<<< HEAD
+||||||| merged common ancestors
+    <TextView
+        android:id="@+id/tv_itemRewardchinese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:text="报酬"
+        android:textSize="22sp" />
+</RelativeLayout>
+||||||| merged common ancestors
+        android:text="Size"
+        android:textSize="22sp" />
+=======
+        android:text="Size"
+        android:textSize="20sp" />
+>>>>>>> Temporary merge branch 2
+
+ <RelativeLayout
+     android:layout_width="400dp"
+     android:layout_height="match_parent"
+     android:layout_marginLeft="10dp"
+     android:layout_marginRight="10dp"
+     android:layout_marginTop="50dp"
+     android:orientation="vertical" >
+
+    <Spinner
+        android:id="@+id/tv_itemKinds_Spinner01"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content" >
+    </Spinner>
+    <Spinner
+        android:id="@+id/tv_itemKinds_Spinner02"
+        android:layout_toEndOf="@id/tv_itemKinds_Spinner01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </Spinner>
+  </RelativeLayout>
+=======
+    <TextView
+        android:id="@+id/tv_itemRewardchinese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:text="报酬"
+        android:textSize="22sp" />
+</RelativeLayout>
+=======
+        android:layout_below="@id/tv_tip_itemReward"
+        android:layout_toEndOf="@id/tv_itemKinds"
+        android:layout_marginLeft="15dp"
+        android:text="规格："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_itemSize"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/tv_itemReward"
+        android:layout_toEndOf="@id/tv_tip_itemSize"
+        android:gravity="center"
+        android:text="Size"
+        android:textSize="20sp" />
+>>>>>>> 526d5c40801c65d21c2a6051a03a4d01ed1d7485
+
+ <RelativeLayout
+     android:layout_width="400dp"
+     android:layout_height="match_parent"
+     android:layout_marginLeft="10dp"
+     android:layout_marginRight="10dp"
+     android:layout_marginTop="50dp"
+     android:orientation="vertical" >
+
+    <Spinner
+        android:id="@+id/tv_itemKinds_Spinner01"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content" >
+    </Spinner>
+    <Spinner
+        android:id="@+id/tv_itemKinds_Spinner02"
+        android:layout_toEndOf="@id/tv_itemKinds_Spinner01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </Spinner>
+  </RelativeLayout>
+>>>>>>> ef5a9b45afb53ba125789e75f133f0608d2603a6
+</RelativeLayout>

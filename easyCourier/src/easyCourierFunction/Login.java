@@ -57,7 +57,6 @@ public class Login extends Activity implements OnClickListener {
 	public static String LOGIN_USERNAME;
 	public static String LOGIN_PASSWORD;
 
-
 	// 发送网络请求的地址
 	// TODO
 	public static String LOGIN_CONNECTURL = "http://119.29.4.159/phpserver/login.php";;
@@ -81,9 +80,6 @@ public class Login extends Activity implements OnClickListener {
 		 *         设置默认头像
 		 * 
 		 */
-
-		
-		
 
 		et_Login_userName = (EditText) findViewById(R.id.et_Login_userName);
 		et_Login_passWord = (EditText) findViewById(R.id.et_Login_passWord);
@@ -115,7 +111,7 @@ public class Login extends Activity implements OnClickListener {
 			// 触发调用线程 发送HttpPost请求
 
 			lgHandle = new LoginHttpPost();
-			
+
 			lgHandle.start();
 			break;
 
@@ -149,9 +145,9 @@ public class Login extends Activity implements OnClickListener {
 
 				Intent intent = new Intent(loginContext, MainActivity.class);
 				loginContext.startActivity(intent);
-				
+
 				((Activity) loginContext).finish();
-				
+
 				break;
 
 			case 2:

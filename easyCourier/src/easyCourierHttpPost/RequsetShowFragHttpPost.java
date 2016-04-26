@@ -37,7 +37,6 @@ import easyCourierFunction.RequestDetailShow;
  * 
  * 
  */
-
 public class RequsetShowFragHttpPost extends HttpPostRequest {
 
 	// 保存已解释的json数据

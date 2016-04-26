@@ -44,7 +44,6 @@
         android:textSize="20sp" />
 
 
-
     <TextView
         android:id="@+id/tv_tip_itemSize"
         android:layout_width="wrap_content"
