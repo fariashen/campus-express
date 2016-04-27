@@ -51,6 +51,7 @@ public abstract class HttpPostRequest extends Thread {
 
 	protected String result;
 	protected Message message = new Message();
+	
 
 	@Override
 	public void run() {

@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.example.easycourier.R;
 
+import easyCourierFunction.Login;
 import easyCourierFunction.PersonalInfoShow;
 import easyCourierFunction.ShowAcceptedRequest;
 import easyCourierFunction.ShowUpLoadedRequest;
@@ -38,6 +39,7 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 
 	// 保存PersonalCenterFragment的布局
 	private View mView;
+	private View exitView;
 
 	/**
 	 * 参数
@@ -81,6 +83,7 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 		tv_PersonalCenter_PI.setOnClickListener(this);
 		tv_PersonalCenter_UpLoadedRequest.setOnClickListener(this);
 		tv_PersonalCenter_AcceptedRequest.setOnClickListener(this);
+		bt_PersonalCenter_Exit.setOnClickListener(this);
 
 		return mView;
 	}
@@ -131,11 +134,11 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 
 		// 利用layoutInflater获得View
 		LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.actitvity_exit, null);
+		exitView = inflater.inflate(R.layout.actitvity_exit, null);
 
 		// 下面是两种方法得到宽度和高度 getWindow().getDecorView().getWidth()
 
-		PopupWindow window = new PopupWindow(view,
+		PopupWindow window = new PopupWindow(exitView,
 				WindowManager.LayoutParams.MATCH_PARENT,
 				WindowManager.LayoutParams.WRAP_CONTENT);
 
@@ -152,6 +155,26 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 		// 在底部显示
 		window.showAtLocation(mView.findViewById(R.id.bt_PersonalCenter_Exit), Gravity.BOTTOM, 0,
 				0);
+		
+		exitView.findViewById(R.id.first).setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+
+				intent = new Intent(exitView.getContext(), Login.class);
+				startActivity(intent);
+				getActivity().finish();
+			}
+		});
+		
+		exitView.findViewById(R.id.second).setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+
+				getActivity().finish();
+			}
+		});
 
 	}
 

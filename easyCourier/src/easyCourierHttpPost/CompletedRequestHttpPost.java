@@ -19,7 +19,7 @@ public class CompletedRequestHttpPost extends HttpPostRequest {
 	@Override
 	protected void setUrlAddress() {
 
-		urlAddress = "http://119.29.4.159/phpserver/ordcompleted.php";
+		urlAddress = UrlFactory.getUrl("Completed");
 	}
 
 	@Override

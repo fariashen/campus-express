@@ -56,9 +56,6 @@ public class PersonalInfoEdit extends Activity {
 	private Intent mIntent;
 	private Bundle mBundle;
 
-	// ¡¥Ω”µÿ÷∑
-
-	public static String PIEDIT_CONNECTURL = "http://119.29.4.159/phpserver/PIedit.php";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

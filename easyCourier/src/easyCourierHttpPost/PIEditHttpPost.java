@@ -35,7 +35,7 @@ public class PIEditHttpPost extends HttpPostRequest {
 	@Override
 	protected void setUrlAddress() {
 		// …Ë÷√µÿ÷∑
-		urlAddress = PersonalInfoEdit.PIEDIT_CONNECTURL;
+		urlAddress = UrlFactory.getUrl("PIEdit");
 
 	}
 

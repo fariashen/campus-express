@@ -36,7 +36,7 @@ public class RegiesterHttpPost extends HttpPostRequest {
 	protected void setUrlAddress() {
 
 		// …Ë÷√µÿ÷∑
-		urlAddress = Regiester.REGIESTER_CONNECTURL;
+		urlAddress = UrlFactory.getUrl("Regiester");
 	}
 
 	@Override

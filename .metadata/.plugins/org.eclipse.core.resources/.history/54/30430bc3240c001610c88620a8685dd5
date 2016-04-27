@@ -1,0 +1,75 @@
+package easyCourierHttpPost;
+
+public class UrlFactory {
+
+	/**
+	 * 根据请求的不同功能返回不同的Url
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public static String getUrl(String type) {
+
+		String url = "";
+
+		switch (type) {
+		
+		case "Login":
+
+			url = "";
+			break;
+			
+		case "Regiester":
+
+			url = "";
+			break;
+			
+		case "PIShow":
+
+			url = "";
+			break;
+			
+		case "PIEdit":
+
+			url = "";
+			break;
+			
+		case "RequestShow":
+
+			url = "";
+			break;
+			
+		case "RUL":
+
+			url = "";
+			break;
+			
+		case "SAR":
+
+			url = "";
+			break;
+			
+		case "SULR":
+
+			url = "";
+			break;
+			
+		case "AcceptRequest":
+
+			url = "";
+			break;
+			
+		case "Cancel":
+
+			url = "";
+			break;
+			
+		case "Completed":
+
+			url = "";
+			break;
+
+		}
+		return url;
+	}
+}

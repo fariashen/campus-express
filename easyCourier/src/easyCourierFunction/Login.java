@@ -57,10 +57,6 @@ public class Login extends Activity implements OnClickListener {
 	public static String LOGIN_USERNAME;
 	public static String LOGIN_PASSWORD;
 
-	// 发送网络请求的地址
-	// TODO
-	public static String LOGIN_CONNECTURL = "http://119.29.4.159/phpserver/login.php";;
-
 	public static Context loginContext;
 
 	@Override

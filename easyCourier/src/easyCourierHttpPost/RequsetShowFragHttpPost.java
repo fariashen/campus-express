@@ -69,7 +69,7 @@ public class RequsetShowFragHttpPost extends HttpPostRequest {
 	@Override
 	protected void setUrlAddress() {
 
-		urlAddress = "http://119.29.4.159/phpserver/ordshow.php";
+		urlAddress = UrlFactory.getUrl("RequestShow");
 	}
 
 	@Override

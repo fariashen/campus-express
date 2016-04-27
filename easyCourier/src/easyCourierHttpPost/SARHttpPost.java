@@ -56,7 +56,7 @@ public class SARHttpPost extends HttpPostRequest {
 	@Override
 	protected void setUrlAddress() {
 		// TODO Auto-generated method stub
-		urlAddress = "http://119.29.4.159/phpserver/myorderacc.php";
+		urlAddress = UrlFactory.getUrl("SAR");
 
 	}
 

@@ -57,7 +57,7 @@ public class RULHttpPost extends HttpPostRequest {
 	@Override
 	protected void setUrlAddress() {
 
-		urlAddress = "http://119.29.4.159/phpserver/ordrelease.php";
+		urlAddress = UrlFactory.getUrl("RUL");
 	}
 
 	@Override

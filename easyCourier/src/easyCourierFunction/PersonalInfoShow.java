@@ -54,10 +54,6 @@ public class PersonalInfoShow extends Activity {
 	// 处理子线程发送的更新UI的请求
 	public static Handler pisHandler = new Handler();
 
-	// 网络请求发送地址
-
-	public static String PISHOW_CONNECTURL = "http://119.29.4.159/phpserver/PIshow.php";
-
 	// 获取个人信息，作为PersonalInfoEdit各个控件的默认值
 	private String PIS_PassWord;
 	private String PIS_Phone;
