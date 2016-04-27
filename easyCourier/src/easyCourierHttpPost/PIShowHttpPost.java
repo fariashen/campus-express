@@ -30,7 +30,7 @@ public class PIShowHttpPost extends HttpPostRequest {
 	protected void setUrlAddress() {
 
 		// …Ë÷√URL
-		urlAddress = PersonalInfoShow.PISHOW_CONNECTURL;
+		urlAddress = UrlFactory.getUrl("PIShow");
 	}
 
 	@Override

@@ -57,7 +57,7 @@ public class SULRHttpPost extends HttpPostRequest {
 	protected void setUrlAddress() {
 
 		// TODO
-		urlAddress = "http://119.29.4.159/phpserver/myorderpro.php";
+		urlAddress = UrlFactory.getUrl("SULR");
 	}
 
 	@Override

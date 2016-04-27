@@ -19,7 +19,7 @@ public class CancelRequestHttpPost extends HttpPostRequest {
 	@Override
 	protected void setUrlAddress() {
 
-		urlAddress = "http://119.29.4.159/phpserver/ordcancel.php";
+		urlAddress = UrlFactory.getUrl("Cancel");;
 	}
 
 	@Override

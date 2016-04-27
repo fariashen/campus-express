@@ -27,6 +27,7 @@ public abstract class HttpPostRequest extends Thread {
 
 	// 发送请求的远程数据库地址
 	// TODO
+	protected UrlFactory mUrlFactory = new UrlFactory();
 	protected String urlAddress = "";
 
 	// 发送网络请求的成员变量
@@ -51,6 +52,7 @@ public abstract class HttpPostRequest extends Thread {
 
 	protected String result;
 	protected Message message = new Message();
+	
 
 	@Override
 	public void run() {
@@ -77,16 +79,15 @@ public abstract class HttpPostRequest extends Thread {
 			// 检测请求是否发送成功
 			if (mHttpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 
+				System.out.println("-----------------> HttpPost success");
+				
 				// 获取请求结果
 				mEntity = mHttpResponse.getEntity();
 				
-				System.out.println("---------->httpresponse success");
-
 				setIsJsonData();
 
 				// 如果是Json的数据格式
 				if (isJsonData) {
-
 					// 对Json进行解释操作
 					decodeJson();
 
@@ -121,6 +122,8 @@ public abstract class HttpPostRequest extends Thread {
 
 			result = EntityUtils.toString(mEntity);
 			message.what = Integer.parseInt(result.trim());
+			
+			System.out.println("-------------> result "+result);
 
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -176,11 +179,10 @@ public abstract class HttpPostRequest extends Thread {
 
 		try {
 
-			System.out.println("--------------->" + jsonString);
+			System.out.println("----------->HttpPostRequest"+jsonString);
 			mJsonObject = new JSONObject(jsonString);
 			// 获取jsonArray
 			mJsonArray = mJsonObject.getJSONArray("data");
-
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -209,7 +211,6 @@ public abstract class HttpPostRequest extends Thread {
 				jsonString += line;
 
 			}
-			System.out.println("--------------"+jsonString);
 			// jsonString += "]}";
 			// 关闭字节流
 			mInputStream.close();

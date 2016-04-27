@@ -14,7 +14,7 @@ public class AcceptRequestHttpPost extends HttpPostRequest {
 	@Override
 	protected void setUrlAddress() {
 		// TODO 设置发送请求地址
-		urlAddress = "http://119.29.4.159/phpserver/ordaccept.php";
+		urlAddress = UrlFactory.getUrl("AcceptRequest");
 
 	}
 

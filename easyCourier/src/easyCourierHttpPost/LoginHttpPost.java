@@ -27,7 +27,7 @@ public class LoginHttpPost extends HttpPostRequest {
 
 	@Override
 	protected void setUrlAddress() {
-		urlAddress = Login.LOGIN_CONNECTURL;
+		urlAddress =UrlFactory.getUrl("Login");
 	}
 
 	@Override
