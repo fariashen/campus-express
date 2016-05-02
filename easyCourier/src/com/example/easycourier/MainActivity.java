@@ -192,7 +192,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 		case R.id.action_addfriend:
 
 			break;
-	    //选中“扫二维码”	
+	    //选中“分享APP”	
 		case R.id.action_scan: 
 									
 		    intent = new Intent(MainActivity.this,ScanActivity.class);
